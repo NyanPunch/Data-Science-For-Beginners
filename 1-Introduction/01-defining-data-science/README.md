@@ -1,165 +1,122 @@
-# Defining Data Science
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "2583a9894af7123b2fcae3376b14c035",
+  "translation_date": "2025-08-25T16:55:22+00:00",
+  "source_file": "1-Introduction/01-defining-data-science/README.md",
+  "language_code": "ko"
+}
+-->
+# 데이터 과학 정의하기
 
 | ![ Sketchnote by [(@sketchthedocs)](https://sketchthedocs.dev) ](../../sketchnotes/01-Definitions.png) |
 | :----------------------------------------------------------------------------------------------------: |
-|              Defining Data Science - _Sketchnote by [@nitya](https://twitter.com/nitya)_               |
+|              데이터 과학 정의하기 - _Sketchnote by [@nitya](https://twitter.com/nitya)_                |
 
 ---
 
-[![Defining Data Science Video](images/video-def-ds.png)](https://youtu.be/beZ7Mb_oz9I)
+[![데이터 과학 정의하기 비디오](../../../../translated_images/video-def-ds.6623ee2392ef1abf6d7faf3fad10a4163642811749da75f44e35a5bb121de15c.ko.png)](https://youtu.be/beZ7Mb_oz9I)
 
-## [Pre-lecture quiz](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/0)
+## [강의 전 퀴즈](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/0)
 
-## What is Data?
-In our everyday life, we are constantly surrounded by data. The text you are reading now is data.  The list of phone numbers of your friends in your smartphone is data, as well as the current time displayed on your watch. As human beings, we naturally operate with data by counting the money we have or by writing letters to our friends.
+## 데이터란 무엇인가?
+우리의 일상생활은 데이터로 가득 차 있습니다. 지금 읽고 있는 이 텍스트도 데이터입니다. 스마트폰에 저장된 친구들의 전화번호 목록, 시계에 표시된 현재 시간도 데이터입니다. 인간은 돈을 세거나 친구에게 편지를 쓰는 등 자연스럽게 데이터를 다루며 살아갑니다.
 
-However, data became much more critical with the creation of computers.  The primary role of computers is to perform computations, but they need data to operate on.  Thus, we need to understand how computers store and process data.
+하지만 컴퓨터가 발명되면서 데이터는 훨씬 더 중요한 역할을 하게 되었습니다. 컴퓨터의 주요 역할은 계산을 수행하는 것이지만, 이를 위해서는 데이터가 필요합니다. 따라서 컴퓨터가 데이터를 저장하고 처리하는 방식을 이해해야 합니다.
 
-With the emergence of the Internet, the role of computers as data handling devices increased.  If you think about it, we now use computers more and more for data processing and communication, rather than actual computations. When we write an e-mail to a friend or search for some information on the Internet - we are essentially creating, storing, transmitting, and manipulating data.
-> Can you remember the last time you have used computers to actually compute something? 
+인터넷이 등장하면서 컴퓨터의 데이터 처리 장치로서의 역할이 더욱 커졌습니다. 생각해보면, 우리는 이제 실제 계산보다는 데이터 처리와 통신을 위해 컴퓨터를 더 많이 사용합니다. 친구에게 이메일을 쓰거나 인터넷에서 정보를 검색할 때, 우리는 데이터를 생성하고, 저장하고, 전송하며 조작하고 있는 것입니다.
+> 마지막으로 컴퓨터를 실제 계산 목적으로 사용한 적이 언제였는지 기억나시나요?
 
-## What is Data Science?
+## 데이터 과학이란 무엇인가?
 
-In [Wikipedia](https://en.wikipedia.org/wiki/Data_science), **Data Science** is defined as *a scientific field that uses scientific methods to extract knowledge and insights from structured and unstructured data, and apply knowledge and actionable insights from data across a broad range of application domains*. 
+[위키피디아](https://en.wikipedia.org/wiki/Data_science)에 따르면, **데이터 과학**은 *구조화된 데이터와 비구조화된 데이터에서 지식과 통찰을 추출하고, 이를 다양한 응용 분야에 적용하는 과학적 방법을 사용하는 학문 분야*로 정의됩니다.
 
-This definition highlights the following important aspects of data science:
+이 정의는 데이터 과학의 다음과 같은 중요한 측면을 강조합니다:
 
-* The main goal of data science is to **extract knowledge** from data, in other words - to **understand** data, find some hidden relationships and build a **model**.
-* Data science uses **scientific methods**, such as probability and statistics.  In fact, when the term *data science* was first introduced, some people argued that data science was just a new fancy name for statistics.  Nowadays it has become evident that the field is much broader.    
-* Obtained knowledge should be applied to produce some **actionable insights**, i.e. practical insights that you can apply to real business situations.
-* We should be able to operate on both **structured** and **unstructured** data.  We will come back to discuss different types of data later in the course.
-* **Application domain** is an important concept, and data scientists often need at least some degree of expertise in the problem domain, for example: finance, medicine, marketing, etc.
+* 데이터 과학의 주요 목표는 데이터를 통해 **지식을 추출**하는 것입니다. 즉, 데이터를 **이해**하고, 숨겨진 관계를 발견하며, **모델**을 구축하는 것입니다.
+* 데이터 과학은 확률과 통계와 같은 **과학적 방법**을 사용합니다. 사실, *데이터 과학*이라는 용어가 처음 등장했을 때, 일부 사람들은 데이터 과학이 통계학의 새로운 멋진 이름일 뿐이라고 주장했습니다. 하지만 오늘날 데이터 과학은 훨씬 더 넓은 분야로 자리 잡았습니다.
+* 얻어진 지식은 **실질적인 통찰**을 제공해야 합니다. 즉, 실제 비즈니스 상황에 적용할 수 있는 실용적인 통찰이어야 합니다.
+* 우리는 **구조화된 데이터**와 **비구조화된 데이터** 모두를 다룰 수 있어야 합니다. 데이터의 다양한 유형에 대해서는 이 과정에서 나중에 다시 논의할 것입니다.
+* **응용 분야**는 중요한 개념이며, 데이터 과학자는 종종 금융, 의학, 마케팅 등 문제 도메인에 대한 일정 수준의 전문 지식이 필요합니다.
 
-> Another important aspect of Data Science is that it studies how data can be gathered, stored and operated upon using computers.  While statistics gives us mathematical foundations, data science applies mathematical concepts to actually draw insights from data.
+> 데이터 과학의 또 다른 중요한 측면은 데이터가 컴퓨터를 사용하여 어떻게 수집되고, 저장되고, 처리될 수 있는지를 연구한다는 점입니다. 통계학이 수학적 기초를 제공한다면, 데이터 과학은 수학적 개념을 실제로 데이터에서 통찰을 도출하는 데 적용합니다.
 
-One of the ways (attributed to [Jim Gray](https://en.wikipedia.org/wiki/Jim_Gray_(computer_scientist))) to look at the data science is to consider it to be a separate paradigm of science:
-* **Empirical**, in which we rely mostly on observations and results of experiments
-* **Theoretical**, where new concepts emerge from existing scientific knowledge
-* **Computational**, where we discover new principles based on some computational experiments
-* **Data-Driven**, based on discovering relationships and patterns in the data  
+[짐 그레이](https://en.wikipedia.org/wiki/Jim_Gray_(computer_scientist))에게 귀속된 한 가지 관점은 데이터 과학을 별도의 과학 패러다임으로 보는 것입니다:
+* **경험적**: 관찰과 실험 결과에 주로 의존
+* **이론적**: 기존 과학 지식에서 새로운 개념 도출
+* **계산적**: 계산 실험을 기반으로 새로운 원리 발견
+* **데이터 기반**: 데이터에서 관계와 패턴 발견  
 
-## Other Related Fields
+## 관련 분야
 
-Since data is pervasive, data science itself is also a broad field, touching many other disciplines.
+데이터는 어디에나 존재하기 때문에, 데이터 과학 자체도 매우 광범위하며 여러 다른 학문과 연결됩니다. 
 
-<dl>
-<dt>Databases</dt>
-<dd>
-A critical consideration is **how to store** the data, i.e. how to structure it in a way that allows faster processing.  There are different types of databases that store structured and unstructured data, which <a href="../../2-Working-With-Data/README.md">we will consider in our course</a>.
-</dd>
-<dt>Big Data</dt>
-<dd>
-Often we need to store and process very large quantities of data with a relatively simple structure.  There are special approaches and tools to store that data in a distributed manner on a computer cluster, and process it efficiently.
-</dd>
-<dt>Machine Learning</dt>
-<dd>
-One way to understand data is to **build a model** that will be able to predict a desired outcome.  Developing models from data is called **machine learning**. You may want to have a look at our <a href="https://aka.ms/ml-beginners">Machine Learning for Beginners</a> Curriculum to learn more about it.
-</dd>
-<dt>Artificial Intelligence</dt>
-<dd>
-An area of machine learning known as artificial intelligence (AI) also relies on data, and it involves building high complexity models that mimic human thought processes.  AI methods often allow us to turn unstructured data (e.g. natural language) into structured insights. 
-</dd>
-<dt>Visualization</dt>
-<dd>
-Vast amounts of data are incomprehensible for a human being, but once we create useful visualizations using that data, we can make more sense of the data, and draw some conclusions. Thus, it is important to know many ways to visualize information - something that we will cover in <a href="../../3-Data-Visualization/README.md">Section 3</a> of our course. Related fields also include **Infographics**, and **Human-Computer Interaction** in general. 
-</dd>
-</dl>
+## 데이터의 유형
 
-## Types of Data
+앞서 언급했듯이, 데이터는 어디에나 존재합니다. 단지 올바른 방식으로 이를 포착하면 됩니다! 데이터는 **구조화된 데이터**와 **비구조화된 데이터**로 구분할 수 있습니다. 구조화된 데이터는 일반적으로 표나 여러 개의 표 형태로 잘 정리된 형태로 표현되며, 비구조화된 데이터는 단순히 파일 모음일 뿐입니다. 때로는 **반구조화된 데이터**도 언급되는데, 이는 일정한 구조를 가지지만 그 구조가 크게 다를 수 있는 데이터를 말합니다.
 
-As we have already mentioned, data is everywhere.  We just need to capture it in the right way!  It is useful to distinguish between **structured** and **unstructured** data. The former is typically represented in some well-structured form, often as a table or number of tables, while the latter is just a collection of files.  Sometimes we can also talk about **semi-structured** data, that have some sort of a structure that may vary greatly.
+| 구조화된 데이터                                                             | 반구조화된 데이터                                                                            | 비구조화된 데이터                     |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------- |
+| 사람들의 전화번호 목록                                                       | 링크가 포함된 위키피디아 페이지                                                             | 백과사전 브리태니커의 텍스트          |
+| 지난 20년 동안 매 분마다 건물 내 모든 방의 온도                              | 저자, 출판 날짜, 초록이 포함된 JSON 형식의 과학 논문 모음                                   | 회사 문서가 저장된 파일 공유          |
+| 건물에 들어오는 모든 사람들의 나이와 성별 데이터                             | 인터넷 페이지                                                                               | 감시 카메라의 원본 비디오 피드        |
 
-| Structured                                                                   | Semi-structured                                                                                | Unstructured                            |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------------------------------------- |
-| List of people with their phone numbers                                      | Wikipedia pages with links                                                                     | Text of Encyclopedia Britannica        |
-| Temperature in all rooms of a building at every minute for the last 20 years | Collection of scientific papers in JSON format with authors, data of publication, and abstract | File share with corporate documents     |
-| Data for age and gender of all people entering the building                  | Internet pages                                                                                 | Raw video feed from surveillance camera |
+## 데이터를 얻는 방법
 
-## Where to get Data
+데이터를 얻을 수 있는 출처는 매우 다양하며, 이를 모두 나열하는 것은 불가능합니다! 하지만 일반적인 데이터 출처 몇 가지를 살펴보겠습니다:
 
-There are many possible sources of data, and it will be impossible to list all of them! However, let's mention some of the typical places where you can get data:
+* **구조화된 데이터**
+  - **사물인터넷**(IoT): 온도 센서나 압력 센서와 같은 다양한 센서에서 데이터를 제공하며, 유용한 데이터를 많이 제공합니다. 예를 들어, 사무실 건물이 IoT 센서로 장착되어 있다면, 난방과 조명을 자동으로 제어하여 비용을 최소화할 수 있습니다.
+  - **설문조사**: 구매 후 또는 웹사이트 방문 후 사용자에게 설문조사를 요청하여 데이터를 수집합니다.
+  - **행동 분석**: 예를 들어, 사용자가 사이트를 얼마나 깊이 탐색하는지, 사이트를 떠나는 일반적인 이유가 무엇인지 이해하는 데 도움을 줄 수 있습니다.
+* **비구조화된 데이터**
+  - **텍스트**: 텍스트는 전체적인 **감정 점수**를 얻거나 키워드와 의미를 추출하는 등 풍부한 통찰을 제공할 수 있습니다.
+  - **이미지** 또는 **비디오**: 감시 카메라의 비디오는 도로의 교통량을 추정하고, 잠재적인 교통 체증에 대해 사람들에게 알리는 데 사용할 수 있습니다.
+  - 웹 서버 **로그**: 사이트의 어떤 페이지가 가장 자주 방문되었는지, 얼마나 오래 머물렀는지 이해하는 데 사용할 수 있습니다.
+* **반구조화된 데이터**
+  - **소셜 네트워크** 그래프: 사용자 성격과 정보를 전파하는 잠재적 효과를 파악하는 데 유용한 데이터 소스가 될 수 있습니다.
+  - 파티에서 찍은 사진 모음을 통해 **그룹 동역학** 데이터를 추출하고, 사람들이 서로 사진을 찍은 관계 그래프를 구축할 수 있습니다.
 
-* **Structured**
-  - **Internet of Things** (IoT), including data from different sensors, such as temperature or pressure sensors, provides a lot of useful data.  For example, if an office building is equipped with IoT sensors, we can automatically control heating and lighting in order to minimize costs. 
-  - **Surveys** that we ask users to complete after a purchase, or after visiting a web site.
-  - **Analysis of behavior** can, for example, help us understand how deeply a user goes into a site, and what is the typical reason for leaving the site.
-* **Unstructured**
-  - **Texts** can be a rich source of insights, such as an overall **sentiment score**, or extracting keywords and semantic meaning.
-  - **Images** or **Video**. A video from a surveillance camera can be used to estimate traffic on the road, and inform people about potential traffic jams.
-  - Web server **Logs** can be used to understand which pages of our site are most often visited, and for how long.
-* Semi-structured
-  - **Social Network** graphs can be great sources of data about user personalities and potential effectiveness in spreading information around.
-  - When we have a bunch of photographs from a party, we can try to extract **Group Dynamics** data by building a graph of people taking pictures with each other.
+다양한 데이터 출처를 알게 되면, 데이터 과학 기술을 적용하여 상황을 더 잘 이해하고 비즈니스 프로세스를 개선할 수 있는 다양한 시나리오를 생각해볼 수 있습니다.
 
-By knowing different possible sources of data, you can try to think about different scenarios where data science techniques can be applied to know the situation better, and to improve business processes. 
+## 데이터로 할 수 있는 일
 
-## What you can do with Data
+데이터 과학에서는 데이터 여정의 다음 단계를 중점적으로 다룹니다:
 
-In Data Science, we focus on the following steps of data journey:
+물론, 실제 데이터에 따라 일부 단계는 생략될 수 있습니다(예: 데이터가 이미 데이터베이스에 있는 경우 또는 모델 훈련이 필요하지 않은 경우). 또는 일부 단계는 여러 번 반복될 수 있습니다(예: 데이터 처리).
 
-<dl>
-<dt>1) Data Acquisition</dt>
-<dd>
-The first step is to collect the data.  While in many cases it can be a straightforward process, like data coming to a database from a web application, sometimes we need to use special techniques. For example, data from IoT sensors can be overwhelming, and it is a good practice to use buffering endpoints such as IoT Hub to collect all the data before further processing.
-</dd>
-<dt>2) Data Storage</dt>
-<dd>
-Storing data can be challenging, especially if we are talking about big data.  When deciding how to store data, it makes sense to anticipate the way you would like to query the data in the future.  There are several ways data can be stored:
-<ul>
-<li>A relational database stores a collection of tables, and uses a special language called SQL to query them. Typically, tables are organized into different groups called schemas. In many cases we need to convert the data from original form to fit the schema.</li>
-<li><a href="https://en.wikipedia.org/wiki/NoSQL">A NoSQL</a> database, such as <a href="https://azure.microsoft.com/services/cosmos-db/?WT.mc_id=academic-77958-bethanycheum">CosmosDB</a>, does not enforce schemas on data, and allows storing more complex data, for example, hierarchical JSON documents or graphs. However, NoSQL databases do not have the rich querying capabilities of SQL, and cannot enforce referential integrity, i.e. rules on how the data is structured in tables and governing the relationships between tables.</li>
-<li><a href="https://en.wikipedia.org/wiki/Data_lake">Data Lake</a> storage is used for large collections of data in raw, unstructured form. Data lakes are often used with big data, where all data cannot fit on one machine, and has to be stored and processed by a cluster of servers. <a href="https://en.wikipedia.org/wiki/Apache_Parquet">Parquet</a> is the data format that is often used in conjunction with big data.</li> 
-</ul>
-</dd>
-<dt>3) Data Processing</dt>
-<dd>
-This is the most exciting part of the data journey, which involves converting the data from its original form into a form that can be used for visualization/model training.  When dealing with unstructured data such as text or images, we may need to use some AI techniques to extract **features** from the data, thus converting it to structured form.
-</dd>
-<dt>4) Visualization / Human Insights</dt>
-<dd>
-Oftentimes, in order to understand the data, we need to visualize it.  Having many different visualization techniques in our toolbox, we can find the right view to make an insight.  Often, a data scientist needs to "play with data", visualizing it many times and looking for some relationships.  Also, we may use statistical techniques to test a hypotheses or prove a correlation between different pieces of data.   
-</dd>
-<dt>5) Training a predictive model</dt>
-<dd>
-Because the ultimate goal of data science is to be able to make decisions based on data, we may want to use the techniques of <a href="http://github.com/microsoft/ml-for-beginners">Machine Learning</a> to build a predictive model.  We can then use this to make predictions using new data sets with similar structures.
-</dd>
-</dl>
+## 디지털화와 디지털 전환
 
-Of course, depending on the actual data, some steps might be missing (e.g., when we already have the data in the database, or when we do not need model training), or some steps might be repeated several times (such as data processing).
+지난 10년 동안 많은 기업들이 비즈니스 결정을 내릴 때 데이터의 중요성을 깨닫기 시작했습니다. 데이터 과학 원칙을 비즈니스 운영에 적용하려면 먼저 데이터를 수집해야 합니다. 즉, 비즈니스 프로세스를 디지털 형태로 변환해야 합니다. 이를 **디지털화**라고 합니다. 이 데이터를 활용하여 데이터 과학 기법을 적용하면 생산성이 크게 향상되거나(심지어 비즈니스 전환도 가능) **디지털 전환**을 이룰 수 있습니다.
 
-## Digitalization and Digital Transformation
+예를 들어, 학생들에게 온라인으로 제공되는 데이터 과학 강의(이 강의처럼)가 있다고 가정하고, 이를 개선하기 위해 데이터 과학을 사용하고자 한다면 어떻게 할 수 있을까요?
 
-In the last decade, many businesses started to understand the importance of data when making business decisions.  To apply data science principles to running a business, one first needs to collect some data, i.e. translate business processes into digital form. This is known as **digitalization**.  Applying data science techniques to this data to guide decisions can lead to significant increases in productivity (or even business pivot), called **digital transformation**.
+우리는 "무엇을 디지털화할 수 있을까?"라는 질문으로 시작할 수 있습니다. 가장 간단한 방법은 각 학생이 각 모듈을 완료하는 데 걸리는 시간을 측정하고, 각 모듈이 끝난 후 다지선다형 테스트를 통해 얻은 지식을 측정하는 것입니다. 모든 학생의 평균 완료 시간을 계산하면, 학생들에게 가장 어려움을 주는 모듈을 찾아내고 이를 간소화하는 작업을 할 수 있습니다.
+모듈의 길이가 서로 다를 수 있기 때문에 이 접근 방식이 최적이 아니라고 주장할 수도 있습니다. 모듈의 길이(문자 수 기준)로 시간을 나누고, 그 값을 비교하는 것이 아마도 더 공정할 것입니다.
+다지선다형 테스트 결과를 분석하기 시작할 때, 학생들이 이해하기 어려워하는 개념을 파악하고 그 정보를 활용해 콘텐츠를 개선할 수 있습니다. 이를 위해 각 질문이 특정 개념이나 지식의 일부와 연결되도록 테스트를 설계해야 합니다.
 
-Let's consider an example.  Suppose we have a data science course (like this one) which we deliver online to students, and we want to use data science to improve it.  How can we do it?
+더 복잡하게 접근하고 싶다면, 각 모듈에 소요된 시간을 학생들의 연령대와 비교해볼 수 있습니다. 특정 연령대에서는 모듈을 완료하는 데 지나치게 오랜 시간이 걸리거나, 완료하기 전에 중도 포기하는 경우를 발견할 수 있습니다. 이를 통해 모듈에 대한 연령별 추천을 제공하고, 잘못된 기대에서 오는 불만을 최소화할 수 있습니다.
 
-We can start by asking "What can be digitized?"  The simplest way would be to measure the time it takes each student to complete each module, and to measure the obtained knowledge by giving a multiple-choice test at the end of each module.  By averaging time-to-complete across all students, we can find out which modules cause the most difficulties for students, and work on simplifying them.
+## 🚀 도전 과제
 
-> You may argue that this approach is not ideal, because modules can be of different lengths.  It is probably more fair to divide the time by the length of the module (in number of characters), and compare those values instead.
+이번 도전 과제에서는 텍스트를 분석하여 데이터 과학 분야와 관련된 개념을 찾아보겠습니다. 데이터 과학에 대한 위키피디아 기사를 가져와 텍스트를 처리한 후, 아래와 같은 워드 클라우드를 만들어볼 것입니다:
 
-When we start analyzing results of multiple-choice tests, we can try to determine which concepts that students have difficulty understanding, and use that information to improve the content.  To do that, we need to design tests in such a way that each question maps to a certain concept or chunk of knowledge.
+![데이터 과학 워드 클라우드](../../../../translated_images/ds_wordcloud.664a7c07dca57de017c22bf0498cb40f898d48aa85b3c36a80620fea12fadd42.ko.png)
 
-If we want to get even more complicated, we can plot the time taken for each module against the age category of students.  We might find out that for some age categories it takes an inappropriately long time to complete the module, or that students drop out before completing it.  This can help us provide age recommendations for the module, and minimize people's dissatisfaction from wrong expectations.
+[`notebook.ipynb`](../../../../../../../../../1-Introduction/01-defining-data-science/notebook.ipynb ':ignore')를 방문하여 코드를 살펴보세요. 코드를 실행해보며 데이터 변환이 실시간으로 어떻게 이루어지는지 확인할 수도 있습니다.
 
-## 🚀 Challenge
+> 주피터 노트북에서 코드를 실행하는 방법을 모른다면, [이 글](https://soshnikov.com/education/how-to-execute-notebooks-from-github/)을 참고하세요.
 
-In this challenge, we will try to find concepts relevant to the field of Data Science by looking at texts.  We will take a Wikipedia article on Data Science, download and process the text, and then build a word cloud like this one:
+## [강의 후 퀴즈](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/1)
 
-![Word Cloud for Data Science](images/ds_wordcloud.png)
+## 과제
 
-Visit [`notebook.ipynb`](/1-Introduction/01-defining-data-science/notebook.ipynb ':ignore') to read through the code.  You can also run the code, and see how it performs all data transformations in real time. 
+* **과제 1**: 위 코드를 수정하여 **빅 데이터**와 **머신 러닝** 분야와 관련된 개념을 찾아보세요.
+* **과제 2**: [데이터 과학 시나리오에 대해 생각해보기](assignment.md)
 
-> If you do not know how to run code in a Jupyter Notebook, have a look at [this article](https://soshnikov.com/education/how-to-execute-notebooks-from-github/).
+## 크레딧
 
+이 강의는 [Dmitry Soshnikov](http://soshnikov.com)가 ♥️를 담아 작성했습니다.
 
-
-## [Post-lecture quiz](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/1)
-
-## Assignments
-
-* **Task 1**: Modify the code above to find out related concepts for the fields of **Big Data** and **Machine Learning**
-* **Task 2**: [Think About Data Science Scenarios](assignment.md)
-
-## Credits
-
-This lesson has been authored with ♥️ by [Dmitry Soshnikov](http://soshnikov.com)
+**면책 조항**:  
+이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 최선을 다하고 있으나, 자동 번역에는 오류나 부정확성이 포함될 수 있습니다. 원본 문서의 원어 버전을 권위 있는 출처로 간주해야 합니다. 중요한 정보의 경우, 전문적인 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 잘못된 해석에 대해 당사는 책임을 지지 않습니다.

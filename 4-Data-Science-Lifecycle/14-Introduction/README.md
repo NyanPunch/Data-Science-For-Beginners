@@ -1,107 +1,121 @@
-# Introduction to the Data Science Lifecycle
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "c368f8f2506fe56bca0f7be05c4eb71d",
+  "translation_date": "2025-08-25T17:44:10+00:00",
+  "source_file": "4-Data-Science-Lifecycle/14-Introduction/README.md",
+  "language_code": "ko"
+}
+-->
+# 데이터 과학 생애 주기 소개
 
 |![ Sketchnote by [(@sketchthedocs)](https://sketchthedocs.dev) ](../../sketchnotes/14-DataScience-Lifecycle.png)|
 |:---:|
-| Introduction to the Data Science Lifecycle - _Sketchnote by [@nitya](https://twitter.com/nitya)_ |
+| 데이터 과학 생애 주기 소개 - _Sketchnote by [@nitya](https://twitter.com/nitya)_ |
 
-## [Pre-Lecture Quiz](https://red-water-0103e7a0f.azurestaticapps.net/quiz/26)
+## [강의 전 퀴즈](https://red-water-0103e7a0f.azurestaticapps.net/quiz/26)
 
-At this point you've probably come to the realization that data science is a process. This process can be broken down into 5 stages:
+지금쯤이면 데이터 과학이 하나의 과정이라는 것을 깨달았을 것입니다. 이 과정은 다음의 5단계로 나눌 수 있습니다:
 
-- Capturing
-- Processing
-- Analysis
-- Communication
-- Maintenance
+- 데이터 수집
+- 데이터 처리
+- 데이터 분석
+- 결과 전달
+- 유지 관리
 
+이번 강의는 생애 주기의 3가지 부분인 데이터 수집, 처리, 유지 관리에 초점을 맞춥니다.
 
-This lesson focuses on 3 parts of the life cycle: capturing, processing and maintenance.
+![데이터 과학 생애 주기 다이어그램](../../../../translated_images/data-science-lifecycle.a1e362637503c4fb0cd5e859d7552edcdb4aa629a279727008baa121f2d33f32.ko.jpg)
+> 사진 출처: [Berkeley School of Information](https://ischoolonline.berkeley.edu/data-science/what-is-data-science/)
 
-![Diagram of the data science lifecycle](./images/data-science-lifecycle.jpg)
-> Photo by [Berkeley School of Information](https://ischoolonline.berkeley.edu/data-science/what-is-data-science/)
+## 데이터 수집
 
-## Capturing
+생애 주기의 첫 번째 단계는 매우 중요합니다. 이후 단계들이 이 단계에 의존하기 때문입니다. 이 단계는 사실상 두 가지 단계가 결합된 것으로, 데이터를 획득하고 해결해야 할 목적과 문제를 정의하는 것입니다.  
+프로젝트의 목표를 정의하려면 문제나 질문에 대한 깊은 맥락이 필요합니다. 먼저, 문제 해결이 필요한 사람들을 식별하고 획득해야 합니다. 이들은 비즈니스의 이해관계자나 프로젝트의 후원자일 수 있으며, 이 프로젝트로부터 누가 또는 무엇이 혜택을 받을지, 그리고 왜 필요한지를 파악하는 데 도움을 줄 수 있습니다. 잘 정의된 목표는 측정 가능하고 정량화할 수 있어야 하며, 이를 통해 수용 가능한 결과를 정의할 수 있습니다.
 
-The first stage of the lifecycle is very important as the next stages are dependent on it. It’s practically two stages combined into one: acquiring the data and defining the purpose and problems that need to be addressed. 
-Defining the goals of the project will require deeper context into the problem or question. First, we need to identify and acquire those who need their problem solved. These may be stakeholders in a business or sponsors of the project, who can help identify who or what will benefit from this project as well as what, and why they need it. A well-defined goal should be measurable and quantifiable to define an acceptable result. 
+데이터 과학자가 할 수 있는 질문:
+- 이 문제가 이전에 접근된 적이 있는가? 어떤 결과가 발견되었는가?
+- 목적과 목표가 관련된 모든 사람에게 명확히 이해되었는가?
+- 모호함이 있는가? 이를 어떻게 줄일 수 있는가?
+- 제약 조건은 무엇인가?
+- 최종 결과는 어떤 모습일 가능성이 있는가?
+- 사용할 수 있는 자원(시간, 인력, 계산 능력)은 얼마나 되는가?
 
-Questions a data scientist may ask:
--	Has this problem been approached before? What was discovered?
--	Is the purpose and goal understood by all involved?
--	Is there ambiguity and how to reduce it?
--	What are the constraints?
--	What will the end result potentially look like?
--	How much resources (time, people, computational) are available?
+다음 단계는 필요한 데이터를 식별하고 수집한 후, 이를 탐색하는 것입니다. 이 데이터 획득 단계에서 데이터 과학자는 데이터의 양과 질을 평가해야 합니다. 이를 위해 데이터를 탐색하여 획득한 데이터가 원하는 결과를 도출하는 데 적합한지 확인해야 합니다.
 
-Next is identifying, collecting, then finally exploring the data needed to achieve these defined goals. At this step of acquisition, data scientists must also evaluate the quantity and quality of the data. This requires some data exploration to confirm what has been acquired will support reaching the desired result.  
+데이터에 대해 데이터 과학자가 할 수 있는 질문:
+- 이미 사용할 수 있는 데이터는 무엇인가?
+- 이 데이터의 소유자는 누구인가?
+- 개인정보 보호 문제는 무엇인가?
+- 이 문제를 해결하기에 충분한 데이터가 있는가?
+- 이 문제에 대해 데이터의 품질이 적합한가?
+- 이 데이터를 통해 추가 정보를 발견하면 목표를 변경하거나 재정의해야 하는가?
 
-Questions a data scientist may ask about the data:
--	What data is already available to me?
--	Who owns this data?
--	What are the privacy concerns? 
--	Do I have enough to solve this problem?
--	Is the data of acceptable quality for this problem?
--	If I discover additional information through this data, should we consider changing or redefining the goals?
+## 데이터 처리
 
-## Processing
+생애 주기의 처리 단계는 데이터에서 패턴을 발견하고 모델링하는 데 초점을 맞춥니다. 처리 단계에서 사용되는 일부 기술은 통계적 방법을 활용하여 패턴을 발견합니다. 일반적으로 대규모 데이터 세트에서 이러한 작업은 사람이 수행하기에는 번거롭기 때문에 컴퓨터를 사용하여 작업 속도를 높입니다. 이 단계는 데이터 과학과 머신 러닝이 교차하는 지점이기도 합니다. 첫 번째 강의에서 배운 것처럼, 머신 러닝은 데이터를 이해하기 위해 모델을 구축하는 과정입니다. 모델은 데이터 내 변수 간의 관계를 나타내며 결과를 예측하는 데 도움을 줍니다.
 
-The processing stage of the lifecycle focuses on discovering patterns in the data as well as modeling. Some techniques used in the processing stage require statistical methods to uncover the patterns. Typically, this would be a tedious task for a human to do with a large data set and will rely on computers to do the heavy lifting to speed up the process. This stage is also where data science and machine learning will intersect. As you learned in the first lesson, machine learning is the process of building models to understand the data. Models are a representation of the relationship between variables in the data that help predict outcomes.
+이 단계에서 사용되는 일반적인 기술은 ML for Beginners 커리큘럼에서 다룹니다. 아래 링크를 통해 더 자세히 알아보세요:
 
-Common techniques used in this stage are covered in the ML for Beginners curriculum.  Follow the links to learn more about them:
+- [분류](https://github.com/microsoft/ML-For-Beginners/tree/main/4-Classification): 데이터를 카테고리로 분류하여 효율적으로 활용.
+- [군집화](https://github.com/microsoft/ML-For-Beginners/tree/main/5-Clustering): 데이터를 유사한 그룹으로 묶음.
+- [회귀](https://github.com/microsoft/ML-For-Beginners/tree/main/2-Regression): 변수 간의 관계를 파악하여 값을 예측하거나 전망.
 
-- [Classification](https://github.com/microsoft/ML-For-Beginners/tree/main/4-Classification):  Organizing data into categories for more efficient use.
-- [Clustering](https://github.com/microsoft/ML-For-Beginners/tree/main/5-Clustering): Grouping data into similar groups.
-- [Regression](https://github.com/microsoft/ML-For-Beginners/tree/main/2-Regression): Determine the relationships between variables to predict or forecast values.
+## 유지 관리
 
-## Maintaining
-In the diagram of lifecycle, you may have noticed that maintenance sits between capturing and processing. Maintenance is an ongoing process of managing, storing and securing the data throughout the process of a project and should be taken into consideration throughout the entirety of the project. 
+생애 주기 다이어그램에서 유지 관리가 데이터 수집과 처리 사이에 위치한다는 것을 알 수 있습니다. 유지 관리는 프로젝트 과정에서 데이터를 관리, 저장, 보호하는 지속적인 과정이며, 프로젝트 전체에서 고려되어야 합니다.
 
-### Storing Data
-Considerations of how and where the data is stored can influence the cost of its storage as well as performance of how fast the data can be accessed. Decisions like these are not likely to made by a data scientist alone but they may find themselves making choices on how to work with the data based on how it’s stored.
+### 데이터 저장
 
-Here’s some aspects of modern data storage systems that can affect these choices: 
+데이터를 어떻게, 어디에 저장할지에 대한 고려는 저장 비용뿐만 아니라 데이터 접근 속도에도 영향을 미칠 수 있습니다. 이러한 결정은 데이터 과학자 혼자 내리는 것이 아닐 가능성이 높지만, 데이터가 저장된 방식에 따라 작업 방식을 선택해야 할 수도 있습니다.
 
-**On premise vs off premise vs public or private cloud**
+현대 데이터 저장 시스템의 몇 가지 측면은 다음과 같습니다:
 
-On premise refers to hosting managing the data on your own equipment, like owning a server with hard drives that store the data, while off premise relies on equipment that you don’t own, such as a data center. The public cloud is a popular choice for storing data that requires no knowledge of how or where exactly the data is stored, where public refers to a unified underlying infrastructure that is shared by all who use the cloud. Some organizations have strict security policies that require that they have complete access to the equipment where the data is hosted and will rely on a private cloud that provides its own cloud services. You’ll learn more about data in the cloud in [later lessons](https://github.com/microsoft/Data-Science-For-Beginners/tree/main/5-Data-Science-In-Cloud).
+**온프레미스 vs 오프프레미스 vs 퍼블릭 또는 프라이빗 클라우드**
 
-**Cold vs hot data**
+온프레미스는 데이터를 자체 장비에 호스팅하고 관리하는 것을 의미하며, 예를 들어 서버와 하드 드라이브를 소유하여 데이터를 저장하는 방식입니다. 반면 오프프레미스는 소유하지 않은 장비, 예를 들어 데이터 센터를 사용하는 것을 의미합니다. 퍼블릭 클라우드는 데이터가 정확히 어디에 저장되는지 알 필요가 없는 인기 있는 선택지이며, 퍼블릭은 클라우드를 사용하는 모든 사용자에게 공유되는 통합된 기본 인프라를 의미합니다. 일부 조직은 엄격한 보안 정책을 가지고 있어 데이터가 호스팅되는 장비에 완전한 접근 권한을 요구하며, 자체 클라우드 서비스를 제공하는 프라이빗 클라우드를 사용할 수 있습니다. 클라우드에서의 데이터에 대한 자세한 내용은 [추후 강의](https://github.com/microsoft/Data-Science-For-Beginners/tree/main/5-Data-Science-In-Cloud)에서 배울 수 있습니다.
 
-When training your models, you may require more training data. If you’re content with your model, more data will arrive for a model to serve its purpose. In any case the cost of storing and accessing data will increase as you accumulate more of it. Separating rarely used data, known as cold data from frequently accessed hot data can be a cheaper data storage option through hardware or software services. If cold data needs to be accessed, it may take a little longer to retrieve in comparison to hot data.
+**콜드 데이터 vs 핫 데이터**
 
-### Managing Data
-As you work with data you may discover that some of the data needs to be cleaned using some of the techniques covered in the lesson focused on [data preparation](https://github.com/microsoft/Data-Science-For-Beginners/tree/main/2-Working-With-Data/08-data-preparation) to build accurate models.  When new data arrives, it will need some of the same applications to maintain consistency in quality. Some projects will involve use of an automated tool for cleansing, aggregation, and compression before the data is moved to its final location. Azure Data Factory is an example of one of these tools.
+모델을 훈련할 때 더 많은 훈련 데이터가 필요할 수 있습니다. 모델이 만족스러운 상태라면, 모델이 목적을 수행하기 위해 더 많은 데이터가 도착할 것입니다. 어떤 경우든 데이터를 더 많이 축적할수록 저장 및 접근 비용이 증가합니다. 자주 사용되지 않는 데이터를 콜드 데이터라고 하며, 자주 접근하는 핫 데이터와 분리하면 하드웨어 또는 소프트웨어 서비스를 통해 더 저렴한 데이터 저장 옵션을 제공할 수 있습니다. 콜드 데이터를 접근해야 할 경우, 핫 데이터에 비해 검색 시간이 조금 더 걸릴 수 있습니다.
 
-### Securing the Data
-One of the main goals of securing data is ensuring that those working it are in control of what is collected and in what context it is being used. Keeping data secure involves limiting access to only those who need it, adhering to local laws and regulations, as well as maintaining ethical standards, as covered in the [ethics lesson](https://github.com/microsoft/Data-Science-For-Beginners/tree/main/1-Introduction/02-ethics). 
+### 데이터 관리
 
-Here’s some things that a team may do with security in mind:
-- Confirm that all data is encrypted
-- Provide customers information on how their data is used
-- Remove data access from those who have left the project 
-- Let only certain project members alter the data
+데이터를 작업하면서 일부 데이터를 정리해야 할 필요성을 발견할 수 있습니다. 이는 [데이터 준비](https://github.com/microsoft/Data-Science-For-Beginners/tree/main/2-Working-With-Data/08-data-preparation) 강의에서 다룬 기술을 사용하여 정확한 모델을 구축하기 위함입니다. 새로운 데이터가 도착하면 동일한 기술을 적용하여 데이터 품질의 일관성을 유지해야 합니다. 일부 프로젝트는 데이터 정리, 집계, 압축을 자동화하는 도구를 사용하여 데이터를 최종 위치로 이동하기 전에 처리할 수 있습니다. Azure Data Factory는 이러한 도구의 예입니다.
 
+### 데이터 보안
 
-## 🚀 Challenge
+데이터를 안전하게 보호하는 주요 목표 중 하나는 데이터를 작업하는 사람들이 수집된 데이터와 그 사용 맥락을 통제할 수 있도록 하는 것입니다. 데이터를 안전하게 유지하려면 데이터 접근을 필요한 사람들로 제한하고, 지역 법률과 규정을 준수하며, [윤리 강의](https://github.com/microsoft/Data-Science-For-Beginners/tree/main/1-Introduction/02-ethics)에서 다룬 윤리적 기준을 유지해야 합니다.
 
-There are many versions of the Data Science Lifecycle, where each step may have different names and number of stages but will contain the same processes mentioned within this lesson.
+팀이 보안을 염두에 두고 할 수 있는 작업:
+- 모든 데이터가 암호화되었는지 확인
+- 고객에게 데이터 사용 방식에 대한 정보 제공
+- 프로젝트를 떠난 사람들의 데이터 접근 권한 제거
+- 특정 프로젝트 구성원만 데이터 수정 가능하도록 제한
 
-Explore the [Team Data Science Process lifecycle](https://docs.microsoft.com/en-us/azure/architecture/data-science-process/lifecycle) and the [Cross-industry standard process for data mining](https://www.datascience-pm.com/crisp-dm-2/). Name 3 similarities and differences between the two.
+## 🚀 도전 과제
+
+데이터 과학 생애 주기에는 다양한 버전이 있으며, 각 단계는 다른 이름과 단계 수를 가질 수 있지만 이 강의에서 언급된 동일한 과정을 포함합니다.
+
+[Team Data Science Process 생애 주기](https://docs.microsoft.com/en-us/azure/architecture/data-science-process/lifecycle)와 [데이터 마이닝을 위한 산업 표준 프로세스](https://www.datascience-pm.com/crisp-dm-2/)를 탐색하세요. 두 가지 사이의 3가지 유사점과 차이점을 작성하세요.
 
 |Team Data Science Process (TDSP)|Cross-industry standard process for data mining (CRISP-DM)|
 |--|--|
-|![Team Data Science Lifecycle](./images/tdsp-lifecycle2.png) | ![Data Science Process Alliance Image](./images/CRISP-DM.png) |
-| Image by [Microsoft](https://docs.microsoft.comazure/architecture/data-science-process/lifecycle) | Image by [Data Science Process Alliance](https://www.datascience-pm.com/crisp-dm-2/) |
+|![Team Data Science Lifecycle](../../../../translated_images/tdsp-lifecycle2.e19029d598e2e73d5ef8a4b98837d688ec6044fe332c905d4dbb69eb6d5c1d96.ko.png) | ![Data Science Process Alliance Image](../../../../translated_images/CRISP-DM.8bad2b4c66e62aa75278009e38e3e99902c73b0a6f63fd605a67c687a536698c.ko.png) |
+| 이미지 출처: [Microsoft](https://docs.microsoft.comazure/architecture/data-science-process/lifecycle) | 이미지 출처: [Data Science Process Alliance](https://www.datascience-pm.com/crisp-dm-2/) |
 
-## [Post-Lecture Quiz](https://red-water-0103e7a0f.azurestaticapps.net/quiz/27)
+## [강의 후 퀴즈](https://red-water-0103e7a0f.azurestaticapps.net/quiz/27)
 
-## Review & Self Study
+## 복습 및 자기 학습
 
-Applying the Data Science Lifecycle involves multiple roles and tasks, where some may focus on particular parts of each stage. The Team Data Science Process provides a few resources that explain the types of roles and tasks that someone may have in a project.
+데이터 과학 생애 주기를 적용하는 데는 여러 역할과 작업이 필요하며, 일부는 각 단계의 특정 부분에 집중할 수 있습니다. Team Data Science Process는 프로젝트에서 누군가가 맡을 수 있는 역할과 작업 유형을 설명하는 몇 가지 자료를 제공합니다.
 
-* [Team Data Science Process roles and tasks](https://docs.microsoft.com/en-us/azure/architecture/data-science-process/roles-tasks)
-* [Execute data science tasks: exploration, modeling, and deployment](https://docs.microsoft.com/en-us/azure/architecture/data-science-process/execute-data-science-tasks)
+* [Team Data Science Process 역할과 작업](https://docs.microsoft.com/en-us/azure/architecture/data-science-process/roles-tasks)
+* [데이터 과학 작업 실행: 탐색, 모델링, 배포](https://docs.microsoft.com/en-us/azure/architecture/data-science-process/execute-data-science-tasks)
 
-## Assignment
+## 과제
 
-[Assessing a Dataset](assignment.md)
+[데이터셋 평가하기](assignment.md)
+
+**면책 조항**:  
+이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 최선을 다하고 있으나, 자동 번역에는 오류나 부정확성이 포함될 수 있습니다. 원본 문서의 원어 버전이 권위 있는 출처로 간주되어야 합니다. 중요한 정보의 경우, 전문적인 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 잘못된 해석에 대해 당사는 책임을 지지 않습니다.

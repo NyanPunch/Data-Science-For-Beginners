@@ -1,38 +1,48 @@
-# Explore a Planetary Computer Dataset
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "d1e05715f9d97de6c4f1fb0c5a4702c0",
+  "translation_date": "2025-08-25T17:19:02+00:00",
+  "source_file": "6-Data-Science-In-Wild/20-Real-World-Examples/assignment.md",
+  "language_code": "ko"
+}
+-->
+# 행성 컴퓨터 데이터셋 탐색하기
 
-## Instructions
+## 지침
 
-In this lesson, we talked about various data science application domains - with deep dives into examples related to research, sustainability and digital humanities. In this assignment, you'll explore one of these examples in more detail, and apply some of your learnings around data visualizations and analysis to derive insights about sustainability data.
+이 강의에서는 데이터 과학의 다양한 응용 분야에 대해 논의했으며, 연구, 지속 가능성, 디지털 인문학과 관련된 예제를 심도 있게 다뤘습니다. 이번 과제에서는 이러한 예제 중 하나를 더 자세히 탐구하고, 데이터 시각화 및 분석에 대한 학습 내용을 적용하여 지속 가능성 데이터에 대한 통찰을 도출해 보세요.
 
-The [Planetary Computer](https://planetarycomputer.microsoft.com/) project has datasets and APIs that can be accessed with an account - request one for access if you want to try the bonus step of the assignment. The site also provides an [Explorer](https://planetarycomputer.microsoft.com/explore) feature that you can use without creating an account. 
+[Planetary Computer](https://planetarycomputer.microsoft.com/) 프로젝트는 계정을 통해 접근할 수 있는 데이터셋과 API를 제공합니다. 과제의 보너스 단계를 시도하려면 계정을 요청하세요. 계정을 생성하지 않아도 사용할 수 있는 [Explorer](https://planetarycomputer.microsoft.com/explore) 기능도 사이트에서 제공합니다.
 
+`단계:`
+Explorer 인터페이스(아래 스크린샷 참조)는 데이터셋(제공된 옵션 중에서 선택), 사전 설정된 쿼리(데이터 필터링), 렌더링 옵션(관련 시각화 생성)을 선택할 수 있게 해줍니다. 이번 과제에서 여러분의 임무는 다음과 같습니다:
 
-`Steps:`
-The Explorer interface (shown in the screenshot below) lets you select a dataset (from provided options), a preset query (to filter data) and a rendering option (to create a relevant visualization). In this assignment, your task is to:
+ 1. [Explorer 문서](https://planetarycomputer.microsoft.com/docs/overview/explorer/)를 읽고 옵션을 이해하세요.
+ 2. 데이터셋 [카탈로그](https://planetarycomputer.microsoft.com/catalog)를 탐색하여 각 데이터셋의 목적을 학습하세요.
+ 3. Explorer를 사용하여 관심 있는 데이터셋을 선택하고, 관련 쿼리와 렌더링 옵션을 선택하세요.
 
- 1. Read the [Explorer documentation](https://planetarycomputer.microsoft.com/docs/overview/explorer/) - understand options.
- 2. Explore the dataset [Catalog](https://planetarycomputer.microsoft.com/catalog) - learn the purpose of each.
- 3. Use the Explorer - pick a dataset of interest, select a relevant query & rendering option.
+![The Planetary Computer Explorer](../../../../translated_images/planetary-computer-explorer.c1e95a9b053167d64e2e8e4347cfb689e47e2037c33103fc1bbea1a149d4f85b.ko.png)
 
+`여러분의 과제:`
+이제 브라우저에 렌더링된 시각화를 연구하고 다음 질문에 답하세요:
+ * 데이터셋에는 어떤 _특징_이 있나요?
+ * 시각화가 제공하는 _통찰_ 또는 결과는 무엇인가요?
+ * 이러한 통찰이 프로젝트의 지속 가능성 목표에 어떤 _의미_를 가지나요?
+ * 시각화의 _제한점_은 무엇인가요? (즉, 어떤 통찰을 얻지 못했나요?)
+ * 원시 데이터를 얻을 수 있다면, 어떤 _대체 시각화_를 만들고 싶으며, 그 이유는 무엇인가요?
 
-![The Planetary Computer Explorer](images/planetary-computer-explorer.png)
+`보너스 포인트:`
+계정을 신청하고, 승인되면 로그인하세요.
+ * _Launch Hub_ 옵션을 사용하여 원시 데이터를 노트북에서 열어보세요.
+ * 데이터를 대화형으로 탐색하고, 생각했던 대체 시각화를 구현해 보세요.
+ * 이제 여러분의 맞춤 시각화를 분석하세요. 이전에 놓쳤던 통찰을 도출할 수 있었나요?
 
-`Your Task:`
-Now study the visualization that is rendered in the browser and answer the following:
- * What _features_ does the dataset have?
- * What _insights_ or results does the visualization provide?
- * What are the _implications_ of those insights to the sustainability goals of the project?
- * What are the _limitations_ of the visualization (i.e., what insight did you not get?)
- * If you could get the raw data, what _alternative visualizations_ would you create, and why?
+## 평가 기준
 
-`Bonus Points:`
-Apply for an account - and login when accepted.
- * Use the _Launch Hub_ option to open the raw data in a Notebook.
- * Explore the data interactively, and implement the alternative visualizations you thought of.
- * Now analyze your custom visualizations - were you able to derive the insights you missed before?
-
-## Rubric
-
-Exemplary | Adequate | Needs Improvement
+탁월함 | 적절함 | 개선 필요
 --- | --- | -- |
-All five core questions were answered. The student clearly identified how current and alternative visualizations could provide insights into sustainability objectives or outcomes.| The student answered at least the top 3 questions in great detail, showing that had practical experience with the Explorer. | The student failed to answer multiple questions, or provided insufficient detail - indicating that no meaningful attempt was made for the project |
+다섯 가지 핵심 질문에 모두 답변했습니다. 현재 시각화와 대체 시각화가 지속 가능성 목표나 결과에 대한 통찰을 어떻게 제공할 수 있는지 명확히 식별했습니다. | 상위 3가지 질문에 대해 상세히 답변했으며, Explorer를 실질적으로 사용한 경험을 보여줍니다. | 여러 질문에 답변하지 않았거나, 세부 사항이 부족하여 과제를 의미 있게 시도하지 않았음을 나타냅니다. |
+
+**면책 조항**:  
+이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 최선을 다하고 있지만, 자동 번역에는 오류나 부정확성이 포함될 수 있습니다. 원본 문서의 원어 버전을 권위 있는 출처로 간주해야 합니다. 중요한 정보의 경우, 전문적인 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 잘못된 해석에 대해 책임을 지지 않습니다.

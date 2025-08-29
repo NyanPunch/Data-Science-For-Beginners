@@ -1,35 +1,44 @@
-# Displaying airport data
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "2f2d7693f28e4b2675f275e489dc5aac",
+  "translation_date": "2025-08-25T16:18:06+00:00",
+  "source_file": "2-Working-With-Data/05-relational-databases/assignment.md",
+  "language_code": "ko"
+}
+-->
+# 공항 데이터 표시하기
 
-You have been provided a [database](https://raw.githubusercontent.com/Microsoft/Data-Science-For-Beginners/main/2-Working-With-Data/05-relational-databases/airports.db) built on [SQLite](https://sqlite.org/index.html) which contains information about airports. The schema is displayed below. You will use the [SQLite extension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite&WT.mc_id=academic-77958-bethanycheum) in [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=academic-77958-bethanycheum) to display information about different cities' airports.
+[SQLite](https://sqlite.org/index.html)를 기반으로 구축된 [데이터베이스](https://raw.githubusercontent.com/Microsoft/Data-Science-For-Beginners/main/2-Working-With-Data/05-relational-databases/airports.db)가 제공되었으며, 이 데이터베이스에는 공항에 대한 정보가 포함되어 있습니다. 아래에 스키마가 표시되어 있습니다. [Visual Studio Code](https://code.visualstudio.com?WT.mc_id=academic-77958-bethanycheum)의 [SQLite 확장](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite&WT.mc_id=academic-77958-bethanycheum)을 사용하여 다양한 도시의 공항 정보를 표시합니다.
 
-## Instructions
+## 지침
 
-To get started with the assignment, you'll need to perform a couple of steps. You'll need to install a bit of tooling and download the sample database.
+과제를 시작하려면 몇 가지 단계를 수행해야 합니다. 도구를 설치하고 샘플 데이터베이스를 다운로드해야 합니다.
 
-### Setup your system
+### 시스템 설정
 
-You can use Visual Studio Code and the SQLite extension to interact with the database.
+Visual Studio Code와 SQLite 확장을 사용하여 데이터베이스와 상호작용할 수 있습니다.
 
-1. Navigate to [code.visualstudio.com](https://code.visualstudio.com?WT.mc_id=academic-77958-bethanycheum) and follow the instructions to install Visual Studio Code
-1. Install the [SQLite extension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite&WT.mc_id=academic-77958-bethanycheum) extension as instructed on the Marketplace page
+1. [code.visualstudio.com](https://code.visualstudio.com?WT.mc_id=academic-77958-bethanycheum)으로 이동하여 Visual Studio Code를 설치하는 지침을 따르세요.
+1. Marketplace 페이지의 지침에 따라 [SQLite 확장](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite&WT.mc_id=academic-77958-bethanycheum)을 설치하세요.
 
-### Download and open the database
+### 데이터베이스 다운로드 및 열기
 
-Next you will download an open the database.
+다음으로 데이터베이스를 다운로드하고 엽니다.
 
-1. Download the [database file from GitHub](https://raw.githubusercontent.com/Microsoft/Data-Science-For-Beginners/main/2-Working-With-Data/05-relational-databases/airports.db) and save it to a directory
-1. Open Visual Studio Code
-1. Open the database in the SQLite extension by selecting **Ctl-Shift-P** (or **Cmd-Shift-P** on a Mac) and typing `SQLite: Open database`
-1. Select **Choose database from file** and open the **airports.db** file you downloaded previously
-1. After opening the database (you won't see an update on the screen), create a new query window by selecting **Ctl-Shift-P** (or **Cmd-Shift-P** on a Mac) and typing `SQLite: New query`
+1. [GitHub에서 데이터베이스 파일](https://raw.githubusercontent.com/Microsoft/Data-Science-For-Beginners/main/2-Working-With-Data/05-relational-databases/airports.db)을 다운로드하여 디렉토리에 저장하세요.
+1. Visual Studio Code를 엽니다.
+1. **Ctl-Shift-P** (Mac에서는 **Cmd-Shift-P**)를 선택하고 `SQLite: Open database`를 입력하여 SQLite 확장에서 데이터베이스를 엽니다.
+1. **Choose database from file**을 선택하고 이전에 다운로드한 **airports.db** 파일을 엽니다.
+1. 데이터베이스를 열면 화면에 업데이트가 표시되지 않습니다. **Ctl-Shift-P** (Mac에서는 **Cmd-Shift-P**)를 선택하고 `SQLite: New query`를 입력하여 새 쿼리 창을 만드세요.
 
-Once open, the new query window can be used to run SQL statements against the database. You can use the command **Ctl-Shift-Q** (or **Cmd-Shift-Q** on a Mac) to run queries against the database.
+데이터베이스가 열리면 새 쿼리 창을 사용하여 데이터베이스에 대해 SQL 문을 실행할 수 있습니다. **Ctl-Shift-Q** (Mac에서는 **Cmd-Shift-Q**) 명령을 사용하여 데이터베이스에 대해 쿼리를 실행할 수 있습니다.
 
-> [!NOTE] For more information about the SQLite extension, you can consult the [documentation](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite&WT.mc_id=academic-77958-bethanycheum)
+> [!NOTE] SQLite 확장에 대한 자세한 정보는 [문서](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite&WT.mc_id=academic-77958-bethanycheum)를 참조하세요.
 
-## Database schema
+## 데이터베이스 스키마
 
-A database's schema is its table design and structure. The **airports** database as two tables, `cities`, which contains a list of cities in the United Kingdom and Ireland, and `airports`, which contains the list of all airports. Because some cities may have multiple airports, two tables were created to store the information. In this exercise you will use joins to display information for different cities.
+데이터베이스의 스키마는 테이블 설계와 구조를 나타냅니다. **airports** 데이터베이스에는 두 개의 테이블이 있습니다. `cities`는 영국과 아일랜드의 도시 목록을 포함하고 있으며, `airports`는 모든 공항 목록을 포함하고 있습니다. 일부 도시에 여러 공항이 있을 수 있으므로 정보를 저장하기 위해 두 개의 테이블이 생성되었습니다. 이 연습에서는 조인을 사용하여 다양한 도시의 정보를 표시합니다.
 
 | Cities           |
 | ---------------- |
@@ -44,16 +53,19 @@ A database's schema is its table design and structure. The **airports** database
 | code (text)                      |
 | city_id (FK to id in **Cities**) |
 
-## Assignment
+## 과제
 
-Create queries to return the following information:
+다음 정보를 반환하는 쿼리를 작성하세요:
 
-1. all city names in the `Cities` table
-1. all cities in Ireland in the `Cities` table
-1. all airport names with their city and country
-1. all airports in London, United Kingdom
+1. `Cities` 테이블의 모든 도시 이름
+1. `Cities` 테이블에서 아일랜드의 모든 도시
+1. 도시와 국가와 함께 모든 공항 이름
+1. 영국 런던의 모든 공항
 
-## Rubric
+## 평가 기준
 
-| Exemplary | Adequate | Needs Improvement |
-| --------- | -------- | ----------------- |
+| 우수       | 적절       | 개선 필요       |
+| --------- | --------- | ------------- |
+
+**면책 조항**:  
+이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 최선을 다하고 있지만, 자동 번역에는 오류나 부정확성이 포함될 수 있습니다. 원본 문서의 원어 버전을 권위 있는 출처로 간주해야 합니다. 중요한 정보의 경우, 전문적인 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 잘못된 해석에 대해 책임을 지지 않습니다.

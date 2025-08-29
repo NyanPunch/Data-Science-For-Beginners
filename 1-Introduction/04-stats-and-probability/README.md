@@ -1,177 +1,185 @@
-# A Brief Introduction to Statistics and Probability
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "b706a07cfa87ba091cbb91e0aa775600",
+  "translation_date": "2025-08-25T17:08:38+00:00",
+  "source_file": "1-Introduction/04-stats-and-probability/README.md",
+  "language_code": "ko"
+}
+-->
+# 통계와 확률에 대한 간단한 소개
 
 |![ Sketchnote by [(@sketchthedocs)](https://sketchthedocs.dev) ](../../sketchnotes/04-Statistics-Probability.png)|
 |:---:|
-| Statistics and Probability - _Sketchnote by [@nitya](https://twitter.com/nitya)_ |
+| 통계와 확률 - _스케치노트 by [@nitya](https://twitter.com/nitya)_ |
 
-Statistics and Probability Theory are two highly related areas of Mathematics that are highly relevant to Data Science. It is possible to operate with data without deep knowledge of mathematics, but it is still better to know at least some basic concepts. Here we will present a short introduction that will help you get started.
+통계와 확률 이론은 데이터 과학과 밀접하게 관련된 수학의 두 가지 중요한 분야입니다. 수학에 대한 깊은 지식 없이도 데이터를 다룰 수는 있지만, 기본 개념 정도는 알고 있는 것이 좋습니다. 여기에서는 시작하는 데 도움이 될 간단한 소개를 제공합니다.
 
-[![Intro Video](images/video-prob-and-stats.png)](https://youtu.be/Z5Zy85g4Yjw)
+[![소개 영상](../../../../translated_images/video-prob-and-stats.e4282e5efa2f2543400843ed98b1057065c9600cebfc8a728e8931b5702b2ae4.ko.png)](https://youtu.be/Z5Zy85g4Yjw)
 
+## [강의 전 퀴즈](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/6)
 
-## [Pre-lecture quiz](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/6)
+## 확률과 확률 변수
 
-## Probability and Random Variables
+**확률**은 0과 1 사이의 숫자로, 특정 **사건**이 발생할 가능성을 나타냅니다. 이는 긍정적인 결과(사건으로 이어지는 결과)의 수를 모든 가능한 결과의 수로 나눈 값으로 정의됩니다. 예를 들어, 주사위를 굴렸을 때 짝수가 나올 확률은 3/6 = 0.5입니다.
 
-**Probability** is a number between 0 and 1 that expresses how probable an **event** is. It is defined as a number of positive outcomes (that lead to the event), divided by total number of outcomes, given that all outcomes are equally probable. For example, when we roll a dice, the probability that we get an even number is 3/6 = 0.5.
+사건에 대해 이야기할 때, 우리는 **확률 변수**를 사용합니다. 예를 들어, 주사위를 굴렸을 때 나오는 숫자를 나타내는 확률 변수는 1에서 6까지의 값을 가질 수 있습니다. 1에서 6까지의 숫자 집합을 **표본 공간**이라고 합니다. 우리는 확률 변수가 특정 값을 가질 확률에 대해 이야기할 수 있습니다. 예를 들어, P(X=3)=1/6입니다.
 
-When we talk about events, we use **random variables**. For example, the random variable that represents a number obtained when rolling a dice would take values from 1 to 6. Set of numbers from 1 to 6 is called **sample space**. We can talk about the probability of a random variable taking a certain value, for example P(X=3)=1/6.
+이전 예제의 확률 변수는 **이산형**이라고 불리며, 이는 셀 수 있는 표본 공간을 가지기 때문입니다. 즉, 나열할 수 있는 개별 값이 있습니다. 표본 공간이 실수의 범위이거나 전체 실수 집합인 경우도 있습니다. 이러한 변수는 **연속형**이라고 합니다. 좋은 예는 버스가 도착하는 시간입니다.
 
-The random variable in previous example is called **discrete**, because it has a countable sample space, i.e. there are separate values that can be enumerated. There are cases when sample space is a range of real numbers, or the whole set of real numbers. Such variables are called **continuous**. A good example is the time when the bus arrives.
+## 확률 분포
 
-## Probability Distribution
+이산형 확률 변수의 경우, 각 사건의 확률을 함수 P(X)로 쉽게 설명할 수 있습니다. 표본 공간 *S*의 각 값 *s*에 대해 0에서 1 사이의 숫자를 제공하며, 모든 사건에 대해 P(X=s)의 값의 합은 1이 됩니다.
 
-In the case of discrete random variables, it is easy to describe the probability of each event by a function P(X). For each value *s* from sample space *S* it will give a number from 0 to 1, such that the sum of all values of P(X=s) for all events would be 1.
+가장 잘 알려진 이산형 분포는 **균등 분포**로, N개의 요소를 가진 표본 공간에서 각 요소의 확률이 1/N로 동일합니다.
 
-The most well-known discrete distribution is **uniform distribution**, in which there is a sample space of N elements, with equal probability of 1/N for each of them. 
+연속형 변수의 확률 분포를 설명하는 것은 더 어렵습니다. 예를 들어, [a,b] 구간 또는 전체 실수 집합 ℝ에서 값을 가지는 경우를 생각해 봅시다. 버스 도착 시간을 예로 들면, 특정 도착 시간 *t*에 버스가 정확히 그 시간에 도착할 확률은 사실상 0입니다!
 
-It is more difficult to describe the probability distribution of a continuous variable, with values drawn from some interval [a,b], or the whole set of real numbers &Ropf;. Consider the case of bus arrival time. In fact, for each exact arrival time *t*, the probability of a bus arriving at exactly that time is 0!
+> 이제 확률이 0인 사건도 발생하며, 그것도 자주 발생한다는 것을 알게 되었습니다! 적어도 버스가 도착할 때마다요!
 
-> Now you know that events with 0 probability happen, and very often! At least each time when the bus arrives!
+우리는 변수 값이 주어진 구간에 속할 확률, 예를 들어 P(t<sub>1</sub>≤X<t<sub>2</sub>)에 대해서만 이야기할 수 있습니다. 이 경우, 확률 분포는 **확률 밀도 함수** p(x)로 설명됩니다. 이 함수는 다음과 같습니다:
 
-We can only talk about the probability of a variable falling in a given interval of values, eg. P(t<sub>1</sub>&le;X&lt;t<sub>2</sub>). In this case, probability distribution is described by a **probability density function** p(x), such that
+![P(t_1\le X<t_2)=\int_{t_1}^{t_2}p(x)dx](../../../../translated_images/probability-density.a8aad29f17a14afb519b407c7b6edeb9f3f9aa5f69c9e6d9445f604e5f8a2bf7.ko.png)
 
-![P(t_1\le X<t_2)=\int_{t_1}^{t_2}p(x)dx](./images/probability-density.png)
-  
-A continuous analog of uniform distribution is called **continuous uniform**, which is defined on a finite interval. A probability that the value X falls into an interval of length l is proportional to l, and rises up to 1.
+연속형 균등 분포는 유한 구간에서 정의되며, **연속 균등 분포**라고 합니다. 값 X가 길이 l의 구간에 속할 확률은 l에 비례하며, 최대 1까지 증가합니다.
 
-Another important distribution is **normal distribution**, which we will talk about in more detail below.
+또 다른 중요한 분포는 **정규 분포**로, 아래에서 더 자세히 다룰 것입니다.
 
-## Mean, Variance and Standard Deviation
+## 평균, 분산 및 표준 편차
 
-Suppose we draw a sequence of n samples of a random variable X: x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>. We can define **mean** (or **arithmetic average**) value of the sequence in the traditional way as (x<sub>1</sub>+x<sub>2</sub>+x<sub>n</sub>)/n. As we grow the size of the sample (i.e. take the limit with n&rarr;&infin;), we will obtain the mean (also called **expectation**) of the distribution. We will denote expectation by **E**(x).
+n개의 확률 변수 X의 샘플 x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>을 추출했다고 가정해 봅시다. **평균**(또는 **산술 평균**)은 전통적인 방식으로 (x<sub>1</sub>+x<sub>2</sub>+...+x<sub>n</sub>)/n으로 정의됩니다. 샘플 크기를 늘리면(n→∞), 분포의 평균(또는 **기대값**)을 얻을 수 있습니다. 기대값은 **E**(x)로 나타냅니다.
 
-> It can be demonstrated that for any discrete distribution with values {x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>N</sub>} and corresponding probabilities p<sub>1</sub>, p<sub>2</sub>, ..., p<sub>N</sub>, the expectation would equal to E(X)=x<sub>1</sub>p<sub>1</sub>+x<sub>2</sub>p<sub>2</sub>+...+x<sub>N</sub>p<sub>N</sub>.
+> 모든 이산형 분포에 대해 {x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>N</sub>} 값과 해당 확률 p<sub>1</sub>, p<sub>2</sub>, ..., p<sub>N</sub>이 주어지면, 기대값은 E(X)=x<sub>1</sub>p<sub>1</sub>+x<sub>2</sub>p<sub>2</sub>+...+x<sub>N</sub>p<sub>N</sub>과 같다는 것을 증명할 수 있습니다.
 
-To identify how far the values are spread, we can compute the variance &sigma;<sup>2</sup> = &sum;(x<sub>i</sub> - &mu;)<sup>2</sup>/n, where &mu; is the mean of the sequence. The value &sigma; is called **standard deviation**, and &sigma;<sup>2</sup> is called a **variance**.
+값이 얼마나 퍼져 있는지를 확인하려면, 분산 σ<sup>2</sup> = ∑(x<sub>i</sub> - μ)<sup>2</sup>/n을 계산할 수 있습니다. 여기서 μ는 시퀀스의 평균입니다. σ는 **표준 편차**라고 하며, σ<sup>2</sup>는 **분산**이라고 합니다.
 
-## Mode, Median and Quartiles
+## 최빈값, 중앙값 및 사분위수
 
-Sometimes, mean does not adequately represent the "typical" value for data. For example, when there are a few extreme values that are completely out of range, they can affect the mean. Another good indication is a **median**, a value such that half of data points are lower than it, and another half - higher.
+때로는 평균이 데이터의 "전형적인" 값을 적절히 나타내지 못할 수 있습니다. 예를 들어, 몇 개의 극단적인 값이 평균에 큰 영향을 미칠 수 있습니다. 또 다른 좋은 지표는 **중앙값**으로, 데이터의 절반이 이 값보다 작고 나머지 절반이 이 값보다 큽니다.
 
-To help us understand the distribution of data, it is helpful to talk about **quartiles**:
+데이터 분포를 이해하는 데 도움이 되는 또 다른 개념은 **사분위수**입니다:
 
-* First quartile, or Q1, is a value, such that 25% of the data fall below it
-* Third quartile, or Q3, is a value that 75% of the data fall below it
+* 첫 번째 사분위수(Q1): 데이터의 25%가 이 값보다 작음
+* 세 번째 사분위수(Q3): 데이터의 75%가 이 값보다 작음
 
-Graphically we can represent relationship between median and quartiles in a diagram called the **box plot**:
+중앙값과 사분위수 간의 관계를 그래픽으로 나타낸 것을 **박스 플롯**이라고 합니다:
 
 <img src="images/boxplot_explanation.png" width="50%"/>
 
-Here we also compute **inter-quartile range** IQR=Q3-Q1, and so-called **outliers** - values, that lie outside the boundaries [Q1-1.5*IQR,Q3+1.5*IQR].
+여기서 **사분위 범위** IQR=Q3-Q1을 계산하고, [Q1-1.5*IQR, Q3+1.5*IQR] 범위를 벗어나는 값을 **이상치**라고 합니다.
 
-For finite distribution that contains a small number of possible values, a good "typical" value is the one that appears the most frequently, which is called **mode**. It is often applied to categorical data, such as colors. Consider a situation when we have two groups of people - some that strongly prefer red, and others who prefer blue. If we code colors by numbers, the mean value for a favorite color would be somewhere in the orange-green spectrum, which does not indicate the actual preference on neither group. However, the mode would be either one of the colors, or both colors, if the number of people voting for them is equal (in this case we call the sample **multimodal**).
-## Real-world Data
+가능한 값이 적은 유한 분포에서는 가장 자주 나타나는 값이 "전형적인" 값으로 간주되며, 이를 **최빈값**이라고 합니다. 이는 색상과 같은 범주형 데이터에 자주 사용됩니다. 예를 들어, 빨간색을 선호하는 그룹과 파란색을 선호하는 그룹이 있다고 가정해 봅시다. 색상을 숫자로 코딩하면, 선호 색상의 평균값은 주황색-녹색 스펙트럼 어딘가에 있을 수 있지만, 이는 어느 그룹의 실제 선호도를 나타내지 않습니다. 그러나 최빈값은 빨간색 또는 파란색(또는 둘 다)일 수 있으며, 두 색상을 선호하는 사람 수가 같다면 이를 **다봉형**이라고 합니다.
 
-When we analyze data from real life, they often are not random variables as such, in a sense that we do not perform experiments with unknown result. For example, consider a team of baseball players, and their body data, such as height, weight and age. Those numbers are not exactly random, but we can still apply the same mathematical concepts. For example, a sequence of people's weights can be considered to be a sequence of values drawn from some random variable. Below is the sequence of weights of actual baseball players from [Major League Baseball](http://mlb.mlb.com/index.jsp), taken from [this dataset](http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_MLB_HeightsWeights) (for your convenience, only first 20 values are shown):
+## 실제 데이터
+
+실제 데이터를 분석할 때, 데이터는 실험 결과로 얻어진 확률 변수와는 다를 수 있습니다. 예를 들어, 야구 선수 팀과 그들의 신체 데이터(키, 몸무게, 나이)를 생각해 봅시다. 이러한 숫자는 정확히 무작위는 아니지만, 여전히 동일한 수학적 개념을 적용할 수 있습니다. 예를 들어, 사람들의 몸무게 시퀀스는 어떤 확률 변수에서 추출된 값의 시퀀스로 간주될 수 있습니다. 아래는 [메이저 리그 야구](http://mlb.mlb.com/index.jsp) 선수들의 실제 몸무게 데이터에서 가져온 값들입니다([이 데이터셋](http://wiki.stat.ucla.edu/socr/index.php/SOCR_Data_MLB_HeightsWeights)에서 발췌, 편의를 위해 처음 20개 값만 표시):
 
 ```
 [180.0, 215.0, 210.0, 210.0, 188.0, 176.0, 209.0, 200.0, 231.0, 180.0, 188.0, 180.0, 185.0, 160.0, 180.0, 185.0, 197.0, 189.0, 185.0, 219.0]
 ```
 
-> **Note**: To see the example of working with this dataset, have a look at the [accompanying notebook](notebook.ipynb). There are also a number of challenges throughout this lesson, and you may complete them by adding some code to that notebook. If you are not sure how to operate on data, do not worry - we will come back to working with data using Python at a later time. If you do not know how to run code in Jupyter Notebook, have a look at [this article](https://soshnikov.com/education/how-to-execute-notebooks-from-github/).
+> **참고**: 이 데이터셋을 사용하는 예제를 보려면 [관련 노트북](../../../../1-Introduction/04-stats-and-probability/notebook.ipynb)을 확인하세요. 이 강의에는 여러 도전 과제가 포함되어 있으며, 해당 노트북에 코드를 추가하여 완료할 수 있습니다. 데이터를 다루는 방법을 잘 모른다면 걱정하지 마세요. 나중에 Python을 사용하여 데이터를 다루는 방법을 다시 다룰 것입니다. Jupyter Notebook에서 코드를 실행하는 방법을 모른다면 [이 기사](https://soshnikov.com/education/how-to-execute-notebooks-from-github/)를 참조하세요.
 
-Here is the box plot showing mean, median and quartiles for our data:
+다음은 평균, 중앙값 및 사분위수를 보여주는 박스 플롯입니다:
 
-![Weight Box Plot](images/weight-boxplot.png)
+![Weight Box Plot](../../../../translated_images/weight-boxplot.1dbab1c03af26f8a008fff4e17680082c8ab147d6df646cbac440bbf8f5b9c42.ko.png)
 
-Since our data contains information about different player **roles**, we can also do the box plot by role - it will allow us to get the idea on how parameters values differ across roles. This time we will consider height:
+우리의 데이터는 서로 다른 선수 **포지션**에 대한 정보를 포함하고 있으므로, 포지션별로 박스 플롯을 만들 수도 있습니다. 이를 통해 포지션별로 값이 어떻게 다른지 알 수 있습니다. 이번에는 키를 고려해 보겠습니다:
 
-![Box plot by role](images/boxplot_byrole.png)
+![Box plot by role](../../../../translated_images/boxplot_byrole.036b27a1c3f52d42f66fba2324ec5cde0a1bca6a01a619eeb0ce7cd054b2527b.ko.png)
 
-This diagram suggests that, on average, height of first basemen is higher that height of second basemen. Later in this lesson we will learn how we can test this hypothesis more formally, and how to demonstrate that our data is statistically significant to show that.
+이 다이어그램은 평균적으로 1루수의 키가 2루수의 키보다 더 크다는 것을 시사합니다. 이 강의 후반부에서는 이 가설을 더 공식적으로 테스트하는 방법과 데이터가 통계적으로 유의미함을 입증하는 방법을 배울 것입니다.
 
-> When working with real-world data, we assume that all data points are samples drawn from some probability distribution. This assumption allows us to apply machine learning techniques and build working predictive models.
+> 실제 데이터를 다룰 때, 모든 데이터 포인트가 어떤 확률 분포에서 추출된 샘플이라고 가정합니다. 이 가정은 머신러닝 기법을 적용하고 예측 모델을 구축할 수 있게 해줍니다.
 
-To see what the distribution of our data is, we can plot a graph called a **histogram**. X-axis would contain a number of different weight intervals (so-called **bins**), and the vertical axis would show the number of times our random variable sample was inside a given interval. 
+우리 데이터의 분포를 확인하려면 **히스토그램**이라는 그래프를 그릴 수 있습니다. X축에는 다양한 몸무게 구간(소위 **빈**)이 포함되고, Y축에는 해당 구간에 속한 샘플의 개수가 표시됩니다.
 
-![Histogram of real world data](images/weight-histogram.png)
+![Histogram of real world data](../../../../translated_images/weight-histogram.bfd00caf7fc30b145b21e862dba7def41c75635d5280de25d840dd7f0b00545e.ko.png)
 
-From this histogram you can see that all values are centered around certain mean weight, and the further we go from that weight - the fewer weights of that value are encountered. I.e., it is very improbable that the weight of a baseball player would be very different from the mean weight. Variance of weights show the extent to which weights are likely to differ from the mean.
+이 히스토그램에서 모든 값이 특정 평균 몸무게를 중심으로 집중되어 있으며, 평균에서 멀어질수록 해당 값의 몸무게가 나타날 확률이 낮아진다는 것을 알 수 있습니다. 즉, 야구 선수의 몸무게가 평균 몸무게와 크게 다를 확률은 매우 낮습니다. 몸무게의 분산은 몸무게가 평균에서 얼마나 벗어날 가능성이 있는지를 보여줍니다.
 
-> If we take weights of other people, not from the baseball league, the distribution is likely to be different. However, the shape of the distribution will be the same, but mean and variance would change. So, if we train our model on baseball players, it is likely to give wrong results when applied to students of a university, because the underlying distribution is different.
-## Normal Distribution
+> 야구 리그가 아닌 다른 사람들의 몸무게를 측정하면 분포가 다를 가능성이 높습니다. 그러나 분포의 모양은 동일하지만 평균과 분산이 달라질 것입니다. 따라서 야구 선수 데이터를 기반으로 모델을 훈련하면, 대학생들에게 적용했을 때 잘못된 결과를 낼 가능성이 높습니다. 이는 기본 분포가 다르기 때문입니다.
 
-The distribution of weights that we have seen above is very typical, and many measurements from real world follow the same type of distribution, but with different mean and variance. This distribution is called **normal distribution**, and it plays a very important role in statistics.
+## 정규 분포
 
-Using normal distribution is a correct way to generate random weights of potential baseball players. Once we know mean weight `mean` and standard deviation `std`, we can generate 1000 weight samples in the following way:
+위에서 본 몸무게의 분포는 매우 일반적이며, 실제 세계의 많은 측정값이 동일한 유형의 분포를 따릅니다. 단, 평균과 분산은 다를 수 있습니다. 이 분포를 **정규 분포**라고 하며, 통계에서 매우 중요한 역할을 합니다.
+
+정규 분포를 사용하면 잠재적인 야구 선수의 무작위 몸무게를 올바르게 생성할 수 있습니다. 평균 몸무게 `mean`과 표준 편차 `std`를 알고 있다면, 다음과 같이 1000개의 몸무게 샘플을 생성할 수 있습니다:
 ```python
 samples = np.random.normal(mean,std,1000)
-``` 
+```
 
-If we plot the histogram of the generated samples we will see the picture very similar to the one shown above. And if we increase the number of samples and the number of bins, we can generate a picture of a normal distribution that is more close to ideal:
+생성된 샘플의 히스토그램을 그리면 위에서 본 그림과 매우 유사한 모습을 볼 수 있습니다. 샘플 수와 빈 수를 늘리면 이상적인 정규 분포에 더 가까운 그림을 생성할 수 있습니다:
 
-![Normal Distribution with mean=0 and std.dev=1](images/normal-histogram.png)
+![Normal Distribution with mean=0 and std.dev=1](../../../../translated_images/normal-histogram.dfae0d67c202137d552d0015fb87581eca263925e512404f3c12d8885315432e.ko.png)
 
-*Normal Distribution with mean=0 and std.dev=1*
+*평균=0, 표준 편차=1인 정규 분포*
 
-## Confidence Intervals
+## 신뢰 구간
 
-When we talk about weights of baseball players, we assume that there is certain **random variable W** that corresponds to ideal probability distribution of weights of all baseball players (so-called **population**). Our sequence of weights corresponds to a subset of all baseball players that we call **sample**. An interesting question is, can we know the parameters of distribution of W, i.e. mean and variance of the population?
+야구 선수의 몸무게에 대해 이야기할 때, 모든 야구 선수의 몸무게에 대한 이상적인 확률 분포(소위 **모집단**)를 나타내는 **확률 변수 W**가 있다고 가정합니다. 우리의 몸무게 시퀀스는 **샘플**이라고 부르는 모집단의 일부에 해당합니다. 흥미로운 질문은, W의 분포 매개변수(즉, 모집단의 평균과 분산)를 알 수 있느냐는 것입니다.
 
-The easiest answer would be to calculate mean and variance of our sample. However, it could happen that our random sample does not accurately represent complete population. Thus it makes sense to talk about **confidence interval**.
+가장 쉬운 대답은 샘플의 평균과 분산을 계산하는 것입니다. 그러나 무작위 샘플이 모집단을 정확히 대표하지 않을 가능성도 있습니다. 따라서 **신뢰 구간**에 대해 이야기하는 것이 합리적입니다.
+> **신뢰 구간**은 우리가 얻은 샘플을 바탕으로 모집단의 실제 평균을 추정하는 것으로, 특정 확률(또는 **신뢰 수준**) 내에서 정확합니다.
+우리가 분포에서 샘플 X<sub>1</sub>, ..., X<sub>n</sub>을 추출한다고 가정해 봅시다. 분포에서 샘플을 추출할 때마다 평균 값 μ는 달라질 수 있습니다. 따라서 μ는 확률 변수로 간주될 수 있습니다. 신뢰도 p를 가진 **신뢰 구간**은 (L<sub>p</sub>, R<sub>p</sub>)의 값 쌍으로, **P**(L<sub>p</sub>≤μ≤R<sub>p</sub>) = p를 만족합니다. 즉, 측정된 평균 값이 해당 구간에 포함될 확률이 p와 같습니다.
 
-> **Confidence interval** is the estimation of true mean of the population given our sample, which is accurate is a certain probability (or **level of confidence**).
+이 신뢰 구간이 어떻게 계산되는지에 대한 자세한 논의는 이 짧은 소개를 넘어섭니다. 더 많은 세부 사항은 [위키백과](https://en.wikipedia.org/wiki/Confidence_interval)에서 확인할 수 있습니다. 간단히 말해, 모집단의 실제 평균에 대한 계산된 샘플 평균의 분포를 정의하며, 이를 **스튜던트 분포**라고 합니다.
 
-Suppose we have a sample X<sub>1</sub>, ..., X<sub>n</sub> from our distribution. Each time we draw a sample from our distribution, we would end up with different mean value &mu;. Thus &mu; can be considered to be a random variable. A **confidence interval** with confidence p is a pair of values (L<sub>p</sub>,R<sub>p</sub>), such that **P**(L<sub>p</sub>&leq;&mu;&leq;R<sub>p</sub>) = p, i.e. a probability of measured mean value falling within the interval equals to p.
+> **흥미로운 사실**: 스튜던트 분포는 수학자 윌리엄 실리 고셋(William Sealy Gosset)의 이름을 따서 명명되었습니다. 그는 "스튜던트(Student)"라는 필명으로 논문을 발표했는데, 이는 그가 기네스 맥주 공장에서 일했으며, 그의 고용주가 원재료 품질을 결정하기 위해 통계적 테스트를 사용하고 있다는 사실을 대중이 알기를 원치 않았기 때문이라는 설이 있습니다.
 
-It does beyond our short intro to discuss in detail how those confidence intervals are calculated. Some more details can be found [on Wikipedia](https://en.wikipedia.org/wiki/Confidence_interval). In short, we define the distribution of computed sample mean relative to the true mean of the population, which is called **student distribution**.
+모집단의 평균 μ를 신뢰도 p로 추정하려면, 스튜던트 분포 A의 *(1-p)/2-분위수*를 가져와야 합니다. 이는 표에서 가져오거나 Python, R 등 통계 소프트웨어의 내장 함수를 사용하여 계산할 수 있습니다. 그런 다음 μ의 구간은 X±A*D/√n으로 주어지며, 여기서 X는 샘플에서 얻은 평균, D는 표준 편차입니다.
 
-> **Interesting fact**: Student distribution is named after mathematician William Sealy Gosset, who published his paper under the pseudonym "Student". He worked in the Guinness brewery, and, according to one of the versions, his employer did not want general public to know that they were using statistical tests to determine the quality of raw materials.
+> **Note**: 스튜던트 분포와 관련하여 중요한 개념인 [자유도](https://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics))에 대한 논의는 생략합니다. 이 개념을 더 깊이 이해하려면 통계학 관련 서적을 참조하세요.
 
-If we want to estimate the mean &mu; of our population with confidence p, we need to take *(1-p)/2-th percentile* of a Student distribution A, which can either be taken from tables, or computer using some built-in functions of statistical software (eg. Python, R, etc.). Then the interval for &mu; would be given by X&pm;A*D/&radic;n, where X is the obtained mean of the sample, D is the standard deviation.
+체중과 키에 대한 신뢰 구간 계산 예시는 [첨부된 노트북](../../../../1-Introduction/04-stats-and-probability/notebook.ipynb)에서 확인할 수 있습니다.
 
-> **Note**: We also omit the discussion of an important concept of [degrees of freedom](https://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics)), which is important in relation to Student distribution. You can refer to more complete books on statistics to understand this concept deeper.
+| p    | 체중 평균       |
+|------|----------------|
+| 0.85 | 201.73±0.94   |
+| 0.90 | 201.73±1.08   |
+| 0.95 | 201.73±1.28   |
 
-An example of calculating confidence interval for weights and heights is given in the [accompanying notebooks](notebook.ipynb).
+신뢰 확률이 높아질수록 신뢰 구간이 넓어진다는 점에 주목하세요.
 
-| p | Weight mean |
-|-----|-----------|
-| 0.85 | 201.73±0.94 |
-| 0.90 | 201.73±1.08 |
-| 0.95 | 201.73±1.28 |
+## 가설 검정
 
-Notice that the higher is the confidence probability, the wider is the confidence interval. 
+우리의 야구 선수 데이터셋에는 다양한 선수 역할이 있으며, 아래와 같이 요약할 수 있습니다 ([첨부된 노트북](../../../../1-Introduction/04-stats-and-probability/notebook.ipynb)에서 이 표를 계산하는 방법을 확인하세요):
 
-## Hypothesis Testing 
+| 역할              | 키         | 체중       | 수량  |
+|-------------------|------------|------------|-------|
+| 포수              | 72.723684  | 204.328947 | 76    |
+| 지명타자          | 74.222222  | 220.888889 | 18    |
+| 1루수             | 74.000000  | 213.109091 | 55    |
+| 외야수            | 73.010309  | 199.113402 | 194   |
+| 구원투수          | 74.374603  | 203.517460 | 315   |
+| 2루수             | 71.362069  | 184.344828 | 58    |
+| 유격수            | 71.903846  | 182.923077 | 52    |
+| 선발투수          | 74.719457  | 205.163636 | 221   |
+| 3루수             | 73.044444  | 200.955556 | 45    |
 
-In our baseball players dataset, there are different player roles, that can be summarized below (look at the [accompanying notebook](notebook.ipynb) to see how this table can be calculated):
+1루수의 평균 키가 2루수의 평균 키보다 더 높다는 것을 알 수 있습니다. 따라서 **1루수가 2루수보다 키가 크다**는 결론을 내리고 싶을 수 있습니다.
 
-| Role | Height | Weight | Count |
-|------|--------|--------|-------|
-| Catcher | 72.723684 | 204.328947 | 76 |
-| Designated_Hitter | 74.222222 | 220.888889 | 18 |
-| First_Baseman | 74.000000 | 213.109091 | 55 |
-| Outfielder | 73.010309 | 199.113402 | 194 |
-| Relief_Pitcher | 74.374603 | 203.517460 | 315 |
-| Second_Baseman | 71.362069 | 184.344828 | 58 |
-| Shortstop | 71.903846 | 182.923077 | 52 |
-| Starting_Pitcher | 74.719457 | 205.163636 | 221 |
-| Third_Baseman | 73.044444 | 200.955556 | 45 |
+> 이 진술은 **가설**이라고 불리며, 이는 사실인지 아닌지 알 수 없기 때문입니다.
 
-We can notice that the mean heights of first basemen is higher than that of second basemen. Thus, we may be tempted to conclude that **first basemen are higher than second basemen**.
+그러나 이 결론을 내릴 수 있는지 항상 명확하지는 않습니다. 위의 논의에서 알 수 있듯이, 각 평균에는 관련된 신뢰 구간이 있으며, 이 차이는 단순히 통계적 오차일 수 있습니다. 우리는 가설을 검증하기 위한 보다 공식적인 방법이 필요합니다.
 
-> This statement is called **a hypothesis**, because we do not know whether the fact is actually true or not.
+1루수와 2루수의 키에 대한 신뢰 구간을 각각 계산해 봅시다:
 
-However, it is not always obvious whether we can make this conclusion. From the discussion above we know that each mean has an associated confidence interval, and thus this difference can just be a statistical error. We need some more formal way to test our hypothesis.
+| 신뢰도 | 1루수          | 2루수          |
+|--------|----------------|----------------|
+| 0.85   | 73.62..74.38  | 71.04..71.69  |
+| 0.90   | 73.56..74.44  | 70.99..71.73  |
+| 0.95   | 73.47..74.53  | 70.92..71.81  |
 
-Let's compute confidence intervals separately for heights of first and second basemen:
+어떤 신뢰도에서도 구간이 겹치지 않는 것을 볼 수 있습니다. 이는 1루수가 2루수보다 키가 크다는 가설을 입증합니다.
 
-| Confidence | First Basemen | Second Basemen |
-|------------|---------------|----------------|
-| 0.85 | 73.62..74.38 | 71.04..71.69 |
-| 0.90 | 73.56..74.44 | 70.99..71.73 |
-| 0.95 | 73.47..74.53 | 70.92..71.81 |
+보다 공식적으로, 우리가 해결하려는 문제는 **두 확률 분포가 동일한지**, 또는 최소한 동일한 매개변수를 가지는지를 확인하는 것입니다. 분포에 따라 다른 검정을 사용해야 합니다. 분포가 정규 분포임을 알고 있다면, **[스튜던트 t-검정](https://en.wikipedia.org/wiki/Student%27s_t-test)**을 적용할 수 있습니다.
 
-We can see that under no confidence the intervals overlap. That proves our hypothesis that first basemen are higher than second basemen.
+스튜던트 t-검정에서는 평균 간의 차이를 분산을 고려하여 나타내는 **t-값**을 계산합니다. t-값은 **스튜던트 분포**를 따르며, 이를 통해 주어진 신뢰 수준 **p**에 대한 임계값을 얻을 수 있습니다(계산하거나 수치 표에서 확인 가능). 그런 다음 t-값을 이 임계값과 비교하여 가설을 승인하거나 기각합니다.
 
-More formally, the problem we are solving is to see if **two probability distributions are the same**, or at least have the same parameters. Depending on the distribution, we need to use different tests for that. If we know that our distributions are normal, we can apply **[Student t-test](https://en.wikipedia.org/wiki/Student%27s_t-test)**. 
+Python에서는 **SciPy** 패키지를 사용할 수 있으며, 여기에는 `ttest_ind` 함수가 포함되어 있습니다(다른 유용한 통계 함수도 포함!). 이 함수는 t-값을 계산하고, 신뢰도 p-값의 역 조회도 수행하여 신뢰도를 보고 결론을 내릴 수 있습니다.
 
-In Student t-test, we compute so-called **t-value**, which indicates the difference between means, taking into account the variance. It is demonstrated that t-value follows **student distribution**, which allows us to get the threshold value for a given confidence level **p** (this can be computed, or looked up in the numerical tables). We then compare t-value to this threshold to approve or reject the hypothesis.
-
-In Python, we can use the **SciPy** package, which includes `ttest_ind` function (in addition to many other useful statistical functions!). It computes the t-value for us, and also does the reverse lookup of confidence p-value, so that we can just look at the confidence to draw the conclusion.
-
-For example, our comparison between heights of first and second basemen give us the following results: 
+예를 들어, 1루수와 2루수의 키 비교는 다음과 같은 결과를 제공합니다:
 ```python
 from scipy.stats import ttest_ind
 
@@ -182,82 +190,85 @@ print(f"T-value = {tval[0]:.2f}\nP-value: {pval[0]}")
 T-value = 7.65
 P-value: 9.137321189738925e-12
 ```
-In our case, p-value is very low, meaning that there is strong evidence supporting that first basemen are taller.
+이 경우, p-값이 매우 낮아 1루수가 더 크다는 강력한 증거가 있음을 나타냅니다.
 
-There are also different other types of hypothesis that we might want to test, for example:
-* To prove that a given sample follows some distribution. In our case we have assumed that heights are normally distributed, but that needs formal statistical verification. 
-* To prove that a mean value of a sample corresponds to some predefined value
-* To compare means of a number of samples (eg. what is the difference in happiness levels among different age groups)
+또한 테스트하고자 하는 다른 유형의 가설도 있습니다. 예를 들어:
+* 주어진 샘플이 특정 분포를 따르는지 증명
+* 샘플의 평균 값이 미리 정의된 값과 일치하는지 증명
+* 여러 샘플의 평균을 비교(예: 연령대별 행복도 차이)
 
-## Law of Large Numbers and Central Limit Theorem
+## 대수의 법칙과 중심 극한 정리
 
-One of the reasons why normal distribution is so important is so-called **central limit theorem**. Suppose we have a large sample of independent N values X<sub>1</sub>, ..., X<sub>N</sub>, sampled from any distribution with mean &mu; and variance &sigma;<sup>2</sup>. Then, for sufficiently large N (in other words, when N&rarr;&infin;), the mean &Sigma;<sub>i</sub>X<sub>i</sub> would be normally distributed, with mean &mu; and variance &sigma;<sup>2</sup>/N.
+정규 분포가 중요한 이유 중 하나는 **중심 극한 정리** 때문입니다. 독립적인 N개의 값 X<sub>1</sub>, ..., X<sub>N</sub>을 평균 μ와 분산 σ<sup>2</sup>를 가진 임의의 분포에서 샘플링한다고 가정합시다. 그러면 충분히 큰 N(즉, N→∞)일 때, Σ<sub>i</sub>X<sub>i</sub>의 평균은 평균 μ와 분산 σ<sup>2</sup>/N을 가진 정규 분포를 따릅니다.
 
-> Another way to interpret the central limit theorem is to say that regardless of distribution, when you compute the mean of a sum of any random variable values you end up with normal distribution. 
+> 중심 극한 정리를 다른 방식으로 해석하면, 분포에 관계없이 임의의 확률 변수 값의 합의 평균을 계산하면 정규 분포를 얻게 된다는 것입니다.
 
-From the central limit theorem it also follows that, when N&rarr;&infin;, the probability of the sample mean to be equal to &mu; becomes 1. This is known as **the law of large numbers**.
+중심 극한 정리에서 또한 N→∞일 때, 샘플 평균이 μ와 같아질 확률이 1이 된다는 것을 알 수 있습니다. 이를 **대수의 법칙**이라고 합니다.
 
-## Covariance and Correlation
+## 공분산과 상관관계
 
-One of the things Data Science does is finding relations between data. We say that two sequences **correlate** when they exhibit the similar behavior at the same time, i.e. they either rise/fall simultaneously, or one sequence rises when another one falls and vice versa. In other words, there seems to be some relation between two sequences.
+데이터 과학에서 하는 일 중 하나는 데이터 간의 관계를 찾는 것입니다. 두 시퀀스가 동시에 비슷한 행동을 보일 때, 즉 동시에 상승/하락하거나, 한 시퀀스가 상승할 때 다른 시퀀스가 하락하는 경우, 우리는 두 시퀀스가 **상관관계**가 있다고 말합니다. 즉, 두 시퀀스 간에 어떤 관계가 있는 것처럼 보입니다.
 
-> Correlation does not necessarily indicate causal relationship between two sequences; sometimes both variables can depend on some external cause, or it can be purely by chance the two sequences correlate. However, strong mathematical correlation is a good indication that two variables are somehow connected.
+> 상관관계는 반드시 두 시퀀스 간의 인과 관계를 나타내는 것은 아닙니다. 때로는 두 변수 모두 외부 요인에 의존하거나, 단순히 우연히 상관관계가 있을 수 있습니다. 그러나 강한 수학적 상관관계는 두 변수가 어떤 식으로든 연결되어 있다는 좋은 지표입니다.
 
- Mathematically, the main concept that shows the relation between two random variables is **covariance**, that is computed like this: Cov(X,Y) = **E**\[(X-**E**(X))(Y-**E**(Y))\]. We compute the deviation of both variables from their mean values, and then product of those deviations. If both variables deviate together, the product would always be a positive value, that would add up to positive covariance. If both variables deviate out-of-sync (i.e. one falls below average when another one rises above average), we will always get negative numbers, that will add up to negative covariance. If the deviations are not dependent, they will add up to roughly zero.
+수학적으로, 두 확률 변수 간의 관계를 나타내는 주요 개념은 **공분산**입니다. 이는 다음과 같이 계산됩니다: Cov(X,Y) = **E**\[(X-**E**(X))(Y-**E**(Y))\]. 두 변수의 평균 값에서의 편차를 계산한 다음, 이 편차의 곱을 구합니다. 두 변수가 함께 편차를 보이면 곱은 항상 양수가 되어 양의 공분산으로 합산됩니다. 두 변수가 비동기적으로 편차를 보이면(즉, 하나는 평균 이하로 떨어지고 다른 하나는 평균 이상으로 상승할 때), 항상 음수가 되어 음의 공분산으로 합산됩니다. 편차가 독립적이라면 대략 0으로 합산됩니다.
 
-The absolute value of covariance does not tell us much on how large the correlation is, because it depends on the magnitude of actual values. To normalize it, we can divide covariance by standard deviation of both variables, to get **correlation**. The good thing is that correlation is always in the range of [-1,1], where 1 indicates strong positive correlation between values, -1 - strong negative correlation, and 0 - no correlation at all (variables are independent). 
+공분산의 절대값은 실제 값의 크기에 따라 달라지므로 상관관계의 크기를 많이 알려주지 않습니다. 이를 정규화하기 위해 공분산을 두 변수의 표준 편차로 나누어 **상관계수**를 구할 수 있습니다. 상관계수는 항상 [-1,1] 범위 내에 있으며, 1은 강한 양의 상관관계를, -1은 강한 음의 상관관계를, 0은 상관관계가 전혀 없음을 나타냅니다(변수가 독립적임).
 
-**Example**: We can compute correlation between weights and heights of baseball players from the dataset mentioned above:
+**예제**: 위에서 언급한 야구 선수 데이터셋에서 체중과 키 간의 상관관계를 계산할 수 있습니다:
 ```python
 print(np.corrcoef(weights,heights))
 ```
-As a result, we get **correlation matrix** like this one:
+결과적으로 다음과 같은 **상관 행렬**을 얻습니다:
 ```
 array([[1.        , 0.52959196],
        [0.52959196, 1.        ]])
 ```
 
-> Correlation matrix C can be computed for any number of input sequences S<sub>1</sub>, ..., S<sub>n</sub>. The value of C<sub>ij</sub> is the correlation between S<sub>i</sub> and S<sub>j</sub>, and diagonal elements are always 1 (which is also self-correlation of S<sub>i</sub>).
+> 상관 행렬 C는 S<sub>1</sub>, ..., S<sub>n</sub>의 입력 시퀀스에 대해 계산할 수 있습니다. C<sub>ij</sub> 값은 S<sub>i</sub>와 S<sub>j</sub> 간의 상관관계를 나타내며, 대각선 요소는 항상 1입니다(S<sub>i</sub>의 자기 상관관계).
 
-In our case, the value 0.53 indicates that there is some correlation between weight and height of a person. We can also make the scatter plot of one value against the other to see the relationship visually:
+이 경우, 값 0.53은 사람의 체중과 키 간에 어느 정도 상관관계가 있음을 나타냅니다. 또한 한 값을 다른 값에 대해 산점도를 그려 관계를 시각적으로 확인할 수 있습니다:
 
-![Relationship between weight and height](images/weight-height-relationship.png)
+![체중과 키 간의 관계](../../../../translated_images/weight-height-relationship.3f06bde4ca2aba9974182c4ef037ed602acd0fbbbbe2ca91cefd838a9e66bcf9.ko.png)
 
-> More examples of correlation and covariance can be found in [accompanying notebook](notebook.ipynb).
+> 상관관계와 공분산의 더 많은 예제는 [첨부된 노트북](../../../../1-Introduction/04-stats-and-probability/notebook.ipynb)에서 확인할 수 있습니다.
 
-## Conclusion
+## 결론
 
-In this section, we have learnt:
+이 섹션에서는 다음을 배웠습니다:
 
-* basic statistical properties of data, such as mean, variance, mode and quartiles
-* different distributions of random variables, including normal distribution
-* how to find correlation between different properties
-* how to use sound apparatus of math and statistics in order to prove some hypotheses, 
-* how to compute confidence intervals for random variable given data sample
+* 평균, 분산, 최빈값, 사분위수와 같은 데이터의 기본 통계적 속성
+* 정규 분포를 포함한 다양한 확률 변수의 분포
+* 서로 다른 속성 간의 상관관계 찾기
+* 수학과 통계의 체계적인 도구를 사용하여 가설을 증명하는 방법
+* 데이터 샘플을 기반으로 확률 변수의 신뢰 구간 계산 방법
 
-While this is definitely not exhaustive list of topics that exist within probability and statistics, it should be enough to give you a good start into this course.
+이것은 확률과 통계 내에 존재하는 주제의 완전한 목록은 아니지만, 이 과정을 시작하는 데 충분한 기초를 제공합니다.
 
-## 🚀 Challenge
+## 🚀 도전 과제
 
-Use the sample code in the notebook to test other hypothesis that: 
-1. First basemen are older than second basemen
-2. First basemen are taller than third basemen
-3. Shortstops are taller than second basemen
+노트북의 샘플 코드를 사용하여 다음 가설을 테스트하세요:
+1. 1루수가 2루수보다 나이가 많다.
+2. 1루수가 3루수보다 키가 크다.
+3. 유격수가 2루수보다 키가 크다.
 
-## [Post-lecture quiz](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/7)
+## [강의 후 퀴즈](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/7)
 
-## Review & Self Study
+## 복습 및 자기 학습
 
-Probability and statistics is such a broad topic that it deserves its own course. If you are interested to go deeper into theory, you may want to continue reading some of the following books:
+확률과 통계는 매우 광범위한 주제이므로 별도의 과정이 필요합니다. 이론을 더 깊이 탐구하고 싶다면 다음 책들을 읽어보세요:
 
-1. [Carlos Fernandez-Granda](https://cims.nyu.edu/~cfgranda/) from New York University has great lecture notes [Probability and Statistics for Data Science](https://cims.nyu.edu/~cfgranda/pages/stuff/probability_stats_for_DS.pdf) (available online)
-1. [Peter and Andrew Bruce. Practical Statistics for Data Scientists.](https://www.oreilly.com/library/view/practical-statistics-for/9781491952955/) [[sample code in R](https://github.com/andrewgbruce/statistics-for-data-scientists)]. 
-1. [James D. Miller. Statistics for Data Science](https://www.packtpub.com/product/statistics-for-data-science/9781788290678) [[sample code in R](https://github.com/PacktPublishing/Statistics-for-Data-Science)]
+1. 뉴욕대학교의 [Carlos Fernandez-Granda](https://cims.nyu.edu/~cfgranda/)가 작성한 훌륭한 강의 노트 [Probability and Statistics for Data Science](https://cims.nyu.edu/~cfgranda/pages/stuff/probability_stats_for_DS.pdf) (온라인 제공)
+2. [Peter and Andrew Bruce. Practical Statistics for Data Scientists.](https://www.oreilly.com/library/view/practical-statistics-for/9781491952955/) [[R 샘플 코드](https://github.com/andrewgbruce/statistics-for-data-scientists)]
+3. [James D. Miller. Statistics for Data Science](https://www.packtpub.com/product/statistics-for-data-science/9781788290678) [[R 샘플 코드](https://github.com/PacktPublishing/Statistics-for-Data-Science)]
 
-## Assignment
+## 과제
 
-[Small Diabetes Study](assignment.md)
+[소규모 당뇨병 연구](assignment.md)
 
-## Credits
+## 크레딧
 
-This lesson has been authored with ♥️ by [Dmitry Soshnikov](http://soshnikov.com)
+이 강의는 [Dmitry Soshnikov](http://soshnikov.com)가 ♥️를 담아 작성했습니다.
+
+**면책 조항**:  
+이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 최선을 다하고 있지만, 자동 번역에는 오류나 부정확성이 포함될 수 있습니다. 원본 문서의 원어 버전을 권위 있는 출처로 간주해야 합니다. 중요한 정보의 경우, 전문적인 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 잘못된 해석에 대해 책임을 지지 않습니다.

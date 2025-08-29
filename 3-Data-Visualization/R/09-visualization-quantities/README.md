@@ -1,43 +1,52 @@
-# Visualizing Quantities
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "22acf28f518a4769ea14fa42f4734b9f",
+  "translation_date": "2025-08-25T18:25:14+00:00",
+  "source_file": "3-Data-Visualization/R/09-visualization-quantities/README.md",
+  "language_code": "ko"
+}
+-->
+# 수량 시각화
 |![ Sketchnote by [(@sketchthedocs)](https://sketchthedocs.dev) ](https://github.com/microsoft/Data-Science-For-Beginners/blob/main/sketchnotes/09-Visualizing-Quantities.png)|
 |:---:|
-| Visualizing Quantities - _Sketchnote by [@nitya](https://twitter.com/nitya)_ |
+| 수량 시각화 - _Sketchnote by [@nitya](https://twitter.com/nitya)_ |
 
-In this lesson you will explore how to use some of the many available R packages libraries to learn how to create interesting visualizations all around the concept of quantity. Using a cleaned dataset about the birds of Minnesota, you can learn many interesting facts about local wildlife. 
-## [Pre-lecture quiz](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/16)
+이 강의에서는 다양한 R 패키지 라이브러리를 사용하여 수량 개념을 중심으로 흥미로운 시각화를 만드는 방법을 탐구합니다. 미네소타의 새들에 대한 정리된 데이터셋을 사용하여 지역 야생 동물에 대한 많은 흥미로운 사실을 배울 수 있습니다.  
+## [강의 전 퀴즈](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/16)
 
-## Observe wingspan with ggplot2
-An excellent library to create both simple and sophisticated plots and charts of various kinds is [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html). In general terms, the process of plotting data using these libraries includes identifying the parts of your dataframe that you want to target, performing any transforms on that data necessary, assigning its x and y axis values, deciding what kind of plot to show, and then showing the plot.
+## ggplot2로 날개 길이 관찰하기
+다양한 종류의 간단하고 정교한 플롯과 차트를 만드는 데 탁월한 라이브러리는 [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html)입니다. 일반적으로 이러한 라이브러리를 사용하여 데이터를 시각화하는 과정은 데이터프레임에서 대상 부분을 식별하고, 필요한 데이터 변환을 수행하며, x축과 y축 값을 할당하고, 표시할 플롯 유형을 결정한 다음 플롯을 표시하는 것을 포함합니다.
 
-`ggplot2` is a system for declaratively creating graphics, based on The Grammar of Graphics. The [Grammar of Graphics](https://en.wikipedia.org/wiki/Ggplot2) is a general scheme for data visualization which breaks up graphs into semantic components such as scales and layers. In other words, the ease of creating plots and graphs for univariate or multivariate data with little code makes `ggplot2` the most popular package used for visualizations in R. The user tells `ggplot2` how to map the variables to aesthetics, the graphical primitives to use, and `ggplot2` takes care of the remaining.
+`ggplot2`는 그래픽을 선언적으로 생성하는 시스템으로, The Grammar of Graphics에 기반을 둡니다. [Grammar of Graphics](https://en.wikipedia.org/wiki/Ggplot2)는 데이터 시각화를 위한 일반적인 체계로, 그래프를 스케일과 레이어 같은 의미적 구성 요소로 나눕니다. 즉, 적은 코드로 단변량 또는 다변량 데이터의 플롯과 그래프를 쉽게 생성할 수 있어 `ggplot2`는 R에서 가장 인기 있는 시각화 패키지입니다. 사용자는 `ggplot2`에 변수와 그래픽 속성을 어떻게 매핑할지, 사용할 그래픽 기본 요소를 알려주면 나머지는 `ggplot2`가 처리합니다.
 
-> ✅ Plot = Data + Aesthetics + Geometry
-> - Data refers to the dataset
-> - Aesthetics indicate the variables to be studied (x and y variables)
-> - Geometry refers to the type of plot (line plot, bar plot, etc.)
+> ✅ 플롯 = 데이터 + 미학 + 기하학
+> - 데이터: 데이터셋을 의미합니다.
+> - 미학: 연구할 변수(x와 y 변수)를 나타냅니다.
+> - 기하학: 플롯 유형(선형 플롯, 막대 플롯 등)을 나타냅니다.
 
-Choose the best geometry (type of plot) according to your data and the story you want to tell through the plot. 
+데이터와 플롯을 통해 전달하려는 이야기에 따라 가장 적합한 기하학(플롯 유형)을 선택하세요.
 
-> - To analyze trends: line, column
-> - To compare values: bar, column, pie, scatterplot
-> - To show how parts relate to a whole: pie
-> - To show distribution of data: scatterplot, bar
-> - To show relationships between values: line, scatterplot, bubble
+> - 추세 분석: 선형, 세로 막대
+> - 값 비교: 막대, 세로 막대, 원형, 산점도
+> - 부분과 전체의 관계: 원형
+> - 데이터 분포 표시: 산점도, 막대
+> - 값 간 관계 표시: 선형, 산점도, 버블
 
-✅ You can also checkout this descriptive [cheatsheet](https://nyu-cdsc.github.io/learningr/assets/data-visualization-2.1.pdf) for ggplot2.
+✅ 이 [cheatsheet](https://nyu-cdsc.github.io/learningr/assets/data-visualization-2.1.pdf)를 참고하여 ggplot2에 대한 설명을 확인할 수 있습니다.
 
-## Build a line plot about bird wingspan values
+## 새의 날개 길이 값을 기반으로 선형 플롯 만들기
 
-Open the R console and import the dataset. 
-> Note: The dataset is stored in the root of this repo in the `/data` folder.
+R 콘솔을 열고 데이터셋을 가져옵니다.  
+> 참고: 데이터셋은 이 저장소의 `/data` 폴더에 저장되어 있습니다.
 
-Let's import the dataset and observe the head (top 5 rows) of the data.
+데이터셋을 가져오고 데이터의 헤드(상위 5개 행)를 관찰해 봅시다.
 
 ```r
 birds <- read.csv("../../data/birds.csv",fileEncoding="UTF-8-BOM")
 head(birds)
-```
-The head of the data has a mix of text and numbers:
+```  
+데이터의 헤드는 텍스트와 숫자가 혼합되어 있습니다:
 
 |      | Name                         | ScientificName         | Category              | Order        | Family   | Genus       | ConservationStatus | MinLength | MaxLength | MinBodyMass | MaxBodyMass | MinWingspan | MaxWingspan |
 | ---: | :--------------------------- | :--------------------- | :-------------------- | :----------- | :------- | :---------- | :----------------- | --------: | --------: | ----------: | ----------: | ----------: | ----------: |
@@ -47,23 +56,23 @@ The head of the data has a mix of text and numbers:
 |    3 | Ross's goose                 | Anser rossii           | Ducks/Geese/Waterfowl | Anseriformes | Anatidae | Anser       | LC                 |      57.3 |        64 |        1066 |        1567 |         113 |         116 |
 |    4 | Greater white-fronted goose  | Anser albifrons        | Ducks/Geese/Waterfowl | Anseriformes | Anatidae | Anser       | LC                 |        64 |        81 |        1930 |        3310 |         130 |         165 |
 
-Let's start by plotting some of the numeric data using a basic line plot. Suppose you wanted a view of the maximum wingspan for these interesting birds.
+이 흥미로운 새들의 최대 날개 길이를 시각화하는 기본 선형 플롯을 그려봅시다.
 
 ```r
 install.packages("ggplot2")
 library("ggplot2")
 ggplot(data=birds, aes(x=Name, y=MaxWingspan,group=1)) +
   geom_line() 
-```
-Here, you install the `ggplot2` package and then import it into the workspace using the `library("ggplot2")` command. To plot any plot in ggplot, the `ggplot()` function is used and you specify the dataset, x and y variables as attributes. In this case, we use the `geom_line()` function since we aim to plot a line plot.
+```  
+여기서는 `ggplot2` 패키지를 설치한 후 `library("ggplot2")` 명령을 사용하여 작업 공간에 가져옵니다. ggplot에서 플롯을 그리려면 `ggplot()` 함수를 사용하며 데이터셋, x 및 y 변수 등을 속성으로 지정합니다. 이 경우 선형 플롯을 그리기 위해 `geom_line()` 함수를 사용합니다.
 
-![MaxWingspan-lineplot](images/MaxWingspan-lineplot.png)
+![MaxWingspan-lineplot](../../../../../translated_images/MaxWingspan-lineplot.b12169f99d26fdd263f291008dfd73c18a4ba8f3d32b1fda3d74af51a0a28616.ko.png)
 
-What do you notice immediately? There seems to be at least one outlier - that's quite a wingspan! A 2000+ centimeter wingspan equals more than 20 meters - are there Pterodactyls roaming Minnesota? Let's investigate.
+즉시 눈에 띄는 점은 무엇인가요? 적어도 하나의 이상치가 있는 것 같습니다. 2000cm 이상의 날개 길이는 20미터가 넘습니다. 미네소타에 프테로닥틸이 살고 있는 걸까요? 조사해 봅시다.
 
-While you could do a quick sort in Excel to find those outliers, which are probably typos, continue the visualization process by working from within the plot.
+엑셀에서 빠르게 정렬하여 이러한 이상치를 찾을 수도 있지만, 플롯 내에서 작업을 계속하며 시각화 과정을 진행해 봅시다.
 
-Add labels to the x-axis to show what kind of birds are in question:
+x축에 레이블을 추가하여 어떤 종류의 새들이 있는지 표시해 봅시다:
 
 ```r
 ggplot(data=birds, aes(x=Name, y=MaxWingspan,group=1)) +
@@ -72,12 +81,12 @@ ggplot(data=birds, aes(x=Name, y=MaxWingspan,group=1)) +
   xlab("Birds") +
   ylab("Wingspan (CM)") +
   ggtitle("Max Wingspan in Centimeters")
-```
-We specify the angle in the `theme` and specify the x and y axis labels in `xlab()` and `ylab()` respectively. The `ggtitle()` gives a name to the graph/plot.
+```  
+`theme`에서 각도를 지정하고 `xlab()`과 `ylab()`에서 x축과 y축 레이블을 지정합니다. `ggtitle()`은 그래프/플롯에 이름을 부여합니다.
 
-![MaxWingspan-lineplot-improved](images/MaxWingspan-lineplot-improved.png)
+![MaxWingspan-lineplot-improved](../../../../../translated_images/MaxWingspan-lineplot-improved.04b73b4d5a59552a6bc7590678899718e1f065abe9eada9ebb4148939b622fd4.ko.png)
 
-Even with the rotation of the labels set to 45 degrees, there are too many to read. Let's try a different strategy: label only those outliers and set the labels within the chart. You can use a scatter chart to make more room for the labeling:
+레이블을 45도 회전시켰음에도 불구하고 읽기에는 너무 많습니다. 다른 전략을 시도해 봅시다: 이상치만 레이블을 지정하고 차트 내에서 레이블을 설정합니다. 산점도를 사용하여 레이블링 공간을 더 확보할 수 있습니다:
 
 ```r
 ggplot(data=birds, aes(x=Name, y=MaxWingspan,group=1)) +
@@ -86,16 +95,16 @@ ggplot(data=birds, aes(x=Name, y=MaxWingspan,group=1)) +
   theme(axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank())
   ylab("Wingspan (CM)") +
   ggtitle("Max Wingspan in Centimeters") + 
-```
-What's going on here? You used the `geom_point()` function to plot scatter points. With this, you added labels for birds who had their `MaxWingspan > 500` and also hid the labels on the x axis to declutter the plot. 
+```  
+여기서 무슨 일이 일어나고 있나요? `geom_point()` 함수를 사용하여 산점도를 그렸습니다. 이를 통해 `MaxWingspan > 500`인 새들에 대한 레이블을 추가하고 x축 레이블을 숨겨 플롯을 깔끔하게 정리했습니다.
 
-What do you discover?
+무엇을 발견했나요?
 
-![MaxWingspan-scatterplot](images/MaxWingspan-scatterplot.png)
+![MaxWingspan-scatterplot](../../../../../translated_images/MaxWingspan-scatterplot.60dc9e0e19d32700283558f253841fdab5104abb62bc96f7d97f9c0ee857fa8b.ko.png)
 
-## Filter your data
+## 데이터 필터링
 
-Both the Bald Eagle and the Prairie Falcon, while probably very large birds, appear to be mislabeled, with an extra 0 added to their maximum wingspan. It's unlikely that you'll meet a Bald Eagle with a 25 meter wingspan, but if so, please let us know! Let's create a new dataframe without those two outliers:
+Bald Eagle과 Prairie Falcon은 아마도 매우 큰 새일 가능성이 높지만, 최대 날개 길이에 0이 추가된 잘못된 레이블로 보입니다. 25미터 날개 길이를 가진 Bald Eagle을 만날 가능성은 낮지만, 만약 그렇다면 꼭 알려주세요! 이 두 이상치를 제외한 새로운 데이터프레임을 만들어 봅시다:
 
 ```r
 birds_filtered <- subset(birds, MaxWingspan < 500)
@@ -107,22 +116,21 @@ ggplot(data=birds_filtered, aes(x=Name, y=MaxWingspan,group=1)) +
   ggtitle("Max Wingspan in Centimeters") + 
   geom_text(aes(label=ifelse(MaxWingspan>500,as.character(Name),'')),hjust=0,vjust=0) +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
-```
-We made a new dataframe `birds_filtered` and then plotted a scatter plot. By filtering out outliers, your data is now more cohesive and understandable.
+```  
+새로운 데이터프레임 `birds_filtered`를 만들고 산점도를 그렸습니다. 이상치를 필터링함으로써 데이터가 더 일관되고 이해하기 쉬워졌습니다.
 
-![MaxWingspan-scatterplot-improved](images/MaxWingspan-scatterplot-improved.png)
+![MaxWingspan-scatterplot-improved](../../../../../translated_images/MaxWingspan-scatterplot-improved.7d0af81658c65f3e75b8fedeb2335399e31108257e48db15d875ece608272051.ko.png)
 
-Now that we have a cleaner dataset at least in terms of wingspan, let's discover more about these birds.
+이제 날개 길이에 관한 데이터가 더 깨끗해졌으니, 이 새들에 대해 더 알아봅시다.
 
-While line and scatter plots can display information about data values and their distributions, we want to think about the values inherent in this dataset. You could create visualizations to answer the following questions about quantity:
+선형 플롯과 산점도는 데이터 값과 분포에 대한 정보를 표시할 수 있지만, 이 데이터셋에 내재된 값을 고려해 봐야 합니다. 다음과 같은 수량에 대한 질문을 시각화하여 답을 찾을 수 있습니다:
 
-> How many categories of birds are there, and what are their numbers?
-> How many birds are extinct, endangered, rare, or common?
-> How many are there of the various genus and orders in Linnaeus's terminology?
-## Explore bar charts
+> 새의 카테고리는 몇 가지이며, 각각의 수는 얼마나 될까요?  
+> 멸종, 위기, 희귀, 일반적인 새는 몇 마리인가요?  
+> 린네의 용어로 다양한 속(genus)과 목(order)은 몇 가지인가요?  
+## 막대 차트 탐구하기
 
-Bar charts are practical when you need to show groupings of data. Let's explore the categories of birds that exist in this dataset to see which is the most common by number.
-Let's create a bar chart on filtered data.
+막대 차트는 데이터를 그룹화하여 보여줄 때 실용적입니다. 이 데이터셋에 존재하는 새의 카테고리를 탐구하여 가장 일반적인 카테고리를 확인해 봅시다. 필터링된 데이터를 사용하여 막대 차트를 만들어 봅시다.
 
 ```r
 install.packages("dplyr")
@@ -148,33 +156,33 @@ birds_filtered %>% group_by(Category) %>%
   scale_fill_manual(values = c("#D62728", "#FF7F0E", "#8C564B","#2CA02C", "#1F77B4", "#9467BD")) +                   
   xlab("Category")+ggtitle("Birds of Minnesota")
 
-```
-In the following snippet, we install the [dplyr](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8) and [lubridate](https://www.rdocumentation.org/packages/lubridate/versions/1.8.0) packages to help manipulate and group data in order to plot a stacked bar chart. First, you group the data by the `Category` of bird and then summarise the `MinLength`, `MaxLength`, `MinBodyMass`,`MaxdyMass`,`MinWingspan`,`MaxWingspan` columns. Then, plot the bar chart using `ggplot2` package and specify the colours for the different category and the labels. 
+```  
+다음 코드 스니펫에서는 데이터를 조작하고 그룹화하여 누적 막대 차트를 그리기 위해 [dplyr](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8)과 [lubridate](https://www.rdocumentation.org/packages/lubridate/versions/1.8.0) 패키지를 설치합니다. 먼저 새의 `Category`로 데이터를 그룹화한 후 `MinLength`, `MaxLength`, `MinBodyMass`, `MaxBodyMass`, `MinWingspan`, `MaxWingspan` 열을 요약합니다. 그런 다음 `ggplot2` 패키지를 사용하여 막대 차트를 그리고 각 카테고리에 대한 색상과 레이블을 지정합니다.
 
-![Stacked bar chart](images/stacked-bar-chart.png)
+![Stacked bar chart](../../../../../translated_images/stacked-bar-chart.0c92264e89da7b391a7490224d1e7059a020e8b74dcd354414aeac78871c02f1.ko.png)
 
-This bar chart, however, is unreadable because there is too much non-grouped data. You need to select only the data that you want to plot, so let's look at the length of birds based on their category.
+하지만 이 막대 차트는 너무 많은 비그룹화된 데이터로 인해 읽기 어렵습니다. 플롯하려는 데이터만 선택해야 합니다. 새의 카테고리를 기준으로 길이를 살펴봅시다.
 
-Filter your data to include only the bird's category.
+데이터를 새의 카테고리만 포함하도록 필터링합니다.
 
-Since there are many categories, you can display this chart vertically and tweak its height to account for all the data:
+카테고리가 많으므로 이 차트를 세로로 표시하고 모든 데이터를 표시할 수 있도록 높이를 조정합니다:
 
 ```r
 birds_count<-dplyr::count(birds_filtered, Category, sort = TRUE)
 birds_count$Category <- factor(birds_count$Category, levels = birds_count$Category)
 ggplot(birds_count,aes(Category,n))+geom_bar(stat="identity")+coord_flip()
-```
-You first count unique values in the `Category` column and then sort them into a new dataframe `birds_count`.This sorted data is then factored in the same level so that it is plotted in the sorted way. Using `ggplot2` you then plot the data in a bar chart. The `coord_flip()` plots horizontal bars. 
+```  
+먼저 `Category` 열의 고유 값을 계산한 후 이를 새 데이터프레임 `birds_count`로 정렬합니다. 이 정렬된 데이터를 동일한 수준으로 팩터링하여 정렬된 방식으로 플롯됩니다. 그런 다음 `ggplot2`를 사용하여 데이터를 막대 차트로 플롯합니다. `coord_flip()`은 수평 막대를 플롯합니다.
 
-![category-length](images/category-length.png)
+![category-length](../../../../../translated_images/category-length.7e34c296690e85d64f7e4d25a56077442683eca96c4f5b4eae120a64c0755636.ko.png)
 
-This bar chart shows a good view of the number of birds in each category. In a blink of an eye, you see that the largest number of birds in this region are in the Ducks/Geese/Waterfowl category. Minnesota is the 'land of 10,000 lakes' so this isn't surprising!
+이 막대 차트는 각 카테고리의 새 수를 잘 보여줍니다. 한눈에 미네소타 지역에서 가장 많은 새가 Ducks/Geese/Waterfowl 카테고리에 속한다는 것을 알 수 있습니다. 미네소타는 '10,000개의 호수의 땅'이므로 놀랍지 않습니다!
 
-✅ Try some other counts on this dataset. Does anything surprise you?
+✅ 이 데이터셋에서 다른 카운트를 시도해 보세요. 놀라운 점이 있나요?
 
-## Comparing data
+## 데이터 비교
 
-You can try different comparisons of grouped data by creating new axes. Try a comparison of the MaxLength of a bird, based on its category:
+새로운 축을 생성하여 그룹화된 데이터의 다양한 비교를 시도할 수 있습니다. 새의 카테고리를 기준으로 MaxLength를 비교해 봅시다:
 
 ```r
 birds_grouped <- birds_filtered %>%
@@ -186,31 +194,34 @@ birds_grouped <- birds_filtered %>%
   arrange(Category)
   
 ggplot(birds_grouped,aes(Category,MaxLength))+geom_bar(stat="identity")+coord_flip()
-```
-We group the `birds_filtered` data by `Category` and then plot a bar graph. 
+```  
+`birds_filtered` 데이터를 `Category`로 그룹화한 후 막대 그래프를 플롯합니다.
 
-![comparing data](images/comparingdata.png)
+![comparing data](../../../../../translated_images/comparingdata.f486a450d61c7ca5416f27f3f55a6a4465d00df3be5e6d33936e9b07b95e2fdd.ko.png)
 
-Nothing is surprising here: hummingbirds have the least MaxLength compared to Pelicans or Geese. It's good when data makes logical sense!
+여기서 놀라운 점은 없습니다: 벌새는 펠리컨이나 기러기에 비해 MaxLength가 가장 적습니다. 데이터가 논리적으로 맞아떨어지는 것은 좋은 일입니다!
 
-You can create more interesting visualizations of bar charts by superimposing data. Let's superimpose Minimum and Maximum Length on a given bird category:
+막대 차트를 더 흥미롭게 만들기 위해 데이터를 중첩하여 표시할 수 있습니다. 특정 새 카테고리에서 최소 및 최대 길이를 중첩하여 표시해 봅시다:
 
 ```r
 ggplot(data=birds_grouped, aes(x=Category)) +
   geom_bar(aes(y=MaxLength), stat="identity", position ="identity",  fill='blue') +
   geom_bar(aes(y=MinLength), stat="identity", position="identity", fill='orange')+
   coord_flip()
-```
-![super-imposed values](images/superimposed-values.png)
+```  
+![super-imposed values](../../../../../translated_images/superimposed-values.5363f0705a1da4167625a373a1064331ea3cb7a06a297297d0734fcc9b3819a0.ko.png)
 
-## 🚀 Challenge
+## 🚀 도전 과제
 
-This bird dataset offers a wealth of information about different types of birds within a particular ecosystem. Search around the internet and see if you can find other bird-oriented datasets. Practice building charts and graphs around these birds to discover facts you didn't realize.
-## [Post-lecture quiz](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/17)
+이 새 데이터셋은 특정 생태계 내 다양한 새 유형에 대한 풍부한 정보를 제공합니다. 인터넷을 검색하여 다른 새 관련 데이터셋을 찾아보세요. 이러한 새를 중심으로 차트와 그래프를 만들어 보며 몰랐던 사실을 발견해 보세요.  
+## [강의 후 퀴즈](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/17)
 
-## Review & Self Study
+## 복습 및 자기 학습
 
-This first lesson has given you some information about how to use `ggplot2`to visualize quantities. Do some research around other ways to work with datasets for visualization. Research and lookout for datasets that you could visualize using other packages like [Lattice](https://stat.ethz.ch/R-manual/R-devel/library/lattice/html/Lattice.html) and [Plotly](https://github.com/plotly/plotly.R#readme)
+이 첫 번째 강의에서는 `ggplot2`를 사용하여 수량을 시각화하는 방법에 대한 정보를 제공했습니다. 데이터셋을 시각화하기 위한 다른 방법에 대해 연구해 보세요. [Lattice](https://stat.ethz.ch/R-manual/R-devel/library/lattice/html/Lattice.html) 및 [Plotly](https://github.com/plotly/plotly.R#readme)와 같은 패키지를 사용하여 시각화할 수 있는 데이터셋을 찾아보세요.
 
-## Assignment
-[Lines, Scatters, and Bars](assignment.md)
+## 과제
+[Lines, Scatters, and Bars](assignment.md)  
+
+**면책 조항**:  
+이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 최선을 다하고 있지만, 자동 번역에는 오류나 부정확성이 포함될 수 있습니다. 원본 문서의 원어 버전이 권위 있는 출처로 간주되어야 합니다. 중요한 정보의 경우, 전문적인 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 잘못된 해석에 대해 책임을 지지 않습니다.

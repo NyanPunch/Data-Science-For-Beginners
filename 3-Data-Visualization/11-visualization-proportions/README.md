@@ -1,31 +1,39 @@
-# Visualizing Proportions
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "af6a12015c6e250e500b570a9fa42593",
+  "translation_date": "2025-08-25T18:42:30+00:00",
+  "source_file": "3-Data-Visualization/11-visualization-proportions/README.md",
+  "language_code": "ko"
+}
+-->
+# 비율 시각화
 
 |![ Sketchnote by [(@sketchthedocs)](https://sketchthedocs.dev) ](../../sketchnotes/11-Visualizing-Proportions.png)|
 |:---:|
-|Visualizing Proportions - _Sketchnote by [@nitya](https://twitter.com/nitya)_ |
+|비율 시각화 - _스케치노트 by [@nitya](https://twitter.com/nitya)_ |
 
-In this lesson, you will use a different nature-focused dataset to visualize proportions, such as how many different types of fungi populate a given dataset about mushrooms. Let's explore these fascinating fungi using a dataset sourced from Audubon listing details about 23 species of gilled mushrooms in the Agaricus and Lepiota families. You will experiment with tasty visualizations such as:
+이 강의에서는 자연을 주제로 한 다른 데이터셋을 사용하여 비율을 시각화합니다. 예를 들어, 주어진 버섯 데이터셋에서 얼마나 다양한 종류의 균류가 있는지 알아볼 수 있습니다. Audubon에서 제공한 Agaricus와 Lepiota 계열의 아가리쿠스 버섯 23종에 대한 데이터를 사용하여 이 흥미로운 균류를 탐구해 봅시다. 다음과 같은 맛있는 시각화를 실험해 볼 것입니다:
 
-- Pie charts 🥧
-- Donut charts 🍩
-- Waffle charts 🧇
+- 파이 차트 🥧  
+- 도넛 차트 🍩  
+- 와플 차트 🧇  
 
-> 💡 A very interesting project called [Charticulator](https://charticulator.com) by Microsoft Research offers a free drag and drop interface for data visualizations. In one of their tutorials they also use this mushroom dataset! So you can explore the data and learn the library at the same time: [Charticulator tutorial](https://charticulator.com/tutorials/tutorial4.html).
+> 💡 Microsoft Research의 [Charticulator](https://charticulator.com)라는 매우 흥미로운 프로젝트는 데이터 시각화를 위한 무료 드래그 앤 드롭 인터페이스를 제공합니다. 그들의 튜토리얼 중 하나에서도 이 버섯 데이터셋을 사용합니다! 데이터를 탐구하면서 라이브러리를 배울 수 있습니다: [Charticulator 튜토리얼](https://charticulator.com/tutorials/tutorial4.html).
 
-## [Pre-lecture quiz](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/20)
+## [강의 전 퀴즈](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/20)
 
-## Get to know your mushrooms 🍄
+## 버섯에 대해 알아보기 🍄
 
-Mushrooms are very interesting. Let's import a dataset to study them:
+버섯은 매우 흥미로운 존재입니다. 데이터를 가져와서 연구해 봅시다:
 
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
 mushrooms = pd.read_csv('../../data/mushrooms.csv')
 mushrooms.head()
-```
-A table is printed out with some great data for analysis:
-
+```  
+아래는 분석에 적합한 데이터가 포함된 테이블입니다:
 
 | class     | cap-shape | cap-surface | cap-color | bruises | odor    | gill-attachment | gill-spacing | gill-size | gill-color | stalk-shape | stalk-root | stalk-surface-above-ring | stalk-surface-below-ring | stalk-color-above-ring | stalk-color-below-ring | veil-type | veil-color | ring-number | ring-type | spore-print-color | population | habitat |
 | --------- | --------- | ----------- | --------- | ------- | ------- | --------------- | ------------ | --------- | ---------- | ----------- | ---------- | ------------------------ | ------------------------ | ---------------------- | ---------------------- | --------- | ---------- | ----------- | --------- | ----------------- | ---------- | ------- |
@@ -34,13 +42,13 @@ A table is printed out with some great data for analysis:
 | Edible    | Bell      | Smooth      | White     | Bruises | Anise   | Free            | Close        | Broad     | Brown      | Enlarging   | Club       | Smooth                   | Smooth                   | White                  | White                  | Partial   | White      | One         | Pendant   | Brown             | Numerous   | Meadows |
 | Poisonous | Convex    | Scaly       | White     | Bruises | Pungent | Free            | Close        | Narrow    | Brown      | Enlarging   | Equal      | Smooth                   | Smooth                   | White                  | White                  | Partial   | White      | One         | Pendant   | Black             | Scattered  | Urban   |
 
-Right away, you notice that all the data is textual. You will have to convert this data to be able to use it in a chart. Most of the data, in fact, is represented as an object:
+바로 알 수 있듯이, 모든 데이터가 텍스트 형식으로 되어 있습니다. 차트에서 사용할 수 있도록 데이터를 변환해야 합니다. 사실 대부분의 데이터는 객체로 표현되어 있습니다:
 
 ```python
 print(mushrooms.select_dtypes(["object"]).columns)
-```
+```  
 
-The output is:
+출력 결과는 다음과 같습니다:
 
 ```output
 Index(['class', 'cap-shape', 'cap-surface', 'cap-color', 'bruises', 'odor',
@@ -50,21 +58,20 @@ Index(['class', 'cap-shape', 'cap-surface', 'cap-color', 'bruises', 'odor',
        'stalk-color-below-ring', 'veil-type', 'veil-color', 'ring-number',
        'ring-type', 'spore-print-color', 'population', 'habitat'],
       dtype='object')
-```
-Take this data and convert the 'class' column to a category:
+```  
+'class' 열을 범주로 변환해 봅시다:
 
 ```python
 cols = mushrooms.select_dtypes(["object"]).columns
 mushrooms[cols] = mushrooms[cols].astype('category')
-```
+```  
 
 ```python
 edibleclass=mushrooms.groupby(['class']).count()
 edibleclass
-```
+```  
 
-Now, if you print out the mushrooms data, you can see that it has been grouped into categories according to the poisonous/edible class:
-
+이제 버섯 데이터를 출력하면, 독성/식용 클래스에 따라 범주로 그룹화된 것을 확인할 수 있습니다:
 
 |           | cap-shape | cap-surface | cap-color | bruises | odor | gill-attachment | gill-spacing | gill-size | gill-color | stalk-shape | ... | stalk-surface-below-ring | stalk-color-above-ring | stalk-color-below-ring | veil-type | veil-color | ring-number | ring-type | spore-print-color | population | habitat |
 | --------- | --------- | ----------- | --------- | ------- | ---- | --------------- | ------------ | --------- | ---------- | ----------- | --- | ------------------------ | ---------------------- | ---------------------- | --------- | ---------- | ----------- | --------- | ----------------- | ---------- | ------- |
@@ -72,31 +79,31 @@ Now, if you print out the mushrooms data, you can see that it has been grouped i
 | Edible    | 4208      | 4208        | 4208      | 4208    | 4208 | 4208            | 4208         | 4208      | 4208       | 4208        | ... | 4208                     | 4208                   | 4208                   | 4208      | 4208       | 4208        | 4208      | 4208              | 4208       | 4208    |
 | Poisonous | 3916      | 3916        | 3916      | 3916    | 3916 | 3916            | 3916         | 3916      | 3916       | 3916        | ... | 3916                     | 3916                   | 3916                   | 3916      | 3916       | 3916        | 3916      | 3916              | 3916       | 3916    |
 
-If you follow the order presented in this table to create your class category labels, you can build a pie chart:
+이 테이블에 제시된 순서를 따라 클래스 범주 레이블을 생성하면 파이 차트를 만들 수 있습니다.
 
-## Pie!
+## 파이 차트!
 
 ```python
 labels=['Edible','Poisonous']
 plt.pie(edibleclass['population'],labels=labels,autopct='%.1f %%')
 plt.title('Edible?')
 plt.show()
-```
-Voila, a pie chart showing the proportions of this data according to these two classes of mushrooms. It's quite important to get the order of the labels correct, especially here, so be sure to verify the order with which the label array is built!
+```  
+짜잔, 이 데이터의 두 가지 버섯 클래스에 따른 비율을 보여주는 파이 차트입니다. 특히 여기에서는 레이블 배열의 순서를 올바르게 설정하는 것이 매우 중요하니, 레이블 배열의 순서를 반드시 확인하세요!
 
-![pie chart](images/pie1-wb.png)
+![pie chart](../../../../translated_images/pie1-wb.e201f2fcc335413143ce37650fb7f5f0bb21358e7823a327ed8644dfb84be9db.ko.png)
 
-## Donuts!
+## 도넛 차트!
 
-A somewhat more visually interesting pie chart is a donut chart, which is a pie chart with a hole in the middle. Let's look at our data using this method.
+파이 차트보다 시각적으로 더 흥미로운 차트는 도넛 차트입니다. 도넛 차트는 가운데에 구멍이 있는 파이 차트입니다. 이 방법으로 데이터를 살펴봅시다.
 
-Take a look at the various habitats where mushrooms grow:
+버섯이 자라는 다양한 서식지를 살펴보세요:
 
 ```python
 habitat=mushrooms.groupby(['habitat']).count()
 habitat
-```
-Here, you are grouping your data by habitat. There are 7 listed, so use those as labels for your donut chart:
+```  
+여기에서는 데이터를 서식지별로 그룹화합니다. 7개의 서식지가 나열되어 있으니, 이를 도넛 차트의 레이블로 사용하세요:
 
 ```python
 labels=['Grasses','Leaves','Meadows','Paths','Urban','Waste','Wood']
@@ -112,31 +119,32 @@ fig.gca().add_artist(center_circle)
 plt.title('Mushroom Habitats')
   
 plt.show()
-```
+```  
 
-![donut chart](images/donut-wb.png)
+![donut chart](../../../../translated_images/donut-wb.be3c12a22712302b5d10c40014d5389d4a1ae4412fe1655b3cf4af57b64f799a.ko.png)  
 
-This code draws a chart and a center circle, then adds that center circle in the chart. Edit the width of the center circle by changing `0.40` to another value.
+이 코드는 차트를 그리고 가운데 원을 추가한 후, 그 원을 차트에 삽입합니다. 가운데 원의 너비를 변경하려면 `0.40` 값을 다른 값으로 수정하세요.
 
-Donut charts can be tweaked in several ways to change the labels. The labels in particular can be highlighted for readability. Learn more in the [docs](https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_and_donut_labels.html?highlight=donut).
+도넛 차트는 레이블을 강조하여 가독성을 높이는 등 여러 방식으로 조정할 수 있습니다. 자세한 내용은 [문서](https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_and_donut_labels.html?highlight=donut)를 참조하세요.
 
-Now that you know how to group your data and then display it as a pie or donut, you can explore other types of charts. Try a waffle chart, which is just a different way of exploring quantity.
-## Waffles!
+이제 데이터를 그룹화하고 이를 파이 또는 도넛 차트로 표시하는 방법을 알았으니, 다른 유형의 차트를 탐구해 보세요. 와플 차트를 시도해 보세요. 이는 양을 탐구하는 또 다른 방법입니다.
 
-A 'waffle' type chart is a different way to visualize quantities as a 2D array of squares. Try visualizing the different quantities of mushroom cap colors in this dataset. To do this, you need to install a helper library called [PyWaffle](https://pypi.org/project/pywaffle/) and use Matplotlib:
+## 와플 차트!
+
+'와플' 유형 차트는 2D 배열의 사각형으로 양을 시각화하는 또 다른 방법입니다. 이 데이터셋에서 버섯 갓 색상의 다양한 양을 시각화해 보세요. 이를 위해 [PyWaffle](https://pypi.org/project/pywaffle/)이라는 도우미 라이브러리를 설치하고 Matplotlib을 사용해야 합니다:
 
 ```python
 pip install pywaffle
-```
+```  
 
-Select a segment of your data to group:
+데이터의 일부를 선택하여 그룹화합니다:
 
 ```python
 capcolor=mushrooms.groupby(['cap-color']).count()
 capcolor
-```
+```  
 
-Create a waffle chart by creating labels and then grouping your data:
+레이블을 생성한 후 데이터를 그룹화하여 와플 차트를 만듭니다:
 
 ```python
 import pandas as pd
@@ -157,34 +165,38 @@ fig = plt.figure(
     figsize = (30,30),
     colors=["brown", "tan", "maroon", "green", "pink", "purple", "red", "whitesmoke", "yellow"],
 )
-```
+```  
 
-Using a waffle chart, you can plainly see the proportions of cap colors of this mushrooms dataset. Interestingly, there are many green-capped mushrooms!
+와플 차트를 사용하면 이 버섯 데이터셋의 갓 색상 비율을 명확히 볼 수 있습니다. 흥미롭게도, 녹색 갓을 가진 버섯이 많이 있습니다!
 
-![waffle chart](images/waffle.png)
+![waffle chart](../../../../translated_images/waffle.5455dbae4ccf17d53bb40ff0a657ecef7b8aa967e27a19cc96325bd81598f65e.ko.png)  
 
-✅ Pywaffle supports icons within the charts that use any icon available in [Font Awesome](https://fontawesome.com/). Do some experiments to create an even more interesting waffle chart using icons instead of squares.
+✅ PyWaffle은 [Font Awesome](https://fontawesome.com/)에서 사용할 수 있는 아이콘을 차트 내에 사용할 수 있습니다. 아이콘을 사각형 대신 사용하여 더욱 흥미로운 와플 차트를 만들어 보세요.
 
-In this lesson, you learned three ways to visualize proportions. First, you need to group your data into categories and then decide which is the best way to display the data - pie, donut, or waffle. All are delicious and gratify the user with an instant snapshot of a dataset.
+이 강의에서는 비율을 시각화하는 세 가지 방법을 배웠습니다. 먼저 데이터를 범주로 그룹화한 다음, 데이터를 표시하는 가장 적합한 방법(파이, 도넛, 와플)을 결정해야 합니다. 모두 맛있고 데이터를 한눈에 파악할 수 있게 해줍니다.
 
-## 🚀 Challenge
+## 🚀 도전 과제
 
-Try recreating these tasty charts in [Charticulator](https://charticulator.com).
-## [Post-lecture quiz](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/21)
+[Charticulator](https://charticulator.com)에서 이 맛있는 차트를 재현해 보세요.  
+## [강의 후 퀴즈](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/21)
 
-## Review & Self Study
+## 복습 및 자기 학습
 
-Sometimes it's not obvious when to use a pie, donut, or waffle chart. Here are some articles to read on this topic:
+파이, 도넛, 와플 차트를 언제 사용해야 할지 명확하지 않을 때가 있습니다. 이 주제에 대한 다음 기사를 읽어보세요:
 
-https://www.beautiful.ai/blog/battle-of-the-charts-pie-chart-vs-donut-chart
+https://www.beautiful.ai/blog/battle-of-the-charts-pie-chart-vs-donut-chart  
 
-https://medium.com/@hypsypops/pie-chart-vs-donut-chart-showdown-in-the-ring-5d24fd86a9ce
+https://medium.com/@hypsypops/pie-chart-vs-donut-chart-showdown-in-the-ring-5d24fd86a9ce  
 
-https://www.mit.edu/~mbarker/formula1/f1help/11-ch-c6.htm
+https://www.mit.edu/~mbarker/formula1/f1help/11-ch-c6.htm  
 
-https://medium.datadriveninvestor.com/data-visualization-done-the-right-way-with-tableau-waffle-chart-fdf2a19be402
+https://medium.datadriveninvestor.com/data-visualization-done-the-right-way-with-tableau-waffle-chart-fdf2a19be402  
 
-Do some research to find more information on this sticky decision.
-## Assignment
+이 주제에 대한 추가 정보를 찾기 위해 연구해 보세요.
 
-[Try it in Excel](assignment.md)
+## 과제
+
+[Excel에서 시도해 보기](assignment.md)  
+
+**면책 조항**:  
+이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 최선을 다하고 있지만, 자동 번역에는 오류나 부정확성이 포함될 수 있습니다. 원본 문서의 원어 버전을 권위 있는 출처로 간주해야 합니다. 중요한 정보의 경우, 전문적인 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 잘못된 해석에 대해 책임을 지지 않습니다.

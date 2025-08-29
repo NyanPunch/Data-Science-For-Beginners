@@ -1,47 +1,58 @@
-# The Data Science Lifecycle: Analyzing
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "d92f57eb110dc7f765c05cbf0f837c77",
+  "translation_date": "2025-08-25T17:47:25+00:00",
+  "source_file": "4-Data-Science-Lifecycle/15-analyzing/README.md",
+  "language_code": "ko"
+}
+-->
+# 데이터 과학 생명주기: 분석하기
 
 |![ Sketchnote by [(@sketchthedocs)](https://sketchthedocs.dev) ](../../sketchnotes/15-Analyzing.png)|
 |:---:|
-| Data Science Lifecycle: Analyzing - _Sketchnote by [@nitya](https://twitter.com/nitya)_ |
+| 데이터 과학 생명주기: 분석하기 - _Sketchnote by [@nitya](https://twitter.com/nitya)_ |
 
-## Pre-Lecture Quiz
+## 강의 전 퀴즈
 
-## [Pre-Lecture Quiz](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/28)
+## [강의 전 퀴즈](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/28)
 
-Analyzing in the data lifecycle confirms that the data can answer the questions that are proposed or solving a particular problem. This step can also focus on confirming a model is correctly addressing these questions and problems. This lesson is focused on Exploratory Data Analysis or EDA, which are techniques for defining features and relationships within the data and can be used to prepare the data for modeling. 
+데이터 생명주기에서 분석 단계는 데이터가 제안된 질문에 답하거나 특정 문제를 해결할 수 있는지 확인하는 과정입니다. 이 단계에서는 모델이 이러한 질문과 문제를 올바르게 다루고 있는지 확인하는 데 초점을 맞출 수도 있습니다. 이번 강의는 탐색적 데이터 분석(EDA)에 중점을 두며, 이는 데이터의 특징과 관계를 정의하고 모델링을 준비하는 데 사용할 수 있는 기술입니다.
 
- We'll be using an example dataset from [Kaggle](https://www.kaggle.com/balaka18/email-spam-classification-dataset-csv/version/1) to show how this can be applied with Python and the Pandas library. This dataset contains a count of some common words found in emails, the sources of these emails are anonymous. Use the [notebook](notebook.ipynb) in this directory to follow along.
+우리는 [Kaggle](https://www.kaggle.com/balaka18/email-spam-classification-dataset-csv/version/1)의 예제 데이터셋을 사용하여 Python과 Pandas 라이브러리를 활용하는 방법을 보여줄 것입니다. 이 데이터셋은 이메일에서 발견되는 일반적인 단어의 빈도를 포함하며, 이메일의 출처는 익명으로 처리됩니다. 이 디렉토리의 [노트북](../../../../4-Data-Science-Lifecycle/15-analyzing/notebook.ipynb)을 사용하여 따라오세요.
 
-## Exploratory Data Analysis
+## 탐색적 데이터 분석
 
-The capture phase of the lifecycle is where the data is acquired as well as the problems and questions at hand, but how do we know the data can help support the end result? 
-Recall that a data scientist may ask the following questions when they acquire the data:
--   Do I have enough data to solve this problem?
--   Is the data of acceptable quality for this problem?
--   If I discover additional information through this data, should we consider changing or redefining the goals?
-Exploratory Data Analysis is the process of getting to know that data and can be used to answer these questions, as well identify the challenges of working with the dataset. Let’s focus on some of the techniques used to achieve this.
+생명주기의 캡처 단계에서는 데이터가 수집되고 문제와 질문이 정의됩니다. 하지만 데이터가 최종 결과를 지원할 수 있는지 어떻게 알 수 있을까요? 데이터 과학자는 데이터를 획득할 때 다음과 같은 질문을 할 수 있습니다:
+- 이 문제를 해결하기에 충분한 데이터가 있는가?
+- 이 문제에 적합한 품질의 데이터인가?
+- 데이터를 통해 추가 정보를 발견하면 목표를 변경하거나 재정의해야 하는가?
 
-## Data Profiling, Descriptive Statistics, and Pandas
-How do we evaluate if we have enough data to solve this problem? Data profiling can summarize and gather some general overall information about our dataset through techniques of descriptive statistics. Data profiling helps us understand what is available to us, and descriptive statistics helps us understand how many things are available to us. 
+탐색적 데이터 분석은 데이터를 이해하는 과정이며, 이러한 질문에 답하고 데이터셋을 다루는 데 있어 도전 과제를 식별하는 데 사용할 수 있습니다. 이제 이를 달성하기 위해 사용되는 몇 가지 기술에 대해 알아보겠습니다.
 
-In a few of the previous lessons, we have used Pandas to provide some descriptive statistics with the [`describe()` function]( https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html). It provides the count, max and min values, mean, standard deviation and quantiles on the numerical data. Using descriptive statistics like the `describe()` function can help you assess how much you have and if you need more.
+## 데이터 프로파일링, 기술 통계, 그리고 Pandas
+이 문제를 해결하기에 충분한 데이터가 있는지 어떻게 평가할 수 있을까요? 데이터 프로파일링은 기술 통계 기법을 통해 데이터셋에 대한 전반적인 정보를 요약하고 수집할 수 있습니다. 데이터 프로파일링은 우리가 사용할 수 있는 데이터를 이해하는 데 도움을 주며, 기술 통계는 얼마나 많은 데이터가 있는지 이해하는 데 도움을 줍니다.
 
-## Sampling and Querying
-Exploring everything in a large dataset can be very time consuming and a task that’s usually left up to a computer to do. However, sampling is a helpful tool in understanding of the data and allows us to have a better understanding of what’s in the dataset and what it represents. With a sample, you can apply probability and statistics to come to some general conclusions about your data. While there’s no defined rule on how much data you should sample it’s important to note that the more data you sample, the more precise of a generalization you can make of about data. 
-Pandas has the [`sample()` function in its library](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sample.html) where you can pass an argument of how many random samples you’d like to receive and use. 
+이전 강의들에서 우리는 Pandas의 [`describe()` 함수](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html)를 사용하여 기술 통계를 제공했습니다. 이 함수는 수치 데이터에 대해 개수, 최대값 및 최소값, 평균, 표준 편차, 분위수를 제공합니다. `describe()` 함수와 같은 기술 통계를 사용하면 데이터가 얼마나 있는지 평가하고 추가 데이터가 필요한지 판단할 수 있습니다.
 
-General querying of the data can help you answer some general questions and theories you may have. In contrast to sampling, queries allow you to have control and focus on specific parts of the data you have questions about. 
-The [`query() `function](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.query.html) in the Pandas library allows you to select columns and receive simple answers about the data through the rows retrieved.
+## 샘플링과 쿼리
+대규모 데이터셋을 모두 탐색하는 것은 매우 시간이 많이 걸리는 작업이며, 일반적으로 컴퓨터가 처리하는 작업입니다. 하지만 샘플링은 데이터를 이해하는 데 유용한 도구로, 데이터셋에 무엇이 포함되어 있는지와 그것이 무엇을 나타내는지 더 잘 이해할 수 있게 해줍니다. 샘플을 통해 확률과 통계를 적용하여 데이터에 대한 일반적인 결론을 도출할 수 있습니다. 샘플링해야 할 데이터의 양에 대한 명확한 규칙은 없지만, 더 많은 데이터를 샘플링할수록 데이터에 대한 일반화가 더 정확해질 수 있습니다.
 
-## Exploring with Visualizations
-You don’t have to wait until the data is thoroughly cleaned and analyzed to start creating visualizations. In fact, having a visual representation while exploring can help identify patterns, relationships, and problems in the data. Furthermore, visualizations provide a means of communication with those who are not involved with managing the data and can be an opportunity to share and clarify additional questions that were not addressed in the capture stage. Refer to the [section on Visualizations](/3-Data-Visualization) to learn more about some popular ways to explore visually.
+Pandas에는 [`sample()` 함수](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sample.html)가 포함되어 있으며, 원하는 랜덤 샘플의 개수를 인수로 전달하여 사용할 수 있습니다.
 
-## Exploring to identify inconsistencies
-All the topics in this lesson can help identify missing or inconsistent values, but Pandas provides functions to check for some of these. [isna() or isnull()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.isna.html) can check for missing values. One important piece of exploring for these values within your data is to explore why they ended up that way in the first place. This can help you decide on what [actions to take to resolve them](/2-Working-With-Data/08-data-preparation/notebook.ipynb).
+데이터에 대한 일반적인 쿼리는 데이터에 대한 질문과 이론을 답하는 데 도움을 줄 수 있습니다. 샘플링과는 달리, 쿼리는 특정 데이터 부분에 집중하여 질문에 대한 답을 얻을 수 있도록 합니다. Pandas 라이브러리의 [`query()` 함수](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.query.html)는 열을 선택하고 행을 통해 간단한 답변을 얻을 수 있도록 합니다.
 
+## 시각화를 통한 탐색
+데이터가 완전히 정리되고 분석될 때까지 기다릴 필요 없이 시각화를 시작할 수 있습니다. 사실, 탐색 중에 시각적 표현을 가지는 것은 데이터의 패턴, 관계, 문제를 식별하는 데 도움을 줄 수 있습니다. 또한, 시각화는 데이터를 관리하지 않는 사람들과 소통할 수 있는 수단을 제공하며, 캡처 단계에서 다루지 않았던 추가 질문을 공유하고 명확히 할 기회를 제공합니다. [시각화 섹션](../../../../../../../../../3-Data-Visualization)을 참조하여 시각적으로 탐색하는 인기 있는 방법에 대해 더 알아보세요.
 
-## [Pre-Lecture Quiz](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/27)
+## 불일치 식별을 위한 탐색
+이번 강의의 모든 주제는 누락되거나 불일치한 값을 식별하는 데 도움을 줄 수 있지만, Pandas는 이를 확인할 수 있는 함수를 제공합니다. [isna() 또는 isnull()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.isna.html)은 누락된 값을 확인할 수 있습니다. 데이터 내에서 이러한 값이 왜 그렇게 되었는지 탐색하는 것은 매우 중요합니다. 이는 [해결을 위한 조치를 결정하는 데](../../../../../../../../../2-Working-With-Data/08-data-preparation/notebook.ipynb) 도움을 줄 수 있습니다.
 
-## Assignment
+## [강의 전 퀴즈](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/27)
 
-[Exploring for answers](assignment.md)
+## 과제
+
+[답을 찾기 위한 탐색](assignment.md)
+
+**면책 조항**:  
+이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 최선을 다하고 있으나, 자동 번역에는 오류나 부정확성이 포함될 수 있습니다. 원본 문서의 원어 버전을 권위 있는 자료로 간주해야 합니다. 중요한 정보의 경우, 전문적인 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 잘못된 해석에 대해 책임을 지지 않습니다.

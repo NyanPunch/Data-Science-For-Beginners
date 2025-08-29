@@ -1,10 +1,23 @@
-# Apply your skills
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "a233d542512136c4dd29aad38ca0175f",
+  "translation_date": "2025-08-25T18:16:33+00:00",
+  "source_file": "3-Data-Visualization/R/10-visualization-distributions/assignment.md",
+  "language_code": "ko"
+}
+-->
+# 기술을 적용해보세요
 
-## Instructions
+## 지침
 
-So far, you have worked with the Minnesota birds dataset to discover information about bird quantities and population density. Practice your application of these techniques by trying a different dataset, perhaps sourced from [Kaggle](https://www.kaggle.com/). Build a R script to tell a story about this dataset, and make sure to use histograms when discussing it.
-## Rubric
+지금까지 여러분은 Minnesota 새 데이터셋을 사용하여 새의 수량과 개체 밀도에 대한 정보를 탐구해 보았습니다. 이번에는 이러한 기술을 연습하기 위해 [Kaggle](https://www.kaggle.com/)에서 제공되는 다른 데이터셋을 사용해 보세요. 이 데이터셋에 대한 이야기를 전달할 수 있는 R 스크립트를 작성하고, 이를 논의할 때 반드시 히스토그램을 활용하세요.
 
-Exemplary | Adequate | Needs Improvement
---- | --- | -- |
-A script is presented with annotations about this dataset, including its source, and uses at least 5 histograms to discover facts about the data. | A script is presented with incomplete annotations or bugs. | A script is presented without annotations and includes bugs.
+## 평가 기준
+
+탁월함 | 적절함 | 개선 필요
+--- | --- | --- |
+이 데이터셋에 대한 주석(출처 포함)이 포함된 스크립트가 제시되며, 최소 5개의 히스토그램을 사용하여 데이터에 대한 사실을 발견함. | 주석이 불완전하거나 버그가 포함된 스크립트가 제시됨. | 주석이 없고 버그가 포함된 스크립트가 제시됨.
+
+**면책 조항**:  
+이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 최선을 다하고 있으나, 자동 번역에는 오류나 부정확성이 포함될 수 있습니다. 원본 문서의 원어 버전이 권위 있는 출처로 간주되어야 합니다. 중요한 정보의 경우, 전문적인 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 잘못된 해석에 대해 책임을 지지 않습니다.

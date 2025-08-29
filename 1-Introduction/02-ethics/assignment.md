@@ -1,21 +1,33 @@
-## Write A Data Ethics Case Study
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "b588c0fc73014f52520c666efc3e0cc3",
+  "translation_date": "2025-08-25T16:50:06+00:00",
+  "source_file": "1-Introduction/02-ethics/assignment.md",
+  "language_code": "ko"
+}
+-->
+## 데이터 윤리 사례 연구 작성하기
 
-## Instructions
+## 지침
 
-You've learned about various [Data Ethics Challenges](README.md#2-ethics-challenges) and seen some examples of [Case Studies](README.md#3-case-studies) reflecting data ethics challenges in real-world contexts.
+여러 [데이터 윤리 문제](README.md#2-ethics-challenges)에 대해 배우고, 실제 상황에서 데이터 윤리 문제를 반영한 [사례 연구](README.md#3-case-studies) 예제를 살펴보았습니다.
 
-In this assignment, you'll write your own case study reflecting a data ethics challenge from your own experience, or from a relevant real-world context you are familiar with. Just follow these steps:
+이번 과제에서는 여러분의 경험이나 잘 알고 있는 실제 상황에서 발생한 데이터 윤리 문제를 반영한 사례 연구를 작성하게 됩니다. 다음 단계를 따라 진행하세요:
 
-1. `Pick a Data Ethics Challenge`. Look at [the lesson examples](README.md#2-ethics-challenges) or explore online examples like [the Deon Checklist](https://deon.drivendata.org/examples/) to get inspiration.
+1. `데이터 윤리 문제 선택하기`. [수업 예제](README.md#2-ethics-challenges)를 살펴보거나 [Deon 체크리스트](https://deon.drivendata.org/examples/)와 같은 온라인 예제를 탐색하여 영감을 얻으세요.
 
-2. `Describe a Real World Example`. Think about a situation you have heard of (headlines, research study etc.) or experienced (local community), where this specific challenge occurred. Think about the data ethics questions related to the challenge - and discuss the potential harms or unintended consequences that arise because of this issue. Bonus points: think about potential solutions or processes that may be applied here to help eliminate or mitigate the adverse impact of this challenge.
+2. `실제 사례 설명하기`. 특정 문제가 발생한 상황에 대해 생각해보세요. (뉴스 헤드라인, 연구 사례 등) 또는 경험한 상황(지역 사회 등)을 떠올려 보세요. 이 문제와 관련된 데이터 윤리 질문을 생각하고, 이 문제로 인해 발생할 수 있는 잠재적 피해나 의도치 않은 결과를 논의하세요. 추가 점수를 얻으려면 이 문제의 부정적 영향을 제거하거나 완화하기 위해 적용할 수 있는 잠재적 해결책이나 프로세스를 생각해보세요.
 
-3. `Provide a Related Resources list`. Share one or more resources (links to an article, a personal blog post or image, online research paper etc.) to prove this was a real-world occurrence. Bonus points: share resources that also showcase the potential harms & consequences from the incident, or highlight positive steps taken to prevent its recurrence.
+3. `관련 자료 목록 제공하기`. 이 문제가 실제로 발생했음을 증명할 수 있는 자료(기사 링크, 개인 블로그 게시물 또는 이미지, 온라인 연구 논문 등)를 하나 이상 공유하세요. 추가 점수를 얻으려면 사건으로 인해 발생한 잠재적 피해와 결과를 보여주는 자료를 공유하거나, 재발 방지를 위해 취해진 긍정적인 조치를 강조하는 자료를 공유하세요.
 
 
 
-## Rubric
+## 평가 기준
 
-Exemplary | Adequate | Needs Improvement
+우수 | 적절 | 개선 필요
 --- | --- | -- |
-One or more data ethics challenges are identified. <br/> <br/> The case study clearly describes a real-world incident reflecting that challenge, and highlights undesirable consequences or harms it caused. <br/><br/> There is at least one linked resource to prove this occurred. | One data ethics challenge is identified. <br/><br/> At least one relevant harm or consequence is discussed briefly. <br/><br/> However discussion is limited or lacks proof of real-world occurence. | A data challenge is identified. <br/><br/> However the description or resources do not adequately reflect the challenge or prove it's real-world occurence. |
+하나 이상의 데이터 윤리 문제가 식별됨. <br/> <br/> 사례 연구가 해당 문제를 반영한 실제 사건을 명확히 설명하며, 그로 인해 발생한 바람직하지 않은 결과나 피해를 강조함. <br/><br/> 이 사건이 발생했음을 증명하는 링크된 자료가 최소 하나 이상 있음. | 하나의 데이터 윤리 문제가 식별됨. <br/><br/> 적어도 하나의 관련된 피해나 결과가 간략히 논의됨. <br/><br/> 그러나 논의가 제한적이거나 실제 발생을 증명하는 자료가 부족함. | 데이터 윤리 문제가 식별됨. <br/><br/> 그러나 설명이나 자료가 문제를 적절히 반영하지 못하거나 실제 발생을 증명하지 못함. |
+
+**면책 조항**:  
+이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 최선을 다하고 있지만, 자동 번역에는 오류나 부정확성이 포함될 수 있습니다. 원본 문서의 원어 버전을 권위 있는 출처로 간주해야 합니다. 중요한 정보의 경우, 전문적인 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 잘못된 해석에 대해 책임을 지지 않습니다.

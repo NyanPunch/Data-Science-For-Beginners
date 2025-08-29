@@ -1,31 +1,44 @@
-# Assignment: Data Science Scenarios
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "4e0f1773b9bee1be3b28f9fe2c71b3de",
+  "translation_date": "2025-08-25T16:56:53+00:00",
+  "source_file": "1-Introduction/01-defining-data-science/assignment.md",
+  "language_code": "ko"
+}
+-->
+# 과제: 데이터 과학 시나리오
 
-In this first assignment, we ask you to think about some real-life process or problem in different problem domains, and how you can improve it using the Data Science process. Think about the following:
+이 첫 번째 과제에서는 다양한 문제 영역에서 실제 생활의 프로세스나 문제를 생각해보고, 데이터 과학 프로세스를 사용하여 이를 어떻게 개선할 수 있는지 고민해 보세요. 다음을 고려해 보세요:
 
-1. Which data can you collect?
-1. How would you collect it?
-1. How would you store the data? How large the data is likely to be?
-1. Which insights you might be able to get from this data? Which decisions we would be able to take based on the data?
+1. 어떤 데이터를 수집할 수 있을까요?
+1. 데이터를 어떻게 수집할까요?
+1. 데이터를 어떻게 저장할까요? 데이터의 크기는 얼마나 클까요?
+1. 이 데이터로부터 어떤 통찰을 얻을 수 있을까요? 데이터를 기반으로 어떤 결정을 내릴 수 있을까요?
 
-Try to think about 3 different problems/processes and describe each of the points above for each problem domain.
+3가지 다른 문제/프로세스를 생각해보고, 각 문제 영역에 대해 위의 항목을 설명해 보세요.
 
-Here are some of the problem domains and problems that can get you started thinking:
+다음은 생각을 시작할 수 있도록 제공된 문제 영역과 문제들입니다:
 
-1. How can you use data to improve education process for children in schools?
-1. How can you use data to control vaccination during the pandemic?
-1. How can you use data to make sure you are being productive at work?
-## Instructions
+1. 데이터를 사용하여 학교에서 어린이들의 교육 과정을 어떻게 개선할 수 있을까요?
+1. 데이터를 사용하여 팬데믹 동안 백신 접종을 어떻게 관리할 수 있을까요?
+1. 데이터를 사용하여 직장에서 생산성을 유지하고 있는지 어떻게 확인할 수 있을까요?
 
-Fill in the following table (substitute suggested problem domains for your own ones if needed):
+## 지침
 
-| Problem Domain | Problem | Which data to collect | How to store the data | Which insights/decisions we can make | 
-|----------------|---------|-----------------------|-----------------------|--------------------------------------|
-| Education | | | | |
-| Vaccination | | | | |
-| Productivity | | | | |
+다음 표를 작성하세요 (필요한 경우 제안된 문제 영역을 자신의 문제 영역으로 대체하세요):
 
-## Rubric
+| 문제 영역 | 문제 | 수집할 데이터 | 데이터를 저장하는 방법 | 얻을 수 있는 통찰/결정 | 
+|-----------|------|---------------|-----------------------|------------------------|
+| 교육      |      |               |                       |                        |
+| 백신 접종 |      |               |                       |                        |
+| 생산성    |      |               |                       |                        |
 
-Exemplary | Adequate | Needs Improvement
+## 평가 기준
+
+우수 | 적절 | 개선 필요
 --- | --- | -- |
-One was able to identify reasonable data sources, ways of storing data and possible decisions/insights for all problem domains | Some of the aspects of the solution are not detailed, data storage is not discussed, at least 2 problem domains are described | Only parts of the data solution are described, only one problem domain is considered.
+모든 문제 영역에 대해 합리적인 데이터 소스, 데이터 저장 방법, 가능한 결정/통찰을 식별할 수 있음 | 솔루션의 일부 측면이 상세하지 않으며, 데이터 저장이 논의되지 않았고, 최소 2개의 문제 영역이 설명됨 | 데이터 솔루션의 일부만 설명되었으며, 하나의 문제 영역만 고려됨
+
+**면책 조항**:  
+이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 최선을 다하고 있지만, 자동 번역에는 오류나 부정확성이 포함될 수 있습니다. 원본 문서의 원어 버전을 권위 있는 출처로 간주해야 합니다. 중요한 정보의 경우, 전문적인 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 잘못된 해석에 대해 책임을 지지 않습니다.

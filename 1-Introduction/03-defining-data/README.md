@@ -1,72 +1,83 @@
-# Defining Data
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "356d12cffc3125db133a2d27b827a745",
+  "translation_date": "2025-08-25T17:00:31+00:00",
+  "source_file": "1-Introduction/03-defining-data/README.md",
+  "language_code": "ko"
+}
+-->
+# 데이터 정의
 
 |![ Sketchnote by [(@sketchthedocs)](https://sketchthedocs.dev) ](../../sketchnotes/03-DefiningData.png)|
 |:---:|
-|Defining Data - _Sketchnote by [@nitya](https://twitter.com/nitya)_ |
+|데이터 정의 - _스케치노트 by [@nitya](https://twitter.com/nitya)_ |
 
-Data is facts, information, observations and measurements that are used to make discoveries and to support informed decisions. A data point is a single unit of data with in a dataset, which is collection of data points. Datasets may come in different formats and structures, and will usually be based on its source, or where the data came from. For example, a company's monthly earnings might be in a spreadsheet but hourly heart rate data from a smartwatch may be in [JSON](https://stackoverflow.com/a/383699) format. It's common for data scientists to work with different types of data within a dataset. 
+데이터는 발견을 하고 정보에 기반한 결정을 내리기 위해 사용되는 사실, 정보, 관찰 및 측정값입니다. 데이터 포인트는 데이터셋 내의 단일 데이터 단위이며, 데이터셋은 이러한 데이터 포인트들의 모음입니다. 데이터셋은 다양한 형식과 구조로 제공될 수 있으며, 일반적으로 데이터의 출처나 데이터가 어디에서 왔는지에 따라 달라집니다. 예를 들어, 회사의 월별 수익은 스프레드시트에 있을 수 있지만 스마트워치에서 수집된 시간별 심박수 데이터는 [JSON](https://stackoverflow.com/a/383699) 형식일 수 있습니다. 데이터 과학자들은 데이터셋 내에서 다양한 유형의 데이터를 다루는 경우가 많습니다.
 
-This lesson focuses on identifying and classifying data by its characteristics and its sources.
+이 강의는 데이터의 특성과 출처에 따라 데이터를 식별하고 분류하는 데 중점을 둡니다.
 
-## [Pre-Lecture Quiz](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/4)
-## How Data is Described
+## [강의 전 퀴즈](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/4)
 
-### Raw Data
-Raw data is data that has come from its source in its initial state and has not been analyzed or organized. In order to make sense of what is happening with a dataset, it needs to be organized into a format that can be understood by humans as well as the technology they may use to analyze it further. The structure of a dataset describes how it's organized and can be classified at structured, unstructured and semi-structured. These types of structure will vary, depending on the source but will ultimately fit in these three categories. 
+## 데이터가 설명되는 방식
 
-### Quantitative Data
-Quantitative data is numerical observations within a dataset and can typically be analyzed, measured and used mathematically. Some examples of quantitative data are: a country's population, a person's height or a company's quarterly earnings. With some additional analysis, quantitative data could be used to discover seasonal trends of the Air Quality Index (AQI) or estimate the probability of rush hour traffic on a typical work day.
+### 원시 데이터
+원시 데이터는 출처에서 처음 수집된 상태 그대로의 데이터로, 분석되거나 정리되지 않은 상태입니다. 데이터셋에서 무슨 일이 일어나고 있는지 이해하려면, 사람이 이해할 수 있고 추가 분석을 위해 사용할 기술도 이해할 수 있는 형식으로 정리되어야 합니다. 데이터셋의 구조는 데이터가 어떻게 조직되어 있는지를 설명하며, 구조화된 데이터, 비구조화된 데이터, 반구조화된 데이터로 분류될 수 있습니다. 이러한 구조 유형은 출처에 따라 다르지만 궁극적으로 이 세 가지 범주 중 하나에 속합니다.
 
-### Qualitative Data
-Qualitative data, also known as categorical data is data that cannot be measured objectively like observations of quantitative data. It's generally various formats of subjective data that captures the quality of something, such as a product or process. Sometimes, qualitative data is numerical and wouldn't be typically used mathematically, like phone numbers or timestamps. Some examples of qualitative data are: video comments, the make and model of a car or your closest friends' favorite color. Qualitative data could be used to understand which products consumers like best or identifying popular keywords in job application resumes.
+### 정량적 데이터
+정량적 데이터는 데이터셋 내의 수치적 관찰값으로, 일반적으로 분석, 측정 및 수학적으로 사용할 수 있습니다. 정량적 데이터의 예로는 국가의 인구, 사람의 키, 회사의 분기별 수익 등이 있습니다. 추가 분석을 통해 정량적 데이터는 예를 들어 대기질 지수(AQI)의 계절적 경향을 발견하거나 일반적인 근무일의 러시아워 교통량 확률을 추정하는 데 사용할 수 있습니다.
 
-### Structured Data
-Structured data is data that is organized into rows and columns, where each row will have the same set of columns. Columns represent a value of a particular type and will be identified with a name describing what the value represents, while rows contain the actual values. Columns will often have a specific set of rules or restrictions on the values, to ensure that the values accurately represent the column. For example imagine a spreadsheet of customers where each row must have a phone number and the phone numbers never contain alphabetical characters. There may be rules applied on the phone number column to make sure it's never empty and only contains numbers. 
+### 정성적 데이터
+정성적 데이터는 범주형 데이터라고도 하며, 정량적 데이터의 관찰값처럼 객관적으로 측정할 수 없는 데이터입니다. 일반적으로 제품이나 프로세스의 품질을 포착하는 주관적인 데이터의 다양한 형식입니다. 때로는 정성적 데이터가 숫자로 표현되지만, 일반적으로 수학적으로 사용되지 않습니다. 예를 들어, 전화번호나 타임스탬프가 이에 해당합니다. 정성적 데이터의 예로는 비디오 댓글, 자동차의 제조사와 모델, 가장 친한 친구의 좋아하는 색깔 등이 있습니다. 정성적 데이터는 소비자가 가장 좋아하는 제품을 이해하거나 구직 신청서에서 인기 있는 키워드를 식별하는 데 사용할 수 있습니다.
 
-A benefit of structured data is that it can be organized in such a way that it can be related to other structured data. However, because the data is designed to be organized in a specific way, making changes to its overall structure can take a lot of effort to do. For example, adding an email column to the customer spreadsheet that cannot be empty means you'll need figure out how you'll add these values to the existing rows of customers in the dataset. 
+### 구조화된 데이터
+구조화된 데이터는 행과 열로 구성된 데이터로, 각 행은 동일한 열 집합을 가집니다. 열은 특정 유형의 값을 나타내며, 해당 값이 무엇을 나타내는지 설명하는 이름으로 식별됩니다. 행은 실제 값을 포함합니다. 열에는 종종 값이 열을 정확히 나타내도록 보장하기 위해 특정 규칙이나 제한이 적용됩니다. 예를 들어, 고객의 전화번호를 포함한 스프레드시트에서 각 행은 반드시 전화번호를 가져야 하며, 전화번호에는 알파벳 문자가 포함되지 않아야 합니다. 전화번호 열에는 비어 있지 않고 숫자만 포함되도록 하는 규칙이 적용될 수 있습니다.
 
-Examples of structured data: spreadsheets, relational databases, phone numbers, bank statements
+구조화된 데이터의 장점은 다른 구조화된 데이터와 연관될 수 있도록 조직될 수 있다는 점입니다. 그러나 데이터가 특정 방식으로 조직되도록 설계되었기 때문에 전체 구조를 변경하는 데 많은 노력이 필요할 수 있습니다. 예를 들어, 고객 스프레드시트에 비어 있을 수 없는 이메일 열을 추가하려면, 데이터셋의 기존 고객 행에 이 값을 어떻게 추가할지 결정해야 합니다.
 
-### Unstructured Data
-Unstructured data typically cannot be categorized into rows or columns and doesn't contain a format or set of rules to follow. Because unstructured data has less restrictions on its structure it's easier to add new information in comparison to a structured dataset. If a sensor capturing data on barometric pressure every 2 minutes has received an update that now allows it to measure and record temperature, it doesn't require altering the existing data if it's unstructured. However, this may make analyzing or investigating this type of data take longer. For example, a scientist who wants to find the average temperature of the previous month from the sensors data, but discovers that the sensor recorded an "e" in some of its recorded data to note that it was broken instead of a typical number, which means the data is incomplete.
+구조화된 데이터의 예: 스프레드시트, 관계형 데이터베이스, 전화번호, 은행 명세서
 
-Examples of unstructured data: text files, text messages, video files
+### 비구조화된 데이터
+비구조화된 데이터는 일반적으로 행과 열로 분류할 수 없으며, 특정 형식이나 규칙을 따르지 않습니다. 비구조화된 데이터는 구조에 대한 제한이 적기 때문에 구조화된 데이터셋에 비해 새로운 정보를 추가하기가 더 쉽습니다. 예를 들어, 2분마다 기압 데이터를 수집하는 센서가 온도를 측정하고 기록할 수 있는 업데이트를 받았다면, 비구조화된 데이터에서는 기존 데이터를 변경할 필요가 없습니다. 그러나 이러한 데이터 유형을 분석하거나 조사하는 데 시간이 더 걸릴 수 있습니다. 예를 들어, 과학자가 센서 데이터에서 지난달의 평균 온도를 찾으려 하지만, 센서가 고장났음을 나타내기 위해 일부 데이터에 "e"를 기록한 것을 발견한다면, 데이터가 불완전하다는 것을 의미합니다.
 
-### Semi-structured
-Semi-structured data has features that make it a combination of structured and unstructured data. It doesn't typically conform to a format of rows and columns but is organized in a way that is considered structured and may follow a fixed format or set of rules. The structure will vary between sources, such as a well defined hierarchy to something more flexible that allows for easy integration of new information. Metadata are indicators that help decide how the data is organized and stored and will have various names, based on the type of data. Some common names for metadata are tags, elements, entities and attributes. For example, a typical email message will have a subject, body and a set of recipients and can be organized by whom or when it was sent. 
+비구조화된 데이터의 예: 텍스트 파일, 문자 메시지, 비디오 파일
 
-Examples of semi-structured data: HTML, CSV files, JavaScript Object Notation (JSON)
+### 반구조화된 데이터
+반구조화된 데이터는 구조화된 데이터와 비구조화된 데이터의 특징을 결합한 데이터입니다. 일반적으로 행과 열 형식에 맞지 않지만, 구조화된 것으로 간주될 수 있는 방식으로 조직되며, 고정된 형식이나 규칙을 따를 수 있습니다. 구조는 출처에 따라 다르며, 잘 정의된 계층 구조에서 새로운 정보를 쉽게 통합할 수 있는 더 유연한 구조까지 다양합니다. 메타데이터는 데이터가 어떻게 조직되고 저장되는지를 결정하는 데 도움을 주는 지표이며, 데이터 유형에 따라 다양한 이름을 가집니다. 메타데이터의 일반적인 이름으로는 태그, 요소, 엔터티, 속성 등이 있습니다. 예를 들어, 일반적인 이메일 메시지는 제목, 본문, 수신자 집합을 가지며, 발신자나 발송 시점에 따라 조직될 수 있습니다.
 
-## Sources of Data 
+반구조화된 데이터의 예: HTML, CSV 파일, JavaScript Object Notation (JSON)
 
-A data source is the initial location of where the data was generated, or where it "lives" and will vary based on how and when it was collected. Data generated by its user(s) are known as primary data while secondary data comes from a source that has collected data for general use. For example, a group of scientists collecting observations in a rainforest would be considered primary and if they decide to share it with other scientists it would be considered secondary to those that use it. 
+## 데이터의 출처
 
-Databases are a common source and rely on a database management system to host and maintain the data where users use commands called queries to explore the data. Files as data sources can be audio, image, and video files as well as spreadsheets like Excel. Internet sources are a common location for hosting data, where databases as well as files can be found. Application programming interfaces, also known as APIs allow programmers to create ways to share data with external users through the internet, while the process of web scraping extracts data from a web page. The [lessons in Working with Data](/2-Working-With-Data) focus on how to use various data sources. 
+데이터 출처는 데이터가 생성된 초기 위치 또는 "존재하는" 위치를 의미하며, 데이터가 수집된 방법과 시점에 따라 달라집니다. 사용자가 생성한 데이터는 1차 데이터로 알려져 있으며, 일반적인 용도로 데이터를 수집한 출처에서 가져온 데이터는 2차 데이터로 간주됩니다. 예를 들어, 열대우림에서 관찰을 수집하는 과학자 그룹은 1차 데이터로 간주되며, 이 데이터를 다른 과학자들과 공유하기로 결정하면 이를 사용하는 사람들에게는 2차 데이터로 간주됩니다.
 
-## Conclusion
+데이터베이스는 일반적인 출처이며, 데이터베이스 관리 시스템을 통해 데이터를 호스팅하고 유지 관리합니다. 사용자는 쿼리라는 명령을 사용하여 데이터를 탐색합니다. 파일은 오디오, 이미지, 비디오 파일뿐만 아니라 Excel과 같은 스프레드시트도 데이터 출처가 될 수 있습니다. 인터넷은 데이터베이스와 파일이 모두 포함될 수 있는 데이터 호스팅의 일반적인 위치입니다. 애플리케이션 프로그래밍 인터페이스(API)는 프로그래머가 인터넷을 통해 외부 사용자와 데이터를 공유할 수 있는 방법을 만들도록 허용하며, 웹 스크래핑은 웹 페이지에서 데이터를 추출하는 과정입니다. [데이터 작업 강의](../../../../../../../../../2-Working-With-Data)에서는 다양한 데이터 출처를 사용하는 방법에 대해 다룹니다.
 
-In this lesson we have learned:
+## 결론
 
-- What data is
-- How data is described
-- How data is classified and categorized
-- Where data can be found
+이 강의에서 우리는 다음을 배웠습니다:
 
-## 🚀 Challenge
+- 데이터란 무엇인가
+- 데이터가 어떻게 설명되는가
+- 데이터가 어떻게 분류되고 범주화되는가
+- 데이터를 어디에서 찾을 수 있는가
 
-Kaggle is an excellent source of open datasets. Use the [dataset search tool](https://www.kaggle.com/datasets) to find some interesting datasets and classify 3-5 datasets with this criteria:
+## 🚀 도전 과제
 
-- Is the data quantitative or qualitative?
-- Is the data structured, unstructured, or semi-structured?
+Kaggle은 공개 데이터셋의 훌륭한 출처입니다. [데이터셋 검색 도구](https://www.kaggle.com/datasets)를 사용하여 흥미로운 데이터셋을 찾아보고 다음 기준으로 3-5개의 데이터셋을 분류하세요:
 
-## [Post-Lecture Quiz](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/5)
+- 데이터가 정량적인가, 정성적인가?
+- 데이터가 구조화되었는가, 비구조화되었는가, 반구조화되었는가?
 
+## [강의 후 퀴즈](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/5)
 
+## 복습 및 자습
 
-## Review & Self Study
+- Microsoft Learn의 [데이터 분류하기](https://docs.microsoft.com/en-us/learn/modules/choose-storage-approach-in-azure/2-classify-data)라는 유닛은 구조화된 데이터, 반구조화된 데이터, 비구조화된 데이터에 대한 자세한 설명을 제공합니다.
 
-- This Microsoft Learn unit, titled [Classify your Data](https://docs.microsoft.com/en-us/learn/modules/choose-storage-approach-in-azure/2-classify-data) has a detailed breakdown of structured, semi-structured, and unstructured data.
+## 과제
 
-## Assignment
+[데이터셋 분류하기](assignment.md)
 
-[Classifying Datasets](assignment.md)
+**면책 조항**:  
+이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 최선을 다하고 있지만, 자동 번역에는 오류나 부정확성이 포함될 수 있습니다. 원본 문서의 원어 버전을 권위 있는 출처로 간주해야 합니다. 중요한 정보의 경우, 전문적인 인간 번역을 권장합니다. 이 번역 사용으로 인해 발생하는 오해나 잘못된 해석에 대해 책임을 지지 않습니다.

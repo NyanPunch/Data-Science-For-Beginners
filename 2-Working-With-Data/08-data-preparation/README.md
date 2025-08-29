@@ -1,39 +1,46 @@
-# Working with Data: Data Preparation
+<!--
+CO_OP_TRANSLATOR_METADATA:
+{
+  "original_hash": "3ade580a06b5f04d57cc83a768a8fb77",
+  "translation_date": "2025-08-25T16:22:28+00:00",
+  "source_file": "2-Working-With-Data/08-data-preparation/README.md",
+  "language_code": "ko"
+}
+-->
+# 데이터 작업: 데이터 준비
 
 |![ Sketchnote by [(@sketchthedocs)](https://sketchthedocs.dev) ](../../sketchnotes/08-DataPreparation.png)|
 |:---:|
-|Data Preparation - _Sketchnote by [@nitya](https://twitter.com/nitya)_ |
+|데이터 준비 - _Sketchnote by [@nitya](https://twitter.com/nitya)_ |
 
-## [Pre-Lecture Quiz](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/14)
+## [사전 강의 퀴즈](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/14)
 
+데이터의 출처에 따라 원시 데이터는 분석 및 모델링에 어려움을 줄 수 있는 불일치를 포함할 수 있습니다. 즉, 이러한 데이터는 "더럽다"고 간주될 수 있으며 정리가 필요합니다. 이 강의에서는 누락되거나 부정확하거나 불완전한 데이터를 처리하기 위해 데이터를 정리하고 변환하는 기술에 대해 다룹니다. 이 강의에서 다루는 주제는 Python과 Pandas 라이브러리를 활용하며, 이 디렉토리 내의 [노트북](../../../../2-Working-With-Data/08-data-preparation/notebook.ipynb)에서 시연됩니다.
 
+## 데이터를 정리하는 것의 중요성
 
-Depending on its source, raw data may contain some inconsistencies that will cause challenges in analysis and modeling. In other words, this data can be categorized as “dirty” and will need to be cleaned up. This lesson focuses on techniques for cleaning and transforming the data to handle challenges of missing, inaccurate, or incomplete data. Topics covered in this lesson will utilize Python and the Pandas library and will be [demonstrated in the notebook](notebook.ipynb) within this directory.
+- **사용 및 재사용의 용이성**: 데이터가 적절히 정리되고 정규화되면 검색, 사용, 공유가 더 쉬워집니다.
 
-## The importance of cleaning data
+- **일관성**: 데이터 과학은 종종 여러 데이터셋을 함께 작업해야 하며, 서로 다른 출처에서 온 데이터셋을 결합해야 할 때가 많습니다. 각 데이터셋이 공통 표준화를 갖추고 있으면 모든 데이터셋을 하나로 병합했을 때도 유용성을 유지할 수 있습니다.
 
-- **Ease of use and reuse**: When data is properly organized and normalized it’s easier to search, use, and share with others.
+- **모델 정확도**: 정리된 데이터는 이를 기반으로 하는 모델의 정확도를 향상시킵니다.
 
-- **Consistency**: Data science often requires working with more than one dataset, where datasets from different sources need to be joined together. Making sure that each individual data set has common standardization will ensure that the data is still useful when they are all merged into one dataset.
+## 일반적인 데이터 정리 목표와 전략
 
-- **Model accuracy**: Data that has been cleaned improves the accuracy of models that rely on it.
+- **데이터셋 탐색**: 데이터 탐색은 [후속 강의](https://github.com/microsoft/Data-Science-For-Beginners/tree/main/4-Data-Science-Lifecycle/15-analyzing)에서 다루며, 정리가 필요한 데이터를 발견하는 데 도움을 줄 수 있습니다. 데이터셋 내 값을 시각적으로 관찰하면 나머지 데이터가 어떻게 생겼는지에 대한 기대치를 설정하거나 해결할 수 있는 문제를 파악할 수 있습니다. 탐색은 기본 쿼리, 시각화, 샘플링을 포함할 수 있습니다.
 
-## Common cleaning goals and strategies
+- **형식화**: 데이터 출처에 따라 데이터가 표현되는 방식에 불일치가 있을 수 있습니다. 이는 데이터셋 내에서 값이 보이지만 시각화나 쿼리 결과에서 제대로 표현되지 않는 문제를 일으킬 수 있습니다. 일반적인 형식화 문제는 공백, 날짜, 데이터 유형을 해결하는 것을 포함합니다. 형식화 문제를 해결하는 것은 데이터를 사용하는 사람들에게 달려 있는 경우가 많습니다. 예를 들어, 날짜와 숫자가 표현되는 방식에 대한 표준은 국가마다 다를 수 있습니다.
 
-- **Exploring a dataset**: Data exploration, which is covered in a [later lesson](https://github.com/microsoft/Data-Science-For-Beginners/tree/main/4-Data-Science-Lifecycle/15-analyzing) can help you discover data that needs to be cleaned up. Visually observing values within a dataset can set expectations of what that rest of it will look like, or provide an idea of the problems that can be resolved. Exploration can involve basic querying, visualizations, and sampling.
+- **중복**: 데이터가 여러 번 나타나면 부정확한 결과를 초래할 수 있으며, 일반적으로 제거해야 합니다. 이는 두 개 이상의 데이터셋을 결합할 때 흔히 발생할 수 있습니다. 그러나 결합된 데이터셋에서 중복된 데이터가 추가 정보를 제공할 수 있는 경우에는 보존해야 할 수도 있습니다.
 
--  **Formatting**: Depending on the source, data can have inconsistencies in how it’s presented. This can cause problems in searching for and representing the value, where it’s seen within the dataset but is not properly represented in visualizations or query results. Common formatting problems involve resolving whitespace, dates, and data types. Resolving formatting issues is typically up to the people who are using the data. For example, standards on how dates and numbers are presented can differ by country. 
+- **누락된 데이터**: 누락된 데이터는 부정확하거나 약하거나 편향된 결과를 초래할 수 있습니다. 때로는 데이터를 "다시 로드"하거나, Python과 같은 코드로 누락된 값을 채우거나, 단순히 해당 값과 관련 데이터를 제거하여 해결할 수 있습니다. 데이터가 누락된 이유는 다양하며, 누락된 값을 해결하기 위해 취해지는 조치는 데이터가 처음에 왜 누락되었는지에 따라 달라질 수 있습니다.
 
--  **Duplications**: Data that has more than one occurrence can produce inaccurate results and usually should be removed. This can be a common occurrence when joining two or more datasets together. However, there are instances where duplication in joined datasets contain pieces that can provide additional information and may need to be preserved.
+## DataFrame 정보 탐색
+> **학습 목표:** 이 섹션이 끝날 때쯤에는 pandas DataFrame에 저장된 데이터에 대한 일반 정보를 찾는 데 익숙해져야 합니다.
 
-- **Missing Data**: Missing data can cause inaccuracies as well as weak or biased results. Sometimes these can be resolved by a "reload" of the data, filling in the missing values with computation and code like Python, or simply just removing the value and corresponding data. There are numerous reasons for why data may be missing and the actions that are taken to resolve these missing values can be dependent on how and why they went missing in the first place. 
+데이터를 pandas에 로드하면 대부분 DataFrame에 저장됩니다(자세한 개요는 [이전 강의](https://github.com/microsoft/Data-Science-For-Beginners/tree/main/2-Working-With-Data/07-python#dataframe)를 참조하세요). 그러나 DataFrame에 60,000개의 행과 400개의 열이 있는 경우, 어디서부터 작업을 시작해야 할까요? 다행히도 [pandas](https://pandas.pydata.org/)는 DataFrame의 전체 정보와 처음 몇 행 및 마지막 몇 행을 빠르게 확인할 수 있는 편리한 도구를 제공합니다.
 
-## Exploring DataFrame information
-> **Learning goal:** By the end of this subsection, you should be comfortable finding general information about the data stored in pandas DataFrames.
-
-Once you have loaded your data into pandas, it will more likely than not be in a DataFrame(refer to the previous [lesson](https://github.com/microsoft/Data-Science-For-Beginners/tree/main/2-Working-With-Data/07-python#dataframe) for detailed overview). However, if the data set in your DataFrame has 60,000 rows and 400 columns, how do you even begin to get a sense of what you're working with? Fortunately, [pandas](https://pandas.pydata.org/) provides some convenient tools to quickly look at overall information about a DataFrame in addition to the first few and last few rows.
-
-In order to explore this functionality, we will import the Python scikit-learn library and use an iconic dataset: the **Iris data set**.
+이 기능을 탐색하기 위해 Python scikit-learn 라이브러리를 가져오고 대표적인 데이터셋인 **Iris 데이터셋**을 사용해 보겠습니다.
 
 ```python
 import pandas as pd
@@ -50,7 +57,7 @@ iris_df = pd.DataFrame(data=iris['data'], columns=iris['feature_names'])
 |3                                       |4.6              |3.1             |1.5              |0.2             |
 |4                                       |5.0              |3.6             |1.4              |0.2             |
 
-- **DataFrame.info**: To start off, the `info()` method is used to print a summary of the content present in a `DataFrame`. Let's take a look at this dataset to see what we have:
+- **DataFrame.info**: 먼저, `info()` 메서드는 `DataFrame`에 있는 내용의 요약을 출력하는 데 사용됩니다. 이 데이터셋을 살펴보겠습니다:
 ```python
 iris_df.info()
 ```
@@ -66,9 +73,9 @@ Data columns (total 4 columns):
 dtypes: float64(4)
 memory usage: 4.8 KB
 ```
-From this, we know that the *Iris* dataset has 150 entries in four columns with no null entries. All of the data is stored as 64-bit floating-point numbers.
+이로부터 *Iris* 데이터셋에는 4개의 열에 150개의 항목이 있으며, 누락된 항목이 없다는 것을 알 수 있습니다. 모든 데이터는 64비트 부동 소수점 숫자로 저장됩니다.
 
-- **DataFrame.head()**: Next, to check the actual content of the `DataFrame`, we use the `head()` method. Let's see what the first few rows of our `iris_df` look like:
+- **DataFrame.head()**: 다음으로, `DataFrame`의 실제 내용을 확인하려면 `head()` 메서드를 사용합니다. `iris_df`의 처음 몇 행을 살펴보겠습니다:
 ```python
 iris_df.head()
 ```
@@ -80,7 +87,7 @@ iris_df.head()
 3                4.6               3.1                1.5               0.2
 4                5.0               3.6                1.4               0.2
 ```
-- **DataFrame.tail()**: Conversely, to check the last few rows of the `DataFrame`, we use the `tail()` method:
+- **DataFrame.tail()**: 반대로, `DataFrame`의 마지막 몇 행을 확인하려면 `tail()` 메서드를 사용합니다:
 ```python
 iris_df.tail()
 ```
@@ -92,20 +99,20 @@ iris_df.tail()
 148                6.2               3.4                5.4               2.3
 149                5.9               3.0                5.1               1.8
 ```
-> **Takeaway:** Even just by looking at the metadata about the information in a DataFrame or the first and last few values in one, you can get an immediate idea about the size, shape, and content of the data you are dealing with.
+> **핵심 요점:** DataFrame의 정보 메타데이터나 처음 및 마지막 몇 개의 값을 보기만 해도, 다루고 있는 데이터의 크기, 형태, 내용을 즉시 파악할 수 있습니다.
 
-## Dealing with Missing Data
-> **Learning goal:** By the end of this subsection, you should know how to replace or remove null values from DataFrames.
+## 누락된 데이터 처리
+> **학습 목표:** 이 섹션이 끝날 때쯤에는 DataFrame에서 null 값을 대체하거나 제거하는 방법을 알게 될 것입니다.
 
-Most of the time the datasets you want to use (of have to use) have missing values in them. How missing data is handled carries with it subtle tradeoffs that can affect your final analysis and real-world outcomes.
+대부분의 경우, 사용하고자 하는 데이터셋(또는 사용해야 하는 데이터셋)에는 누락된 값이 포함되어 있습니다. 누락된 데이터를 처리하는 방식은 최종 분석 및 실제 결과에 영향을 미칠 수 있는 미묘한 트레이드오프를 수반합니다.
 
-Pandas handles missing values in two ways. The first you've seen before in previous sections: `NaN`, or Not a Number. This is a actually a special value that is part of the IEEE floating-point specification and it is only used to indicate missing floating-point values.
+Pandas는 누락된 값을 두 가지 방식으로 처리합니다. 첫 번째는 이전 섹션에서 본 `NaN`(Not a Number)입니다. 이는 실제로 IEEE 부동 소수점 사양의 일부로, 누락된 부동 소수점 값을 나타내는 데만 사용됩니다.
 
-For missing values apart from floats, pandas uses the Python `None` object. While it might seem confusing that you will encounter two different kinds of values that say essentially the same thing, there are sound programmatic reasons for this design choice and, in practice, going this route enables pandas to deliver a good compromise for the vast majority of cases. Notwithstanding this, both `None` and `NaN` carry restrictions that you need to be mindful of with regards to how they can be used.
+부동 소수점 외의 누락된 값에 대해 pandas는 Python의 `None` 객체를 사용합니다. 이 두 가지 값이 본질적으로 동일한 것을 나타내지만 서로 다른 방식으로 사용되는 이유는 프로그래밍적으로 타당하며, 실제로 pandas가 대부분의 경우에 적합한 절충안을 제공할 수 있도록 합니다. 그러나 `None`과 `NaN` 모두 사용 방법에 제한이 있으므로 이를 염두에 두어야 합니다.
 
-Check out more about `NaN` and `None` from the [notebook](https://github.com/microsoft/Data-Science-For-Beginners/blob/main/4-Data-Science-Lifecycle/15-analyzing/notebook.ipynb)!
+`NaN`과 `None`에 대한 자세한 내용은 [노트북](https://github.com/microsoft/Data-Science-For-Beginners/blob/main/4-Data-Science-Lifecycle/15-analyzing/notebook.ipynb)을 확인하세요!
 
-- **Detecting null values**: In `pandas`, the `isnull()` and `notnull()` methods are your primary methods for detecting null data. Both return Boolean masks over your data. We will be using `numpy` for `NaN` values:
+- **null 값 감지**: `pandas`에서는 `isnull()` 및 `notnull()` 메서드가 null 데이터를 감지하는 주요 방법입니다. 둘 다 데이터에 대한 Boolean 마스크를 반환합니다. 우리는 `numpy`를 사용하여 `NaN` 값을 다룰 것입니다:
 ```python
 import numpy as np
 
@@ -119,13 +126,13 @@ example1.isnull()
 3     True
 dtype: bool
 ```
-Look closely at the output. Does any of it surprise you? While `0` is an arithmetic null, it's nevertheless a perfectly good integer and pandas treats it as such. `''` is a little more subtle. While we used it in Section 1 to represent an empty string value, it is nevertheless a string object and not a representation of null as far as pandas is concerned.
+출력을 자세히 살펴보세요. 놀라운 점이 있나요? `0`은 산술적으로 null이지만, 여전히 완벽한 정수로 간주되며 pandas는 이를 그렇게 처리합니다. `''`는 조금 더 미묘합니다. 섹션 1에서 빈 문자열 값을 나타내는 데 사용했지만, 여전히 문자열 객체이며 pandas가 null로 간주하지 않습니다.
 
-Now, let's turn this around and use these methods in a manner more like you will use them in practice. You can use Boolean masks  directly as a ``Series`` or ``DataFrame`` index, which can be useful when trying to work with isolated missing (or present) values.
+이제 이러한 메서드를 실제로 사용할 때처럼 사용해 보겠습니다. Boolean 마스크를 직접 `Series` 또는 `DataFrame` 인덱스로 사용할 수 있으며, 이는 누락된(또는 존재하는) 값을 고립시키는 데 유용합니다.
 
-> **Takeaway**: Both the `isnull()` and `notnull()` methods produce similar results when you use them in `DataFrame`s: they show the results and the index of those results, which will help you enormously as you wrestle with your data.
+> **핵심 요점:** `isnull()` 및 `notnull()` 메서드는 `DataFrame`에서 유사한 결과를 생성합니다. 결과와 해당 결과의 인덱스를 보여주며, 이는 데이터를 다룰 때 매우 유용합니다.
 
-- **Dropping null values**: Beyond identifying missing values, pandas provides a convenient means to remove null values from `Series` and `DataFrame`s. (Particularly on large data sets, it is often more advisable to simply remove missing [NA] values from your analysis than deal with them in other ways.) To see this in action, let's return to `example1`:
+- **null 값 삭제**: 누락된 값을 식별하는 것 외에도 pandas는 `Series` 및 `DataFrame`에서 null 값을 제거하는 편리한 방법을 제공합니다. (특히 대규모 데이터셋에서는 다른 방식으로 처리하는 것보다 누락된 [NA] 값을 분석에서 단순히 제거하는 것이 더 바람직할 때가 많습니다.) 이를 실습으로 확인하기 위해 `example1`로 돌아가 보겠습니다:
 ```python
 example1 = example1.dropna()
 example1
@@ -135,9 +142,9 @@ example1
 2     
 dtype: object
 ```
-Note that this should look like your output from `example3[example3.notnull()]`. The difference here is that, rather than just indexing on the masked values, `dropna` has removed those missing values from the `Series` `example1`.
+이는 `example3[example3.notnull()]`의 출력과 유사해야 합니다. 여기서 차이점은 마스크된 값에 인덱싱하는 대신, `dropna`가 `Series` `example1`에서 누락된 값을 제거했다는 점입니다.
 
-Because `DataFrame`s have two dimensions, they afford more options for dropping data.
+`DataFrame`은 2차원이므로 데이터를 삭제할 때 더 많은 옵션을 제공합니다.
 
 ```python
 example2 = pd.DataFrame([[1,      np.nan, 7], 
@@ -151,9 +158,9 @@ example2
 |1     |2.0|5.0|8  |
 |2     |NaN|6.0|9  |
 
-(Did you notice that pandas upcast two of the columns to floats to accommodate the `NaN`s?)
+(pandas가 `NaN`을 수용하기 위해 두 개의 열을 부동 소수점으로 업캐스트한 것을 눈치채셨나요?)
 
-You cannot drop a single value from a `DataFrame`, so you have to drop full rows or columns. Depending on what you are doing, you might want to do one or the other, and so pandas gives you options for both. Because in data science, columns generally represent variables and rows represent observations, you are more likely to drop rows of data; the default setting for `dropna()` is to drop all rows that contain any null values:
+`DataFrame`에서 단일 값을 삭제할 수는 없으므로 전체 행 또는 열을 삭제해야 합니다. 작업에 따라 하나를 선택해야 할 수 있으며, pandas는 둘 다에 대한 옵션을 제공합니다. 데이터 과학에서는 일반적으로 열이 변수를 나타내고 행이 관측치를 나타내므로 데이터를 삭제할 때 행을 삭제하는 경우가 더 많습니다. `dropna()`의 기본 설정은 null 값을 포함하는 모든 행을 삭제하는 것입니다:
 
 ```python
 example2.dropna()
@@ -162,7 +169,7 @@ example2.dropna()
 	0	1	2
 1	2.0	5.0	8
 ```
-If necessary, you can drop NA values from columns. Use `axis=1` to do so:
+필요한 경우, 열에서 NA 값을 삭제할 수도 있습니다. `axis=1`을 사용하여 이를 수행하세요:
 ```python
 example2.dropna(axis='columns')
 ```
@@ -172,9 +179,9 @@ example2.dropna(axis='columns')
 1	8
 2	9
 ```
-Notice that this can drop a lot of data that you might want to keep, particularly in smaller datasets. What if you just want to drop rows or columns that contain several or even just all null values? You specify those setting in `dropna` with the `how` and `thresh` parameters.
+특히 작은 데이터셋에서는 유지하고 싶은 많은 데이터를 삭제할 수 있습니다. 모든 null 값을 포함하는 행이나 열만 삭제하고 싶다면 어떻게 해야 할까요? `dropna`의 `how` 및 `thresh` 매개변수를 사용하여 이러한 설정을 지정할 수 있습니다.
 
-By default, `how='any'` (if you would like to check for yourself or see what other parameters the method has, run `example4.dropna?` in a code cell). You could alternatively specify `how='all'` so as to drop only rows or columns that contain all null values. Let's expand our example `DataFrame` to see this in action.
+기본적으로 `how='any'`입니다(직접 확인하거나 메서드의 다른 매개변수를 보려면 코드 셀에서 `example4.dropna?`를 실행하세요). `how='all'`을 지정하여 모든 null 값을 포함하는 행이나 열만 삭제할 수도 있습니다. 이 동작을 확인하기 위해 예제 `DataFrame`을 확장해 보겠습니다.
 
 ```python
 example2[3] = np.nan
@@ -186,7 +193,7 @@ example2
 |1     |2.0|5.0|8  |NaN|
 |2     |NaN|6.0|9  |NaN|
 
-The `thresh` parameter gives you finer-grained control: you set the number of *non-null* values that a row or column needs to have in order to be kept:
+`thresh` 매개변수는 더 세밀한 제어를 제공합니다. 유지하려는 행이나 열에 필요한 *null이 아닌* 값의 수를 설정합니다:
 ```python
 example2.dropna(axis='rows', thresh=3)
 ```
@@ -194,9 +201,9 @@ example2.dropna(axis='rows', thresh=3)
 	0	1	2	3
 1	2.0	5.0	8	NaN
 ```
-Here, the first and last row have been dropped, because they contain only two non-null values.
+여기서 첫 번째와 마지막 행은 null이 아닌 값이 두 개만 포함되어 있기 때문에 삭제되었습니다.
 
-- **Filling null values**: Depending on your dataset, it can sometimes make more sense to fill null values with valid ones rather than drop them. You could use `isnull` to do this in place, but that can be laborious, particularly if you have a lot of values to fill. Because this is such a common task in data science, pandas provides `fillna`, which returns a copy of the `Series` or `DataFrame` with the missing values replaced with one of your choosing. Let's create another example `Series` to see how this works in practice.
+- **null 값 채우기**: 데이터셋에 따라 null 값을 삭제하는 대신 유효한 값으로 채우는 것이 더 적합할 때가 있습니다. 이를 위해 `isnull`을 사용하여 직접 값을 채울 수도 있지만, 값이 많을 경우 이는 번거로울 수 있습니다. 데이터 과학에서 매우 일반적인 작업이기 때문에 pandas는 `fillna`를 제공하며, 이는 누락된 값을 선택한 값으로 대체한 `Series` 또는 `DataFrame`의 복사본을 반환합니다. 이를 실습으로 확인하기 위해 또 다른 예제 `Series`를 만들어 보겠습니다.
 ```python
 example3 = pd.Series([1, np.nan, 2, None, 3], index=list('abcde'))
 example3
@@ -209,7 +216,7 @@ d    NaN
 e    3.0
 dtype: float64
 ```
-You can fill all of the null entries with a single value, such as `0`:
+모든 null 항목을 단일 값(예: `0`)으로 채울 수 있습니다:
 ```python
 example3.fillna(0)
 ```
@@ -221,7 +228,7 @@ d    0.0
 e    3.0
 dtype: float64
 ```
-You can **forward-fill** null values, which is to use the last valid value to fill a null:
+null 값을 **앞으로 채우기**(forward-fill)하여 마지막 유효 값을 사용해 null을 채울 수 있습니다:
 ```python
 example3.fillna(method='ffill')
 ```
@@ -233,7 +240,7 @@ d    2.0
 e    3.0
 dtype: float64
 ```
-You can also **back-fill** to propagate the next valid value backward to fill a null:
+**뒤로 채우기**(back-fill)하여 다음 유효 값을 뒤로 전파해 null을 채울 수도 있습니다:
 ```python
 example3.fillna(method='bfill')
 ```
@@ -245,7 +252,7 @@ d    3.0
 e    3.0
 dtype: float64
 ```
-As you might guess, this works the same with `DataFrame`s, but you can also specify an `axis` along which to fill null values. taking the previously used `example2` again:
+예상하셨겠지만, 이는 `DataFrame`에서도 동일하게 작동하며, null 값을 채울 축(`axis`)을 지정할 수도 있습니다. 이전에 사용한 `example2`를 다시 사용해 보겠습니다:
 ```python
 example2.fillna(method='ffill', axis=1)
 ```
@@ -255,17 +262,16 @@ example2.fillna(method='ffill', axis=1)
 1	2.0	5.0	8.0	8.0
 2	NaN	6.0	9.0	9.0
 ```
-Notice that when a previous value is not available for forward-filling, the null value remains.
+이전 값이 없어 forward-fill이 불가능한 경우, null 값은 그대로 남아 있습니다.
+> **핵심 요약:** 데이터셋에서 누락된 값을 처리하는 방법은 여러 가지가 있습니다. 어떤 특정 전략(값을 제거하거나 대체하거나, 대체하는 방식)을 사용할지는 데이터의 특성에 따라 결정되어야 합니다. 데이터셋을 다루고 상호작용할수록 누락된 값을 처리하는 감각이 더 나아질 것입니다.
 
-> **Takeaway:** There are multiple ways to deal with missing values in your datasets. The specific strategy you use (removing them, replacing them, or even how you replace them) should be dictated by the particulars of that data. You will develop a better sense of how to deal with missing values the more you handle and interact with datasets.
+## 중복 데이터 제거하기
 
-## Removing duplicate data
+> **학습 목표:** 이 단원을 마치면, DataFrame에서 중복 값을 식별하고 제거하는 데 익숙해질 것입니다.
 
-> **Learning goal:** By the end of this subsection, you should be comfortable identifying and removing duplicate values from DataFrames.
+누락된 데이터 외에도, 실제 데이터셋에서는 중복된 데이터를 자주 접하게 됩니다. 다행히도, `pandas`는 중복 항목을 감지하고 제거하는 간단한 방법을 제공합니다.
 
-In addition to missing data, you will often encounter duplicated data in real-world datasets. Fortunately, `pandas` provides an easy means of detecting and removing duplicate entries.
-
-- **Identifying duplicates: `duplicated`**: You can easily spot duplicate values using the `duplicated` method in pandas, which returns a Boolean mask indicating whether an entry in a `DataFrame` is a duplicate of an earlier one. Let's create another example `DataFrame` to see this in action.
+- **중복 식별: `duplicated`**: pandas의 `duplicated` 메서드를 사용하면 중복 값을 쉽게 확인할 수 있습니다. 이 메서드는 `DataFrame`에서 이전 항목과 중복된 항목인지 여부를 나타내는 Boolean 마스크를 반환합니다. 이를 실습하기 위해 또 다른 예제 `DataFrame`을 만들어 보겠습니다.
 ```python
 example4 = pd.DataFrame({'letters': ['A','B'] * 2 + ['B'],
                          'numbers': [1, 2, 1, 3, 3]})
@@ -290,7 +296,7 @@ example4.duplicated()
 4     True
 dtype: bool
 ```
-- **Dropping duplicates: `drop_duplicates`:** simply returns a copy of the data for which all of the `duplicated` values are `False`:
+- **중복 제거: `drop_duplicates`:** `duplicated` 값이 `False`인 데이터만 복사하여 반환합니다:
 ```python
 example4.drop_duplicates()
 ```
@@ -300,7 +306,7 @@ example4.drop_duplicates()
 1	B	2
 3	B	3
 ```
-Both `duplicated` and `drop_duplicates` default to consider all columns but you can specify that they examine only a subset of columns in your `DataFrame`:
+`duplicated`와 `drop_duplicates`는 기본적으로 모든 열을 고려하지만, 특정 열만 검사하도록 지정할 수도 있습니다:
 ```python
 example4.drop_duplicates(['letters'])
 ```
@@ -310,26 +316,29 @@ letters	numbers
 1	B	2
 ```
 
-> **Takeaway:** Removing duplicate data is an essential part of almost every data-science project. Duplicate data can change the results of your analyses and give you inaccurate results!
+> **핵심 요약:** 중복 데이터를 제거하는 것은 거의 모든 데이터 과학 프로젝트에서 필수적인 단계입니다. 중복 데이터는 분석 결과를 왜곡시키고 부정확한 결과를 초래할 수 있습니다!
 
 
-## 🚀 Challenge
+## 🚀 도전 과제
 
-All of the discussed materials are provided as a [Jupyter Notebook](https://github.com/microsoft/Data-Science-For-Beginners/blob/main/2-Working-With-Data/08-data-preparation/notebook.ipynb). Additionally, there are exercises present after each section, give them a try!
+논의된 모든 자료는 [Jupyter Notebook](https://github.com/microsoft/Data-Science-For-Beginners/blob/main/2-Working-With-Data/08-data-preparation/notebook.ipynb)으로 제공됩니다. 또한 각 섹션 뒤에는 연습 문제가 포함되어 있으니, 꼭 시도해 보세요!
 
-## [Post-Lecture Quiz](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/15)
-
-
-
-## Review & Self Study
-
-There are many ways to discover and approach preparing your data for analysis and modeling and cleaning the data is an important step that is a "hands on" experience. Try these challenges from Kaggle to explore techniques that this lesson didn't cover.
-
-- [Data Cleaning Challenge: Parsing Dates](https://www.kaggle.com/rtatman/data-cleaning-challenge-parsing-dates/)
-
-- [Data Cleaning Challenge: Scale and Normalize Data](https://www.kaggle.com/rtatman/data-cleaning-challenge-scale-and-normalize-data)
+## [강의 후 퀴즈](https://purple-hill-04aebfb03.1.azurestaticapps.net/quiz/15)
 
 
-## Assignment
 
-[Evaluating Data from a Form](assignment.md)
+## 복습 및 자기 학습
+
+데이터를 분석 및 모델링을 위해 준비하는 방법을 발견하고 접근하는 방법은 다양하며, 데이터를 정리하는 과정은 "직접 해보는" 경험이 중요합니다. 이 강의에서 다루지 않은 기술을 탐구하기 위해 Kaggle의 다음 도전 과제를 시도해 보세요.
+
+- [데이터 정리 도전 과제: 날짜 파싱](https://www.kaggle.com/rtatman/data-cleaning-challenge-parsing-dates/)
+
+- [데이터 정리 도전 과제: 데이터 스케일링 및 정규화](https://www.kaggle.com/rtatman/data-cleaning-challenge-scale-and-normalize-data)
+
+
+## 과제
+
+[폼 데이터 평가하기](assignment.md)
+
+**면책 조항**:  
+이 문서는 AI 번역 서비스 [Co-op Translator](https://github.com/Azure/co-op-translator)를 사용하여 번역되었습니다. 정확성을 위해 최선을 다하고 있지만, 자동 번역에는 오류나 부정확성이 포함될 수 있습니다. 원본 문서를 해당 언어로 작성된 상태에서 권위 있는 자료로 간주해야 합니다. 중요한 정보의 경우, 전문적인 인간 번역을 권장합니다. 이 번역을 사용함으로 인해 발생하는 오해나 잘못된 해석에 대해 당사는 책임을 지지 않습니다.
